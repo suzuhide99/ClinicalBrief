@@ -1,0 +1,3089 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ClinicalBrief">
+<meta name="theme-color" content="#1a1a2e">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>ClinicalBrief</title>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #1a1a2e;
+  --bg-surface: #16162a;
+  --bg-chip: #252540;
+  --text: #e8e8f0;
+  --text-secondary: #8888a0;
+  --text-muted: #555570;
+  --accent: #6c63ff;
+  --accent-light: #8b83ff;
+  --red: #ff6b6b;
+  --orange: #ffa94d;
+  --pink: #f06595;
+  --blue: #4dabf7;
+  --green: #51cf66;
+  --check-blue: #4dabf7;
+  --border: rgba(255,255,255,0.06);
+  --radius: 16px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── ヘッダー ── */
+.header {
+  position: sticky; top:0; z-index: 100;
+  padding: calc(var(--safe-top) + 8px) 16px 8px;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.header-title {
+  font-size: 28px; font-weight: 800; letter-spacing: -0.5px;
+}
+.header-back {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 16px; color: var(--accent-light);
+  background: none; border: none; padding: 8px 0;
+  cursor: pointer;
+}
+.header-back svg { width:20px; height:20px; }
+.header-subtitle {
+  font-size: 13px; color: var(--text-secondary); margin-top: 2px;
+}
+
+/* ── 検索 ── */
+.search-bar {
+  margin: 12px 16px 8px;
+  position: relative;
+}
+.search-bar input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+}
+.search-bar input::placeholder { color: var(--text-muted); }
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar svg {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; color: var(--text-muted);
+}
+
+/* ── ホーム: 術式カード ── */
+.home { padding: 16px; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.procedure-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 24px 12px 20px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: transform 0.15s, border-color 0.15s;
+  -webkit-user-select: none; user-select: none;
+}
+.procedure-card:active { transform: scale(0.97); }
+.procedure-card .icon { font-size: 36px; margin-bottom: 10px; }
+.procedure-card .name { font-size: 15px; font-weight: 700; }
+.procedure-card .stats {
+  display: flex; justify-content: center; gap: 12px;
+  margin-top: 8px; font-size: 12px; color: var(--text-secondary);
+}
+.procedure-card .unchecked { color: var(--orange); }
+.procedure-card[data-color="red"] { border-color: rgba(255,107,107,0.25); }
+.procedure-card[data-color="orange"] { border-color: rgba(255,169,77,0.25); }
+.procedure-card[data-color="pink"] { border-color: rgba(240,101,149,0.25); }
+.procedure-card[data-color="blue"] { border-color: rgba(77,171,247,0.25); }
+.procedure-card[data-color="red"] .icon { color: var(--red); }
+.procedure-card[data-color="orange"] .icon { color: var(--orange); }
+.procedure-card[data-color="pink"] .icon { color: var(--pink); }
+.procedure-card[data-color="blue"] .icon { color: var(--blue); }
+
+.generated-at {
+  text-align: center; font-size: 11px; color: var(--text-muted);
+  margin-top: 16px; padding-bottom: calc(var(--safe-bottom) + 16px);
+}
+
+/* ── フェーズチップ ── */
+.phase-bar {
+  display: flex; gap: 8px;
+  padding: 10px 16px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: rgba(10,10,15,0.6);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.phase-bar::-webkit-scrollbar { display:none; }
+.phase-chip {
+  flex-shrink: 0;
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px; font-weight: 500;
+  background: var(--bg-chip);
+  color: var(--text);
+  border: none; cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.phase-chip .count {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+}
+.phase-chip.active {
+  background: var(--accent);
+  color: #fff;
+}
+.phase-chip.active .count {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ── トリガーリスト ── */
+.trigger-list {
+  padding: 8px 16px calc(var(--safe-bottom) + 24px);
+}
+.list-header {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-secondary); font-weight: 600;
+  padding: 8px 0 12px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.trigger-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.trigger-row:last-child { border-bottom: none; }
+
+.check-btn {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  background: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+  transition: all 0.2s;
+  padding: 0;
+}
+.check-btn.checked {
+  background: var(--check-blue);
+  border-color: var(--check-blue);
+}
+.check-btn.checked svg { opacity:1; }
+.check-btn svg { width:14px; height:14px; color:#fff; opacity:0; transition: opacity 0.2s; }
+
+.trigger-content { flex: 1; min-width: 0; }
+.trigger-badge {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+.trigger-badge.red { background: rgba(255,107,107,0.15); color: var(--red); }
+.trigger-badge.orange { background: rgba(255,169,77,0.15); color: var(--orange); }
+.trigger-badge.pink { background: rgba(240,101,149,0.15); color: var(--pink); }
+.trigger-badge.blue { background: rgba(77,171,247,0.15); color: var(--blue); }
+
+.if-then { margin-bottom: 4px; }
+.if-then .label {
+  display: inline;
+  font-size: 12px; font-weight: 800;
+  margin-right: 4px;
+}
+.if-then .label.if { color: var(--orange); }
+.if-then .label.then { color: var(--green); }
+.if-then .text { font-size: 14px; line-height: 1.5; }
+
+.checklist-text { font-size: 14px; line-height: 1.5; }
+
+.trigger-source {
+  font-size: 11px; color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.trigger-row.checked-row .if-then .text,
+.trigger-row.checked-row .checklist-text {
+  color: var(--check-blue);
+  opacity: 0.7;
+}
+
+/* ── 検索結果 ── */
+.search-results { padding: 8px 16px calc(var(--safe-bottom) + 24px); }
+.no-results {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-muted); font-size: 15px;
+}
+.no-results .icon { font-size: 48px; margin-bottom: 12px; opacity:0.4; }
+
+/* ── 画面切り替えアニメーション ── */
+.view { display:none; }
+.view.active { display:block; animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── スクロール ── */
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100dvh - 120px);
+}
+</style>
+<script>
+// __BRIEFING_DATA_START__
+window.BRIEFING_DATA = {
+  "generated_at": "2026-03-12T12:09:11.600373+09:00",
+  "triggers": [
+    {
+      "id": "cs-preop-001",
+      "procedure": "帝王切開",
+      "phase": "術前",
+      "condition": "緊急帝王切開（早剥等）の連絡が入った",
+      "action": "誰が入るか確認が取れるまで自分も準備に向かう。勝手に「あの先生が入る」と思い込まない",
+      "sources": [
+        "帝王切開_2026-03-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-preop-002",
+      "procedure": "帝王切開",
+      "phase": "術前",
+      "condition": "帝王切開または分娩誘発のICを行う",
+      "action": "以下の3点を必ず説明に含める：(1)背中から麻酔すること（脊椎麻酔）、(2)下半身麻酔で意識があるため児と会えること、(3)手術器械で児に小さな傷がつくことがある（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-preop-003",
+      "procedure": "帝王切開",
+      "phase": "術前",
+      "condition": "自己血のオーダーを入れる",
+      "action": "帝王切開の予定日に対して期限が切れないよう、有効期限とカイザー日程を照合する（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-preop-004",
+      "procedure": "帝王切開",
+      "phase": "術前",
+      "condition": "タイムアウト前である",
+      "action": "鉤ピンを先にもらっておく",
+      "sources": [
+        "帝王切開_2025-09-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-preop-005",
+      "procedure": "帝王切開",
+      "phase": "術前",
+      "condition": "第一助手として術野に入る",
+      "action": "サインアウト後すぐに筋鉤を2本もらう",
+      "sources": [
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-001",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋鉤を操作する",
+      "action": "頭側の筋鉤は先を効かせてOKだが、尾側の筋鉤は寝かせる",
+      "sources": [
+        "帝王切開_2025-08-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-002",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "鉤ピンで横に引いている",
+      "action": "横ではなく縦に・上に引くよう修正する",
+      "sources": [
+        "帝王切開_2025-08-20_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-003",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "皮膚切開時にガーゼを持っている",
+      "action": "術野に突っ込んで血を拭く。術者にガーゼを奪われる前に自分から拭く",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-004",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "皮膚切開でメス腹を使う",
+      "action": "押し引きで切る。脂肪までドゥドゥッと切り込まない程度の深さにする",
+      "sources": [
+        "帝王切開_2025-09-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-005",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "皮弁切除（コッヘル）を行う",
+      "action": "皮弁に脂肪をしっかりくっつけて、前回の切開瘢痕を円柱状にごっそり切除する。腹壁が薄い人では脂肪を取りすぎないよう注意",
+      "sources": [
+        "帝王切開_2025-09-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-006",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "電メスで脂肪層を切っていく",
+      "action": "常に血管を探す。見つけたらつまみにいく積極性を持つ",
+      "sources": [
+        "帝王切開_2026-01-29"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-007",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "浅腹壁静脈が見えた",
+      "action": "鉤ピンでつまんで止血する。忘れない",
+      "sources": [
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-008",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "既往帝王切開で前回の創部直上から入った",
+      "action": "瘢痕組織にぶち当たるため、頭側にフレッシュな脂肪層を探して到達する",
+      "sources": [
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-009",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "脂肪-筋膜剥離で尾側を剥離する",
+      "action": "背側ではなく尾側の方へ入っていく。両脇を特に綺麗にし、皮切のエッケまでつなげる",
+      "sources": [
+        "帝王切開_2026-02-18",
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-010",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "脂肪-筋膜剥離で左手のカウンタートラクションをかけている",
+      "action": "しっかりカウンタートラクションをかける。いいラインを切れば自然と組織が分かれてくれる",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-011",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋膜を縦に切開する",
+      "action": "鉤ピンを持っておくこと。正中より自分側で切開ラインをおき白線を避ける",
+      "sources": [
+        "帝王切開_2026-01-28"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-012",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋膜切開で第一助手として鉤ピンで対側をつまむ",
+      "action": "術者から遠い対側を持つ。筋膜は伸びないので近くを持つと窮屈になる",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-013",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "右手で筋鉤を引きながら左手で鉤ピンを持っている",
+      "action": "左手の鉤ピンの牽引方向にも注意を向ける",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-014",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "尾側の筋膜を切る",
+      "action": "頭側の筋鉤を緩める（尾側は第二助手が牽引しているため）",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-015",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋膜切開中にケリーを通されたとしても",
+      "action": "一気にいかない。段階的に薄く切る",
+      "sources": [
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-016",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋膜を切っていたら腹膜も開いてしまった",
+      "action": "以降の操作を浮かせて行い腸管損傷を防ぐ",
+      "sources": [
+        "帝王切開_2025-09-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-017",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋肉と筋膜の間を切開している",
+      "action": "目的は腹膜に到達して開けること。腹膜が見えるように進めればよい",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-018",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋肉の裏側に指を入れようとしている",
+      "action": "筋肉の裏側には血管が多いので指をつっこまない",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-019",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "腹膜を開ける",
+      "action": "ペアンを押し付けて開いて押し付けて開いて夾鉗し持ち上げる手技を忘れない",
+      "sources": [
+        "帝王切開_2026-01-30",
+        "帝王切開_2025-11-19"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-020",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "腹膜を切開中",
+      "action": "都度奥まで指を入れ、臓器から離すように腹膜を持ち上げながら切開する。内側から透見しながら進める",
+      "sources": [
+        "帝王切開_2025-11-19",
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-021",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "腹膜を頭側に切開する",
+      "action": "尾側→頭側方向に電気メスを動かす（頭側→尾側方向ではない）",
+      "sources": [
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-022",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "開創器を設置した",
+      "action": "ペアン→ペアン→開創器→3枚目の順でもらう。3枚目を忘れない",
+      "sources": [
+        "帝王切開_2026-02-09",
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-023",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "尾側の脂肪-筋膜剥離中で第一助手としてやることがない",
+      "action": "筋膜切開に備えて筋鉤をもらっておく",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-024",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "筋膜剥離の際に尾側のペアンを外した",
+      "action": "筋鉤をもらう。もらい忘れない",
+      "sources": [
+        "帝王切開_2026-02-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-025",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "ローテーション確認をする",
+      "action": "手をつっこんで子宮円索の根元までの距離で判断する。忘れないこと",
+      "sources": [
+        "帝王切開_2026-01-30",
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-001",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮漿膜を切開する",
+      "action": "長鑷子でつまみ上げて浮いているところしか切らない",
+      "sources": [
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-002",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮漿膜切開を側方へ進める",
+      "action": "すかさず開創器を傾ける",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-003",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "膀胱フラップを作るとき",
+      "action": "長いペアンで尾側の臓側腹膜断端を挟む手順を忘れない",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-004",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "膀胱剥離時につっぱる組織がある",
+      "action": "長鑷子でつまんで一番手前だけ電気メスで切開し、用手的に押し下げれば自然と解除される。全部電気メスで切る必要はない",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-005",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮筋層切開で皮膚ペンのマーキングをする",
+      "action": "メスで切る幅だけでなくクーパーで延長するラインまでマーキングする",
+      "sources": [
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-006",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮筋層をメスで切開中",
+      "action": "一刀入れるごとに左示指でなぞって残りの筋層の厚みを感じる",
+      "sources": [
+        "帝王切開_2026-01-30",
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-007",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮筋層切開の幅を決める",
+      "action": "3横指の幅で切開する",
+      "sources": [
+        "帝王切開_2025-11-19"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-008",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮筋切開時に出血で切開ラインが隠れている",
+      "action": "切開ライン（真ん中）を吸引する",
+      "sources": [
+        "帝王切開_2026-01-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-009",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "子宮筋層切開を広げるときに指を入れる",
+      "action": "切開を進めるたびに指の向きを変える（指はカーブしないため）。指2本が入るまで鈍的に広げる",
+      "sources": [
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-010",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "膀胱子宮窩腹膜を縫うとき",
+      "action": "ペアンを軽く持っておき、縫合していったらペアンを外す",
+      "sources": [
+        "帝王切開_2025-08-22"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-011",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "左手で子宮を押しつけようとしている",
+      "action": "子宮を押しつけるのはよくない",
+      "sources": [
+        "帝王切開_2025-11-19"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-012",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児が娩出された",
+      "action": "どんな状態で娩出されたか見ておく",
+      "sources": [
+        "帝王切開_2025-08-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-013",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児娩出で吸引カップを使う",
+      "action": "最初はひっぱらない。上向きになったら徐々にひっぱる。創を下向きに牽引する",
+      "sources": [
+        "帝王切開_2025-11-19",
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-014",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児頭が出た後",
+      "action": "手を入れていると邪魔になるので引く",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-015",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児娩出後に臍帯をペアンで夾鉗する",
+      "action": "胎盤寄りに挟みすぎない。一発目に挟む位置を大事にする",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-016",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "ペアン→ペアン→はさみの間に児の処理をしている",
+      "action": "吸引よりもタオルで上から圧迫する",
+      "sources": [
+        "帝王切開_2026-01-05"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-017",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "お腹を押す（クリステル）",
+      "action": "押す前に児のお尻の位置を確認する。レオポルド触診を術前にやる",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-018",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児を娩出して持つ",
+      "action": "片手で背中/胸を支え4本の指が脇下に入る感じ。助産師に渡すときは片手で背中、もう片手で臀部を支え、自分の体に密着させる。お姫様抱っこのように下から両腕で抱える",
+      "sources": [
+        "帝王切開_2026-02-18",
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-019",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児を受け取った直後",
+      "action": "タオルで口元を拭き、背中を刺激する。口腔内がゴロゴロしていたら顔を下に向ける",
+      "sources": [
+        "帝王切開_2026-01-30",
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-020",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "骨盤位での児娩出で吸引を行う",
+      "action": "術者の手と児の臀部の位置関係が見えるように吸引する",
+      "sources": [
+        "帝王切開_2026-01-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-021",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "胎盤を掴んで引っ張る",
+      "action": "ガーゼをもらってから掴む",
+      "sources": [
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-022",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "胎盤娩出後",
+      "action": "開創器を外し、子宮を腹側に挙上、ダグラス窩にタオルを挿入する",
+      "sources": [
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-023",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "第一助手として胎盤娩出後にいる",
+      "action": "子宮を頭側にしっかり持って支えること。T字鉗子を積極的にもらって子宮創縁を夾鉗する",
+      "sources": [
+        "帝王切開_2026-02-26",
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-001",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "子宮筋層を縫合する",
+      "action": "子宮の傷は床と垂直ではなく曲面であるため、都度キズに対して垂直を意識する",
+      "sources": [
+        "帝王切開_2026-01-28"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-002",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "子宮筋層の一層目を縫合する",
+      "action": "頭側の漿膜は入れないように。内膜はしっかり入れて刺通する",
+      "sources": [
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-003",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "内膜を拾う",
+      "action": "たくさんとると筋層に入り込み菲薄化の一因となるため、少量にとどめる",
+      "sources": [
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-004",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "二層目で表層を取る",
+      "action": "深層近くまでしっかり取る。表層だけ取ると一層目と二層目の間に隙間があく",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-005",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "筋層の尾側を縫合する",
+      "action": "広く取るが薄くとる（厚くとると団子になる）。頭側は薄く狭くとる",
+      "sources": [
+        "帝王切開_2026-01-29"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-006",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "ストラタフィックスで縫合する方向を決める",
+      "action": "自分から見ておくから手前方向に進めると縫いやすい",
+      "sources": [
+        "帝王切開_2026-01-28"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-007",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "ストラタフィックスの輪っかを通すくだりがある",
+      "action": "第一助手として忘れないこと",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-008",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "術者がストラタフィックスで戻って2針縫う",
+      "action": "助手はストラタを牽引しなくてよい（邪魔になる）",
+      "sources": [
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-009",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "ストラタフィックスの1針目を縫う",
+      "action": "全層で縫合する",
+      "sources": [
+        "帝王切開_2026-02-18"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-010",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "エッケ（角）をPDSで縫合する",
+      "action": "創縁より外側にかけるが幅広く取りすぎない。子宮動静脈に刺しうるため狭めに",
+      "sources": [
+        "帝王切開_2026-01-30"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-011",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "エッケのPDS運針で自分側の尾側に刺入する",
+      "action": "内腔にしっかり針先を出す",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-012",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "エッケのPDSを切る",
+      "action": "1cmで切る（1.5cmは長すぎ、7mmは短すぎ）",
+      "sources": [
+        "帝王切開_2025-09-05",
+        "帝王切開_2026-01-29"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-013",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "子宮にセプラフィルムを貼る",
+      "action": "鑷子とドベーキーの両方を使うと貼りやすい。大網がかかっていたらよけてから貼る",
+      "sources": [
+        "帝王切開_2026-01-28"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-014",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "T字鉗子を縫合中に持っている",
+      "action": "縫合が進んだら外す。第二助手は自分で外せるようになる",
+      "sources": [
+        "帝王切開_2026-02-13",
+        "帝王切開_2026-03-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-suture-015",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "安田先生（第一助手）がエッケを結紮している間",
+      "action": "術者は子宮を頭側に支えておく",
+      "sources": [
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-001",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "閉創前の膀胱フラップの止血確認をする",
+      "action": "T字鉗子は言われるまで外さない",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-002",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜のペアンがある",
+      "action": "適切なタイミングで外す勇気を持つ。ただし尾側の把持状況を確認してから外す判断をする",
+      "sources": [
+        "帝王切開_2025-11-11",
+        "帝王切開_2026-02-09",
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-003",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜にペアンをかける",
+      "action": "ありったけのペアンをもらう。エッケには必ずかける。2つだけで満足しない",
+      "sources": [
+        "帝王切開_2026-01-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-004",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜を縫合する",
+      "action": "3回結ぶ。2-0は1cmで切る。腹膜が薄いときは2枚にめくれているので上側も刺通して拾う",
+      "sources": [
+        "帝王切開_2026-01-28",
+        "帝王切開_2026-01-20",
+        "帝王切開_2026-01-29"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-005",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜の薄いところだけ取る",
+      "action": "バイトを広めに取る（2-3mmでは狭すぎる）",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-006",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜は二層あることがある",
+      "action": "一番内側の膜を拾い落とさないように注意する",
+      "sources": [
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-007",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "奥の腹膜を縫う",
+      "action": "針をフリーにしない。必ず長鑷子でつかむ",
+      "sources": [
+        "帝王切開_2026-01-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-008",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜縫合でエッケのペアンを引っ張っている",
+      "action": "引っ張りすぎない",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-009",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "尾側の腹膜を縫う",
+      "action": "膀胱が近いからバイトを狭くする",
+      "sources": [
+        "帝王切開_2026-01-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-010",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜縫合後に止血確認をする",
+      "action": "筋鉤で術野をしっかり展開し、頭側が良ければ尾側へ。筋肉はつまんで止血、ガーゼで拭く。めくった脂肪層の出血にも注意",
+      "sources": [
+        "帝王切開_2026-02-10",
+        "帝王切開_2026-01-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-011",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜を縫合する",
+      "action": "筋膜と筋肉の境目を毎度見きわめる。鉤ピンを水平に寝かせて筋膜を取りにいく（斜めにすると脂肪もガッツリ掴む）",
+      "sources": [
+        "帝王切開_2026-01-20",
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-012",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜と筋肉の境界が分かりにくい",
+      "action": "断端を垂直にひっぱりあげることで境界がわかる（鉤ピンでめくるより有効）",
+      "sources": [
+        "帝王切開_2026-01-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-013",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "一針目の筋膜縫合を行う",
+      "action": "奥でよく見えていないのにがっつり針をかけない。一針目が鬼門と心得る",
+      "sources": [
+        "帝王切開_2026-01-28",
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-014",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜の縫いしろが短い",
+      "action": "広く浅く取る。幅が狭いとちぎれる",
+      "sources": [
+        "帝王切開_2026-01-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-015",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜のエッケがわかりにくい",
+      "action": "わかりやすいところを一旦つまんでたどっていく",
+      "sources": [
+        "帝王切開_2026-01-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-016",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜縫合で白線側を縫う",
+      "action": "白線側は筋膜と腹膜がくっついていがちなので広く浅くとる。ただし2cmは取りすぎ",
+      "sources": [
+        "帝王切開_2026-01-28"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-017",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜を縫うときに表層の脂肪がある",
+      "action": "あまりかけないほうがいい",
+      "sources": [
+        "帝王切開_2026-01-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-018",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜縫合の糸を尾側から送る",
+      "action": "できるだけ真上から垂直に送る。斜めに送ると針間が広がって見える",
+      "sources": [
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-019",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜を縫うとき尾側の糸を引っ張っている",
+      "action": "引っ張りすぎない",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-020",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜の最尾側の1針を縫う",
+      "action": "しゃもじの理論からハの字に運針する",
+      "sources": [
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-021",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "左側の筋膜が斜面で流れている",
+      "action": "一部しか拾わないのはNG。斜面を認識して表層を確実に取る",
+      "sources": [
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-022",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜縫合でピッチが広がってきた",
+      "action": "間に追加で入れることになるので、最初から均等なピッチを意識する",
+      "sources": [
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-023",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "腹膜や筋膜を縫う",
+      "action": "一回裏から透かすと良い。筋肉はいないか、膀胱は透けていないかを確認する",
+      "sources": [
+        "帝王切開_2025-11-19"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-024",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜や腹膜を把持する",
+      "action": "それ単体をつかんでしっかり引っ張ると下の組織と離れて巻き込まない",
+      "sources": [
+        "帝王切開_2025-11-19"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-025",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜閉鎖後の止血を確認する",
+      "action": "筋鉤だけでなく手で皮膚を反転させて皮下脂肪側の出血も確認する",
+      "sources": [
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-026",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "浅筋膜を3-0で縫合する",
+      "action": "半分くらいの厚さでとる。尾側を深めに取りがちなので注意（段差の原因）",
+      "sources": [
+        "帝王切開_2026-01-20",
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-027",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "既往CSでケロイド切除しており創と創の距離が遠い",
+      "action": "浅筋膜だけでなく背側の脂肪層も拾い、腹側もそこそこ拾う",
+      "sources": [
+        "帝王切開_2026-02-27"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-028",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "真皮縫合で4-0 PDSを使う",
+      "action": "アドソンに持ちかえる。手始めからスムーズにいく。端から縫う",
+      "sources": [
+        "帝王切開_2025-08-20_2",
+        "帝王切開_2026-01-05",
+        "帝王切開_2026-01-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-029",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "真皮縫合で頭側の刺入が深いが尾側の刺出が浅い",
+      "action": "組織を拾う量に差があるとよじれの原因になる。尾側の刺出点を深くする or 頭側を浅くする",
+      "sources": [
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-030",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "真皮縫合で針が表皮を貫くことが多い",
+      "action": "持針器の持ち方を見直す。人差し指を有効に使えていない可能性がある",
+      "sources": [
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-031",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "真皮縫合を一人で縫っていく",
+      "action": "相手側から縫っていくとやりやすい",
+      "sources": [
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-032",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "縫合時に糸を切る",
+      "action": "創の向きに対して垂直に、ハサミの相手側を表皮につけて40度くらいで切る",
+      "sources": [
+        "帝王切開_2025-08-20_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-033",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "2-0の結紮を切る",
+      "action": "片手で切るときは切る前に一瞬止める",
+      "sources": [
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-034",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "皮下ドレーンを固定する",
+      "action": "結紮が強すぎるとドレーンバッグに血が流れてこないため、流れるか確認する",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-035",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "皮下ドレーンの接続でねじこむ",
+      "action": "ガーゼを使うと滑りも良い",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-001",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "児娩出後に子宮の中を吸うよう言われた",
+      "action": "外を吸うと剥離したところの血管から出血するかもしれないので、中を吸う",
+      "sources": [
+        "帝王切開_2025-08-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-002",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "子宮筋層縫合中に吸引で子宮の中を吸っている",
+      "action": "術者が近づいてきたら早めに逃げる",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-003",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "術者が鑷子で出血点をつまんでいる",
+      "action": "電気を流してほしいのを察する。通電を準備する",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-004",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "術者の頭で術野が暗い、または上級医がライトの方を見た",
+      "action": "すぐにライトを合わせる。言われる前に動く",
+      "sources": [
+        "帝王切開_2026-02-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-005",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "器具が必要なとき",
+      "action": "器具名を自分で言って受け取る。遠慮せずオペ看に声をかける",
+      "sources": [
+        "帝王切開_2026-01-05",
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-006",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "使っていない器械がある",
+      "action": "返すこと",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-007",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "止血確認を行う",
+      "action": "クレキサン使用予定ならより念入りに。ガーゼで拭いて怪しいところを凝固する",
+      "sources": [
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-008",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "電気メスの先端で止血する",
+      "action": "先端を寝かせすぎない。気持ちを込めて通電する",
+      "sources": [
+        "帝王切開_2025-09-03",
+        "帝王切開_2026-01-28"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-009",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "電気メスをスプレーにする",
+      "action": "coagのpureを押してsprayを選択する",
+      "sources": [
+        "帝王切開_2025-09-05_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-010",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "機械台の埃よけの青いカバーがある",
+      "action": "不潔なので外回りが外すまで触らず辛抱して待つ",
+      "sources": [
+        "帝王切開_2025-08-20_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-011",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "吸引チューブを貼る",
+      "action": "トグロを巻いたときにいい感じの向きになるように貼る。術野に近い位置でテープ固定する",
+      "sources": [
+        "帝王切開_2025-08-20_2",
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-012",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "手袋にピンホールがあきインナー手袋に切り替える",
+      "action": "青色ではなく白手袋にする（青は滑る）",
+      "sources": [
+        "帝王切開_2026-01-09"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-013",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "筋膜を結紮するときに力んでいる",
+      "action": "手袋を挟みがち。力み方に注意",
+      "sources": [
+        "帝王切開_2025-09-05"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-014",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "ヘソの位置を見る",
+      "action": "白線のラインが推測できる",
+      "sources": [
+        "帝王切開_2025-11-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-015",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "運針中",
+      "action": "たらたらせずキビキビと。手の動きをコンパクトにする",
+      "sources": [
+        "帝王切開_2026-01-09",
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-016",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "子宮漿膜の結紮をする",
+      "action": "2回でよい。テンションをかけないよう意識する",
+      "sources": [
+        "帝王切開_2025-08-20",
+        "帝王切開_2026-02-26"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-017",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "ストラタフィックス縫合中にハサミが必要",
+      "action": "事前に準備しておく",
+      "sources": [
+        "帝王切開_2025-09-03"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-018",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "術者が運針している間",
+      "action": "糸をさっと捌いてビシッと止めておく。フラフラさせない",
+      "sources": [
+        "帝王切開_2026-02-10"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-019",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "第二助手として筋膜縫合後に右手の筋鉤を持っている",
+      "action": "結紮し終わったタイミングで右手の筋鉤を外してペアンを受け取れるよう準備する",
+      "sources": [
+        "帝王切開_2026-02-09",
+        "帝王切開_2026-02-13"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-020",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "縫合時に姿勢が前のめりになっている",
+      "action": "姿勢よくする",
+      "sources": [
+        "帝王切開_2026-01-21"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-021",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "クーパーで糸を切断する",
+      "action": "先端寄りではなくクーパーの真ん中寄りで切る。噛み合わせをしっかり合わせてから切断する",
+      "sources": [
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-022",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "洗浄時に温生食を使う",
+      "action": "吸引の鞘をもらうこと。ガーゼと長鑷子ももらう",
+      "sources": [
+        "帝王切開_2026-02-26",
+        "帝王切開_2026-02-27_2"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-misc-023",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
+      "condition": "笠井先生が第一助手のとき",
+      "action": "尾側の筋鉤は第二助手がかけること（第一助手の手が空くように）",
+      "sources": [
+        "帝王切開_2026-02-20"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vac-001",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "オキシトシンで誘発中に陣痛が進まない",
+      "action": "受容体飽和後は「今の陣痛が最大」と考え、今の陣痛で分娩進行するかで方針を決める（増量=陣痛増強ではない）",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vac-002",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "CTGで早発一過性徐脈を認めている",
+      "action": "経時的にピークとボトムのズレを追い、遅発一過性徐脈への移行を疑う",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vac-003",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "吸引カップを装着する",
+      "action": "カップを手のひらに当てて圧がかかるか確認する（最も重要なステップ）",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vac-004",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "児頭が降りてきている状態で牽引する",
+      "action": "下方向ではなく水平→上方向に牽引する。思っているよりも上に引く",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vac-005",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "吸引分娩が決定した",
+      "action": "子宮底を押す人用の足台を設置する",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vac-006",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "牽引後にカップを外した",
+      "action": "助産師に引き継ぐ流れを確認する",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-001",
+      "procedure": "経腟分娩",
+      "phase": "(全体)",
+      "condition": "St -2でカイザーが視野に入る状況でも",
+      "action": "怒責時の児頭下降を評価して経腟分娩の可否を判断する",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-002",
+      "procedure": "経腟分娩",
+      "phase": "(全体)",
+      "condition": "会陰裂傷を確認する",
+      "action": "まず上方からの出血をガーゼ2枚くらいで堰き止めてから裂傷を確認・縫合する",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-003",
+      "procedure": "経腟分娩",
+      "phase": "(全体)",
+      "condition": "会陰裂傷部を確認する",
+      "action": "指で死腔（ポケット状の空間）がないか確認する。放置すると血腫形成リスクがある",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-004",
+      "procedure": "経腟分娩",
+      "phase": "(全体)",
+      "condition": "会陰縫合でエッケを展開する",
+      "action": "左手の示指と中指で押しつけるように開く",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-005",
+      "procedure": "経腟分娩",
+      "phase": "(全体)",
+      "condition": "子宮筋腫合併かつオキシトシン誘発の症例",
+      "action": "弛緩出血リスクが高い。分娩後の子宮収縮が弱くなることを警戒する",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-001",
+      "procedure": "経腟分娩",
+      "phase": "内診所見・分娩管理",
+      "condition": "展退度を評価する",
+      "action": "頚管長3cmを基準に「どのくらい短くなっているか」の雰囲気で判断する。厳密な計測値ではなく、指が頚管内に何cm入っているかと頚管の薄さから主観的に判断する（安田先生より 2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-002",
+      "procedure": "経腟分娩",
+      "phase": "内診所見・分娩管理",
+      "condition": "触診による展退度と経腟エコー計測値が乖離している",
+      "action": "触診は主観的評価であり乖離はありうると認識する。エコーが正確だが触診にはリアルタイム性・動的評価という固有の意義がある（安田先生より 2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-003",
+      "procedure": "経腟分娩",
+      "phase": "内診所見・分娩管理",
+      "condition": "内診所見を申告する",
+      "action": "その数字に責任を持てる丁寧な評価を行う。一度申告した所見は臨床の流れの中で訂正しにくい場面があるため、初回評価を慎重に行う（安田先生より 2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-004",
+      "procedure": "経腟分娩",
+      "phase": "会陰縫合",
+      "condition": "会陰切開創を縫合する前である",
+      "action": "ガーゼを子宮頸部側に突っ込んで上方からの出血を堰き止めてから縫合を開始する（篠原先生 2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-005",
+      "procedure": "経腟分娩",
+      "phase": "会陰縫合",
+      "condition": "マットレス縫合の表層縫合を行う",
+      "action": "表皮＋真皮の少しをすくう。深く拾うと（3-4mm）外反するが、表皮だけでは浅すぎる（篠原先生 2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-006",
+      "procedure": "経腟分娩",
+      "phase": "会陰縫合",
+      "condition": "縫合後に傷が外反している",
+      "action": "糸を強く締めても外反は悪化するだけ。間に1針追加するか、やり直す判断をする（篠原先生 2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-007",
+      "procedure": "経腟分娩",
+      "phase": "会陰縫合",
+      "condition": "傷が外反して真皮が露出している",
+      "action": "感染リスクが上がるため、外反を放置しない（篠原先生 2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-008",
+      "procedure": "経腟分娩",
+      "phase": "肩甲難産",
+      "condition": "児頭娩出後に肩が出ない",
+      "action": "前在肩甲が出た瞬間に介入する。母体の横から児の腋窩に二本指を入れて娩出を補助する動きを覚えておく（笠井先生の対応 2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-009",
+      "procedure": "経腟分娩",
+      "phase": "肩甲難産",
+      "condition": "推定体重3800g以上の経腟分娩",
+      "action": "肩甲難産のリスクを念頭に置き、介入できる準備をしておく（2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-010",
+      "procedure": "経腟分娩",
+      "phase": "癒着胎盤（経腟分娩）",
+      "condition": "癒着胎盤の既往がある経腟分娩",
+      "action": "今回も癒着する可能性を念頭に置く。胎盤娩出時にエコーガイド下で臍帯試験牽引を行い癒着の有無を確認する（2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-011",
+      "procedure": "経腟分娩",
+      "phase": "癒着胎盤（経腟分娩）",
+      "condition": "経腟分娩で癒着胎盤を確認した",
+      "action": "アトニン停止 → リナセートF全開フラッシュ → ニトロ・ソセゴン・セルシン投与 → 用手剥離 → 剥離後アトニン全開、の手順で対応する（篠原先生 2026-03-10）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-012",
+      "procedure": "経腟分娩",
+      "phase": "分娩待機の判断",
+      "condition": "陣発している症例がある",
+      "action": "疲労・業務状況・子宮口の数字に関係なく、最低30分に1回は分娩室を覗きに行く。空振り5分の損失 < 症例を逃す損失",
+      "sources": [
+        "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-001",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経膣エコーで描出困難",
+      "action": "まず患者さんの体位調整を試みる（お尻を尾側に降ろしてもらう等）",
+      "sources": [
+        "2026-02-26_初診エコー_8w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-002",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "エコーを開始する",
+      "action": "まず子宮全体のオリエンテーション画像を1枚保存する（子宮の形、後屈有無、児の位置確認）",
+      "sources": [
+        "2026-02-26_初診エコー_8w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-003",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "ROIを拡大したい",
+      "action": "深度つまみをクリック→ROI表示→「エリア変更」で縦幅・横幅調節→「セット」で拡大表示",
+      "sources": [
+        "2026-02-26_初診エコー_8w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-004",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "BPD断面を計測する",
+      "action": "視床だけでなく透明中隔腔まで必ず描出する。34wでも描出可能。見えないときは「週数のせい」と決めつけずプローブ角度を調整して粘る",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-005",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "AC断面で臍静脈を同定する",
+      "action": "皮膚側から連続して走行していることで同定する。位置が右寄りの場合は胆嚢を疑う。臍静脈・胃泡・副腎の3点が見える断面を目指す",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-006",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "クスコをかける",
+      "action": "もっと奥まで挿入する。子宮頚管の位置が尾側寄りの可能性を念頭に置く",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-007",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "心拍を確認した",
+      "action": "FHR（胎児心拍数）も必ず計測する。一連の流れとして行う",
+      "sources": [
+        "2026-03-02_初診エコー_9w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-008",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "初診外来の予習が終わっていない",
+      "action": "患者さんを部屋に案内しない。予習を終えてから案内してもらう",
+      "sources": [
+        "2026-03-02_初診エコー_9w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-009",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "初診外来の問診をする",
+      "action": "がん検診歴を忘れず確認する",
+      "sources": [
+        "2026-03-02_初診エコー_9w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-010",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経膣エコーで児を捉えたが頭部と胴体が同時に映らない",
+      "action": "まず児頭と臀部の位置関係を把握し、児を追いながらプローブを90度回転させて矢状断を出す",
+      "sources": [
+        "2026-03-05_初診エコー_10w1d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-011",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経膣エコーで超音波ビームの方向を決める",
+      "action": "母体矢状断面に入ると自分が横から見ているような画像になることを念頭に置き、児の体軸に沿ってプローブの向きを調整する",
+      "sources": [
+        "2026-03-05_初診エコー_10w1d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-012",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "産科外来エコーで計測を行う",
+      "action": "計測ボタンを押してから数字キーを押す。ROIの範囲調節は丸いボタンで行う",
+      "sources": [
+        "2026-03-05_初診エコー_10w1d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-013",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経腹エコーで断面が出にくい",
+      "action": "プローブをお腹にしっかり押し付ける。遠慮して浮かせていると断面の質が落ちる",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-014",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経腹エコーでビームの入れ角を決める",
+      "action": "母体腹部の丸みを広く使い、見たい断面が水平になるような位置からビームを入れる",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-015",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "BPD断面でmidlineがうまく出ない",
+      "action": "プローブの角度を調整し、midlineが画面上で水平になるポジションを探す",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-016",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "特定の構造物を精密に評価・計測したい",
+      "action": "まず対象を画面中央に持ってきてから拡大する。端に置いたまま拡大しない",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-017",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "BPD断面を描出する",
+      "action": "透明中隔腔だけでなく四丘体槽も同時に描出されているか確認する。四丘体槽が見えないときは断面が斜めになっている可能性が高い",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_19w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-018",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "BPDで頭蓋内の断面が楕円形になっている、または四丘体槽が描出できない",
+      "action": "プローブが斜めに入っているサイン。断面が正円に近くなるまでプローブ角度を修正する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_19w6d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-019",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "BPD断面で透明中隔腔ではなく脳弓が見える",
+      "action": "断面レベルがやや尾側すぎる（脳弓は透明中隔腔の尾側にある）。プローブを少し頭側へ傾けて透明中隔腔の断面に修正する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_22w5d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-020",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "AC計測時に児の腹壁輪郭が一部不明瞭",
+      "action": "輪郭が不明瞭な部分を補完して大きく計測しない。プローブ角度を変えて全周が明瞭に描出される断面を探してから計測する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-021",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "ACを計測する",
+      "action": "児の腹壁が全周きれいに描出されていることを確認してから計測する。ACのわずかな誤差がEFWに90g以上の差を生じさせる",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-022",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経腟エコーで低置胎盤・前置胎盤を評価する",
+      "action": "児頭がはまり込んでいると胎盤が見えにくいことを念頭に置く。前置胎盤の方が確認しやすい（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-023",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経腟エコーで後壁に白い帯状構造が見えて胎盤と区別できない",
+      "action": "児頭と内子宮口の間に少量羊水がある場合、後壁子宮筋層がアーチファクトで白く映ることがある。児頭を動かして鑑別する（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-024",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "経腟エコーで児頭が邪魔で内子宮口付近が見えにくい",
+      "action": "経腹から児頭を上方へ持ち上げるか、経腟プローブで児頭をパッと持ち上げてすぐ元の位置に戻しフリーズする方法を試みる（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-025",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "前置胎盤症例のMRIで子宮頚管の走行を確認する",
+      "action": "頚管が水平になっていないかを見る（水平化は癒着や圧迫の指標となりうる）（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "us-026",
+      "procedure": "胎児エコー",
+      "phase": "(全体)",
+      "condition": "前置胎盤で子宮後壁に癒着が疑われる",
+      "action": "圧迫縫合ができない可能性がある。バルーン止血を選択肢として術前から準備しておく（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-001",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "頚管前処置（ラミナリア・ダイラパン）",
+      "condition": "頚管拡張デバイスを選択する",
+      "action": "原則としてダイラパンを使用する。感染リスクが低いため（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-002",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "頚管前処置（ラミナリア・ダイラパン）",
+      "condition": "頚管が硬く拡張困難な症例（稽留流産など）に頚管前処置を行う",
+      "action": "ラミナリアを選択肢に含める。ダイラパンより拡張力が高い（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-003",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "頚管前処置（ラミナリア・ダイラパン）",
+      "condition": "ラミナリアを使用した",
+      "action": "海藻由来で感染リスクがあることを念頭に置き、術後の感染徴候をより注意深く観察する（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-004",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "頚管前処置（ラミナリア・ダイラパン）",
+      "condition": "ラミナリア挿入後にエコーで位置確認しようとする",
+      "action": "ラミナリアはエコーに映りにくいことを前提に評価する。見えないからといって正常挿入を否定できない（2026-03-09）",
+      "sources": [],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-005",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "手技",
+      "condition": "ゾンデ診を行う",
+      "action": "子宮内腔の長さを計測するだけでなく、頚管の方向を正確にイメージしてからダイレーター挿入に移る",
+      "sources": [
+        "子宮内容除去術_2026-03-06"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-006",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "手技",
+      "condition": "ダイレーターのサイズを選択する",
+      "action": "妊娠週数＝使用するMVAキットの番号、拡張目標は使用番号＋1まで入るところを目安にする",
+      "sources": [
+        "子宮内容除去術_2026-03-06"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-007",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "手技",
+      "condition": "ダイレーターを挿入するとき",
+      "action": "焦らずゆっくり持続的に力を加える。一気に押し込むと穿孔のリスクがある",
+      "sources": [
+        "子宮内容除去術_2026-03-06"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-008",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "手技",
+      "condition": "MVAで吸引操作を行う",
+      "action": "カニューレを回転させながら前後させ、均一に吸引する。3回程度でほとんど引けなくなるのが正常な経過",
+      "sources": [
+        "子宮内容除去術_2026-03-06"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-009",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "手技",
+      "condition": "MVA吸引後にエコー確認をする",
+      "action": "遺残がないことと血流がないことの2点を腹部エコーで必ず確認する",
+      "sources": [
+        "子宮内容除去術_2026-03-06"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "unk-gen-010",
+      "procedure": "子宮内容除去術（MVA）",
+      "phase": "手技",
+      "condition": "吸引内容物を肉眼評価する",
+      "action": "絨毛成分（ふわふわした外観）と脱落膜成分を区別し、胞状奇胎の有無を確認してから終了する",
+      "sources": [
+        "子宮内容除去術_2026-03-06"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cl-001",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "CTGの経時的変化を注視し、早発→遅発への移行パターンに注意する",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-002",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "カップ装着時に手のひらで必ず圧確認する",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-003",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "児頭が降りてきている場合、牽引方向は水平→上方向を意識する（思っているより上）",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-004",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "牽引後はカップを外して助産師に引き継ぐ流れを確認する",
+      "sources": [
+        "吸引分娩_2026-03-02"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-001",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "会陰裂傷確認時、まずガーゼで上方の出血を堰き止めてから観察する",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "date": "2026-03-03",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-002",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "裂傷部に死腔（ポケット状の空間）がないか指で確認する",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "date": "2026-03-03",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-003",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "子宮筋腫合併・オキシトシン長時間使用の症例では弛緩出血を警戒する",
+      "sources": [
+        "2026-03-03_経腟分娩"
+      ],
+      "date": "2026-03-03",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-004",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "「急速遂娩になりうる」と自分で判断した症例は、子宮口の数字に関係なく分娩室で待機する",
+      "sources": [
+        "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "date": "2026-03-06",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-005",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "疲れて「まだ大丈夫」と思ったとき、それは楽観バイアスだと認識する",
+      "sources": [
+        "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "date": "2026-03-06",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-006",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "PIH＋分娩誘発の症例で陣痛が発来していたら、30分おきに状況を確認する",
+      "sources": [
+        "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "date": "2026-03-06",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-007",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "翌日が休日なら、あと1〜2時間残るコストは許容する判断をする",
+      "sources": [
+        "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "date": "2026-03-06",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-008",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "吸引分娩の症例は稀少。1例の価値は休憩1時間の価値より遥かに大きい",
+      "sources": [
+        "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "date": "2026-03-06",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-001",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "エコー開始時にまず子宮全体のオリエンテーション画像を1枚保存する",
+      "sources": [
+        "2026-02-26_初診エコー_8w6d"
+      ],
+      "date": "2026-02-26",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-002",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "ROI拡大を積極的に使って児を大きく描出する練習をする",
+      "sources": [
+        "2026-02-26_初診エコー_8w6d"
+      ],
+      "date": "2026-02-26",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-003",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "描出困難時は患者体位の調整を早めに試みる",
+      "sources": [
+        "2026-02-26_初診エコー_8w6d"
+      ],
+      "date": "2026-02-26",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-004",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD断面では視床だけでなく透明中隔腔まで必ず描出する",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-005",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "AC断面では臍静脈を皮膚側からの連続性で同定する（右寄りなら胆嚢を疑う）",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-006",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "AC断面で臍静脈・胃泡・副腎の3点が見える断面を目指す",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-007",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "クスコは十分奥まで挿入してから展開する",
+      "sources": [
+        "2026-03-02_初診エコー_34w"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-008",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "心拍確認したらFHRも必ず計測する",
+      "sources": [
+        "2026-03-02_初診エコー_9w6d"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-06"
+    },
+    {
+      "id": "cl-009",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "問診でがん検診歴を忘れず確認する",
+      "sources": [
+        "2026-03-02_初診エコー_9w6d"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-010",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "上級医が患者情報を予習してから部屋に案内する",
+      "sources": [
+        "2026-03-02_初診エコー_9w6d"
+      ],
+      "date": "2026-03-02",
+      "added_date": "2026-03-02"
+    },
+    {
+      "id": "cl-011",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "経膣エコーで児を捉えたら、まず児の向き（頭側・臀側）を把握してからプローブを回転させる",
+      "sources": [
+        "2026-03-05_初診エコー_10w1d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-012",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "超音波ビームの入射方向と児の体軸の関係を常に意識する",
+      "sources": [
+        "2026-03-05_初診エコー_10w1d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-013",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "産科外来エコーの操作手順：計測ボタン→数字キー、ROI→丸ボタン",
+      "sources": [
+        "2026-03-05_初診エコー_10w1d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-014",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD：透明中隔腔だけでなく四丘体槽も同時に描出されているか確認する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_19w6d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-015",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD：断面が斜めになっていないか（楕円形になっていないか）注意する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_19w6d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-016",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "MCA描出の成功体験を再現する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_19w6d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-017",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "プローブをしっかりお腹に押し付ける（遠慮しすぎない）",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-018",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "母体腹部の丸みを利用し、見たい断面が水平になる位置からビームを入れる",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-019",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD描出時はmidlineが水平になるよう角度調整",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-020",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "見たい構造物を画面中央に持ってきてから拡大する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-021",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "透明中隔腔を意識的に確認する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-022",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD：透明中隔腔と脳弓を区別する（脳弓が見えたら尾側すぎ → プローブを少し頭側へ）",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_22w5d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-023",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD計測値の精度は維持しつつ、正しい断面レベルを追求する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_22w5d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-024",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "BPD：midlineが直線かつ水平になるまでプローブ角度を調整する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-025",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "AC：児の腹壁全周がきれいに描出されてから計測する（不明瞭な部分があれば角度を変える）",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-026",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "ACで輪郭が不明瞭な部分を無理に補完して大きく取らない",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-027",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "ACの計測誤差がEFWに直結することを意識する",
+      "sources": [
+        "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "date": "2026-03-05",
+      "added_date": "2026-03-05"
+    }
+  ]
+};
+// __BRIEFING_DATA_END__
+</script>
+</head>
+<body>
+
+<!-- ===== ホーム画面 ===== -->
+<div id="view-home" class="view active">
+  <div class="header">
+    <div class="header-title">ClinicalBrief</div>
+  </div>
+  <div class="search-bar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search-input" type="search" placeholder="トリガーを検索" autocomplete="off">
+  </div>
+  <div id="home-content" class="home"></div>
+  <div id="search-results" class="search-results" style="display:none"></div>
+</div>
+
+<!-- ===== ブリーフィング画面 ===== -->
+<div id="view-briefing" class="view">
+  <div class="header">
+    <button class="header-back" onclick="showHome()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+      戻る
+    </button>
+    <div class="header-title" id="briefing-title"></div>
+    <div class="header-subtitle" id="briefing-subtitle"></div>
+  </div>
+  <div id="phase-bar" class="phase-bar"></div>
+  <div id="trigger-list" class="trigger-list scrollable"></div>
+</div>
+
+<script>
+// ===== データ =====
+// sync_vault.py がここにデータを埋め込む。フォールバックとして fetch も試行。
+let APP_DATA = null;
+
+// ===== 状態 =====
+let currentProcedure = null;
+let currentPhase = null; // null = 全て
+let checkedItems = {};
+
+const PROCEDURE_META = {
+  '帝王切開': { icon: '🔪', color: 'red', phases: ['術前','開腹','子宮切開〜児娩出','子宮筋層縫合','閉腹','その他（助手手技・全般）'] },
+  '吸引分娩': { icon: '⬇️', color: 'orange', phases: [] },
+  '経腟分娩': { icon: '💗', color: 'pink', phases: ['会陰縫合','内診所見・分娩管理','分娩待機の判断','癒着胎盤（経腟分娩）','肩甲難産'] },
+  '胎児エコー': { icon: '📡', color: 'blue', phases: [] },
+  '子宮内容除去術（MVA）': { icon: '🏥', color: 'pink', phases: ['手技','頚管前処置（ラミナリア・ダイラパン）'] },
+};
+
+// ===== localStorage でデイリーチェック管理 =====
+function loadChecked() {
+  try {
+    const raw = localStorage.getItem('cb_checked');
+    if (!raw) return {};
+    const data = JSON.parse(raw);
+    const today = new Date().toLocaleDateString('ja-JP');
+    // 今日のデータのみ残す
+    const filtered = {};
+    for (const [id, date] of Object.entries(data)) {
+      if (date === today) filtered[id] = date;
+    }
+    return filtered;
+  } catch { return {}; }
+}
+function saveChecked() {
+  localStorage.setItem('cb_checked', JSON.stringify(checkedItems));
+}
+function isCheckedToday(id) {
+  return !!checkedItems[id];
+}
+function toggleCheck(id) {
+  if (checkedItems[id]) {
+    delete checkedItems[id];
+  } else {
+    checkedItems[id] = new Date().toLocaleDateString('ja-JP');
+  }
+  saveChecked();
+}
+
+// ===== フィルタ・ソート =====
+function triggersFor(procedure, phase) {
+  if (!APP_DATA) return [];
+  let list = APP_DATA.triggers.filter(t => t.procedure === procedure);
+  if (phase) list = list.filter(t => t.phase === phase);
+  return list;
+}
+function sortTriggers(list) {
+  return [...list].sort((a,b) => {
+    const ac = isCheckedToday(a.id) ? 1 : 0;
+    const bc = isCheckedToday(b.id) ? 1 : 0;
+    if (ac !== bc) return ac - bc;
+    const ad = a.added_date || '0000-00-00';
+    const bd = b.added_date || '0000-00-00';
+    if (ad !== bd) return bd.localeCompare(ad);
+    return a.id.localeCompare(b.id);
+  });
+}
+function searchTriggers(query) {
+  if (!APP_DATA || !query) return [];
+  const q = query.toLowerCase();
+  return APP_DATA.triggers.filter(t =>
+    (t.condition || '').toLowerCase().includes(q) ||
+    (t.action || '').toLowerCase().includes(q)
+  );
+}
+
+// ===== レンダリング =====
+function renderHome() {
+  if (!APP_DATA) return;
+  const el = document.getElementById('home-content');
+  const procedures = [...new Set(APP_DATA.triggers.map(t => t.procedure))];
+  // 固定順序を保証
+  const ordered = ['帝王切開','吸引分娩','経腟分娩','胎児エコー'].filter(p => procedures.includes(p));
+
+  let html = '<div class="card-grid">';
+  for (const proc of ordered) {
+    const meta = PROCEDURE_META[proc] || { icon:'📋', color:'blue', phases:[] };
+    const all = triggersFor(proc, null);
+    const unchecked = all.filter(t => !isCheckedToday(t.id)).length;
+    html += `
+      <div class="procedure-card" data-color="${meta.color}" onclick="showBriefing('${proc}')">
+        <div class="icon">${meta.icon}</div>
+        <div class="name">${proc}</div>
+        <div class="stats">
+          <span>${all.length} 件</span>
+          ${unchecked > 0 ? `<span class="unchecked">残 ${unchecked}</span>` : ''}
+        </div>
+      </div>`;
+  }
+  html += '</div>';
+
+  // generated_at
+  const genAt = APP_DATA.generated_at || '';
+  let dateDisplay = '';
+  try {
+    const d = new Date(genAt);
+    dateDisplay = `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  } catch { dateDisplay = genAt; }
+  html += `<div class="generated-at">データ更新: ${dateDisplay}</div>`;
+
+  el.innerHTML = html;
+}
+
+function renderPhaseBar(procedure) {
+  const meta = PROCEDURE_META[procedure];
+  const bar = document.getElementById('phase-bar');
+  if (!meta || meta.phases.length === 0) { bar.style.display='none'; return; }
+  bar.style.display = 'flex';
+
+  const allCount = triggersFor(procedure, null).length;
+  let html = `<button class="phase-chip ${currentPhase===null?'active':''}" onclick="setPhase(null)">全て <span class="count">${allCount}</span></button>`;
+  for (const phase of meta.phases) {
+    const cnt = triggersFor(procedure, phase).length;
+    html += `<button class="phase-chip ${currentPhase===phase?'active':''}" onclick="setPhase('${phase}')">${phase} <span class="count">${cnt}</span></button>`;
+  }
+  bar.innerHTML = html;
+}
+
+function renderTriggerList() {
+  const list = sortTriggers(triggersFor(currentProcedure, currentPhase));
+  const el = document.getElementById('trigger-list');
+  const checkedCount = list.filter(t => isCheckedToday(t.id)).length;
+
+  let html = `<div class="list-header">✅ 今日のチェック (${checkedCount}/${list.length})</div>`;
+  for (const t of list) {
+    const checked = isCheckedToday(t.id);
+    html += renderTriggerRow(t, checked, false);
+  }
+  el.innerHTML = html;
+}
+
+function renderTriggerRow(t, checked, showProcedure) {
+  const meta = PROCEDURE_META[t.procedure] || { color:'blue' };
+  const checkClass = checked ? 'checked' : '';
+  const rowClass = checked ? 'checked-row' : '';
+
+  let badge = '';
+  if (showProcedure) {
+    badge = `<div class="trigger-badge ${meta.color}">${t.procedure}</div>`;
+  }
+
+  let content = '';
+  if (!t.condition) {
+    // チェックリスト形式
+    content = `<div class="checklist-text">${escHtml(t.action)}</div>`;
+    if (t.sources && t.sources.length > 0 && t.date) {
+      content += `<div class="trigger-source">📄 ${escHtml(t.sources[0])} (${escHtml(t.date)})</div>`;
+    }
+  } else {
+    // IF-THEN 形式
+    content = `
+      <div class="if-then"><span class="label if">IF</span><span class="text">${escHtml(t.condition)}</span></div>
+      <div class="if-then"><span class="label then">→</span><span class="text">${escHtml(t.action)}</span></div>`;
+    if (t.sources && t.sources.length > 0) {
+      content += `<div class="trigger-source">📄 ${escHtml(t.sources.join(', '))}</div>`;
+    }
+  }
+
+  return `
+    <div class="trigger-row ${rowClass}" id="row-${t.id}">
+      <button class="check-btn ${checkClass}" onclick="handleCheck('${t.id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
+      <div class="trigger-content">${badge}${content}</div>
+    </div>`;
+}
+
+function renderSearchResults(query) {
+  const results = searchTriggers(query);
+  const el = document.getElementById('search-results');
+  if (results.length === 0) {
+    el.innerHTML = `<div class="no-results"><div class="icon">🔍</div>「${escHtml(query)}」に一致するトリガーがありません</div>`;
+    return;
+  }
+  let html = `<div class="list-header">検索結果 (${results.length}件)</div>`;
+  for (const t of results) {
+    html += renderTriggerRow(t, isCheckedToday(t.id), true);
+  }
+  el.innerHTML = html;
+}
+
+// ===== ナビゲーション =====
+function showHome() {
+  currentProcedure = null;
+  currentPhase = null;
+  document.getElementById('view-home').classList.add('active');
+  document.getElementById('view-briefing').classList.remove('active');
+  renderHome();
+}
+
+function showBriefing(procedure) {
+  currentProcedure = procedure;
+  currentPhase = null;
+  document.getElementById('view-home').classList.remove('active');
+  document.getElementById('view-briefing').classList.add('active');
+  document.getElementById('briefing-title').textContent = procedure;
+  const all = triggersFor(procedure, null);
+  const unchecked = all.filter(t => !isCheckedToday(t.id)).length;
+  document.getElementById('briefing-subtitle').textContent = `${all.length} 件のトリガー・残り ${unchecked}`;
+  renderPhaseBar(procedure);
+  renderTriggerList();
+  // スクロールトップ
+  document.getElementById('trigger-list').scrollTop = 0;
+}
+
+function setPhase(phase) {
+  currentPhase = phase;
+  renderPhaseBar(currentProcedure);
+  renderTriggerList();
+}
+
+function handleCheck(id) {
+  toggleCheck(id);
+  // 現在の画面を再レンダリング
+  if (currentProcedure) {
+    renderTriggerList();
+    // subtitle 更新
+    const all = triggersFor(currentProcedure, null);
+    const unchecked = all.filter(t => !isCheckedToday(t.id)).length;
+    document.getElementById('briefing-subtitle').textContent = `${all.length} 件のトリガー・残り ${unchecked}`;
+  } else {
+    // 検索結果中ならそのまま再描画
+    const searchInput = document.getElementById('search-input');
+    if (searchInput.value) {
+      renderSearchResults(searchInput.value);
+    }
+  }
+}
+
+// ===== 検索ハンドリング =====
+document.getElementById('search-input').addEventListener('input', function(e) {
+  const query = e.target.value.trim();
+  const homeContent = document.getElementById('home-content');
+  const searchResults = document.getElementById('search-results');
+  if (query) {
+    homeContent.style.display = 'none';
+    searchResults.style.display = 'block';
+    renderSearchResults(query);
+  } else {
+    homeContent.style.display = 'block';
+    searchResults.style.display = 'none';
+  }
+});
+
+// ===== ユーティリティ =====
+function escHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ===== データ読み込み =====
+async function loadData() {
+  checkedItems = loadChecked();
+
+  // 1. インラインデータがあればそれを使う
+  if (window.BRIEFING_DATA) {
+    APP_DATA = window.BRIEFING_DATA;
+    renderHome();
+    return;
+  }
+
+  // 2. フォールバック: 同ディレクトリの briefing_data.json を fetch
+  try {
+    const resp = await fetch('briefing_data.json');
+    if (resp.ok) {
+      APP_DATA = await resp.json();
+      renderHome();
+      return;
+    }
+  } catch {}
+
+  // 3. データなし
+  document.getElementById('home-content').innerHTML =
+    '<div class="no-results"><div class="icon">📭</div>データが見つかりません。<br>sync_vault.py を実行してください。</div>';
+}
+
+// ===== 起動 =====
+loadData();
+
+// アプリ復帰時にデイリーリセット
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    checkedItems = loadChecked();
+    if (currentProcedure) {
+      renderTriggerList();
+    } else {
+      renderHome();
+    }
+  }
+});
+
+// Service Worker 登録
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
