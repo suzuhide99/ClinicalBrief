@@ -161,6 +161,42 @@ body {
   background: rgba(255,255,255,0.25);
 }
 
+/* ── ロールチップ ── */
+.role-bar {
+  display: flex; gap: 8px;
+  padding: 10px 16px 4px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.role-bar::-webkit-scrollbar { display:none; }
+.role-chip {
+  flex-shrink: 0;
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px; font-weight: 500;
+  background: var(--bg-chip);
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+.role-chip .count {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+}
+.role-chip.active {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+.role-chip.active .count {
+  background: rgba(255,255,255,0.25);
+}
+
 /* ── トリガーリスト ── */
 .trigger-list {
   padding: 8px 16px calc(var(--safe-bottom) + 24px);
@@ -256,7 +292,7 @@ body {
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-03-19T11:26:19.097527+09:00",
+  "generated_at": "2026-03-19T12:43:57.176733+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -267,6 +303,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-03-03"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -276,6 +315,9 @@ window.BRIEFING_DATA = {
       "condition": "帝王切開または分娩誘発のICを行う",
       "action": "以下の3点を必ず説明に含める：(1)背中から麻酔すること（脊椎麻酔）、(2)下半身麻酔で意識があるため児と会えること、(3)手術器械で児に小さな傷がつくことがある（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -285,6 +327,9 @@ window.BRIEFING_DATA = {
       "condition": "自己血のオーダーを入れる",
       "action": "帝王切開の予定日に対して期限が切れないよう、有効期限とカイザー日程を照合する（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -295,6 +340,10 @@ window.BRIEFING_DATA = {
       "action": "鉤ピンを先にもらっておく",
       "sources": [
         "帝王切開_2025-09-03"
+      ],
+      "roles": [
+        "執刀",
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -307,6 +356,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-10"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -317,6 +369,9 @@ window.BRIEFING_DATA = {
       "action": "メスをしっかり押し付けて切る。力が抜けると切れない",
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -329,6 +384,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -338,6 +396,9 @@ window.BRIEFING_DATA = {
       "condition": "電気メスで筋膜と筋肉の間を切開する",
       "action": "「いいところといいところをつなげる」意識で切開ラインを選ぶ。「次はこの間」（安田先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -348,6 +409,9 @@ window.BRIEFING_DATA = {
       "action": "頭側の筋鉤は先を効かせてOKだが、尾側の筋鉤は寝かせる",
       "sources": [
         "帝王切開_2025-08-20"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -360,6 +424,10 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-08-20_2"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -370,6 +438,9 @@ window.BRIEFING_DATA = {
       "action": "術野に突っ込んで血を拭く。術者にガーゼを奪われる前に自分から拭く",
       "sources": [
         "帝王切開_2025-11-21"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -382,6 +453,10 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-09-03"
       ],
+      "roles": [
+        "執刀",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -392,6 +467,10 @@ window.BRIEFING_DATA = {
       "action": "皮弁に脂肪をしっかりくっつけて、前回の切開瘢痕を円柱状にごっそり切除する。腹壁が薄い人では脂肪を取りすぎないよう注意",
       "sources": [
         "帝王切開_2025-09-03"
+      ],
+      "roles": [
+        "執刀",
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -404,6 +483,10 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-29"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -415,6 +498,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-30"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -425,6 +511,9 @@ window.BRIEFING_DATA = {
       "action": "瘢痕組織にぶち当たるため、頭側にフレッシュな脂肪層を探して到達する",
       "sources": [
         "帝王切開_2026-02-18"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -438,6 +527,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-18",
         "帝王切開_2026-02-27_2"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -448,6 +540,9 @@ window.BRIEFING_DATA = {
       "action": "しっかりカウンタートラクションをかける。いいラインを切れば自然と組織が分かれてくれる",
       "sources": [
         "帝王切開_2026-02-27_2"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -460,6 +555,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-28"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -470,6 +568,9 @@ window.BRIEFING_DATA = {
       "action": "術者から遠い対側を持つ。筋膜は伸びないので近くを持つと窮屈になる",
       "sources": [
         "帝王切開_2026-02-26"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -482,6 +583,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -492,6 +596,9 @@ window.BRIEFING_DATA = {
       "action": "頭側の筋鉤を緩める（尾側は第二助手が牽引しているため）",
       "sources": [
         "帝王切開_2026-02-26"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -504,6 +611,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-30"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -514,6 +624,10 @@ window.BRIEFING_DATA = {
       "action": "以降の操作を浮かせて行い腸管損傷を防ぐ",
       "sources": [
         "帝王切開_2025-09-03"
+      ],
+      "roles": [
+        "執刀",
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -526,6 +640,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-27_2"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -536,6 +653,9 @@ window.BRIEFING_DATA = {
       "action": "筋肉の裏側には血管が多いので指をつっこまない",
       "sources": [
         "帝王切開_2026-02-27_2"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -549,6 +669,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-30",
         "帝王切開_2025-11-19"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -561,6 +684,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2025-11-19",
         "帝王切開_2026-01-30"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -572,6 +698,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -582,6 +711,9 @@ window.BRIEFING_DATA = {
       "action": "尾側→頭側方向に電気メスを動かす（頭側→尾側方向ではない）",
       "sources": [
         "帝王切開_2026-02-27"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -595,6 +727,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-09",
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第二助手",
+        "第一助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -606,6 +742,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -616,6 +755,9 @@ window.BRIEFING_DATA = {
       "action": "筋鉤をもらう。もらい忘れない",
       "sources": [
         "帝王切開_2026-02-09"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -629,6 +771,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-30",
         "帝王切開_2026-02-18"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -638,6 +783,9 @@ window.BRIEFING_DATA = {
       "condition": "筋膜切開で第二助手として尾側の筋鉤を持つ",
       "action": "タイミングが早すぎないよう術者の動きを見てから掛ける（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -647,6 +795,9 @@ window.BRIEFING_DATA = {
       "condition": "腹膜切開に進む",
       "action": "白線コッヘルを外し忘れていないか確認する（しのはら先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]][[帝王切開_前置胎盤_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -656,6 +807,9 @@ window.BRIEFING_DATA = {
       "condition": "腹膜をペアンで開けに行く（腹膜夾鉗〜持ち上げの段階）",
       "action": "白線のペアンはまだ外さず保持したままにする。癒着の確認が済んでから外す（須波先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -666,6 +820,9 @@ window.BRIEFING_DATA = {
       "action": "早めに準備して邪魔になるくらいなら、膀胱フラップ作成直前に準備する",
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -679,6 +836,9 @@ window.BRIEFING_DATA = {
         "帝王切開_前置胎盤_2026-03-18",
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -688,6 +848,9 @@ window.BRIEFING_DATA = {
       "condition": "膀胱フラップ作成で長いペアンを2本保持しながら漿膜を切開する",
       "action": "3本目のペアンでさらに漿膜を把持し、術者・第一助手が長鑷子で持ち替えながら切開を進める（須波先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -698,6 +861,9 @@ window.BRIEFING_DATA = {
       "action": "児頭の位置と術後止血操作のスペースを考慮し、通常よりしっかり深くまで剥離する",
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -710,6 +876,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -719,6 +888,9 @@ window.BRIEFING_DATA = {
       "condition": "子宮筋層をメスで切開する",
       "action": "子宮壁に対して垂直に切る。筋層は均一な厚みではないため幅広く深めに切開し、一番薄いポイントで脱落膜が露出するのを待つ。一点集中で掘ると難易度が上がる（安田先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -729,6 +901,9 @@ window.BRIEFING_DATA = {
       "action": "吸引がすぐ使える位置にあるか確認する",
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -741,6 +916,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -751,6 +929,9 @@ window.BRIEFING_DATA = {
       "action": "長鑷子でつまみ上げて浮いているところしか切らない",
       "sources": [
         "帝王切開_2026-01-30"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -763,6 +944,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -773,6 +957,9 @@ window.BRIEFING_DATA = {
       "action": "長いペアンで尾側の臓側腹膜断端を挟む手順を忘れない",
       "sources": [
         "帝王切開_2026-02-27_2"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -785,6 +972,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-27_2"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -795,6 +985,9 @@ window.BRIEFING_DATA = {
       "action": "メスで切る幅だけでなくクーパーで延長するラインまでマーキングする",
       "sources": [
         "帝王切開_2026-02-18"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -808,6 +1001,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-30",
         "帝王切開_2026-02-18"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -818,6 +1014,9 @@ window.BRIEFING_DATA = {
       "action": "3横指の幅で切開する",
       "sources": [
         "帝王切開_2025-11-19"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -830,6 +1029,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-09"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -840,6 +1042,9 @@ window.BRIEFING_DATA = {
       "action": "切開を進めるたびに指の向きを変える（指はカーブしないため）。指2本が入るまで鈍的に広げる",
       "sources": [
         "帝王切開_2026-01-30"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -852,6 +1057,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-08-22"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -863,6 +1071,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-19"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -873,6 +1084,9 @@ window.BRIEFING_DATA = {
       "action": "どんな状態で娩出されたか見ておく",
       "sources": [
         "帝王切開_2025-08-20"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -886,6 +1100,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2025-11-19",
         "帝王切開_2025-11-21"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -896,6 +1113,9 @@ window.BRIEFING_DATA = {
       "action": "手を入れていると邪魔になるので引く",
       "sources": [
         "帝王切開_2025-11-21"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -908,6 +1128,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -919,6 +1142,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-05"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -929,6 +1155,9 @@ window.BRIEFING_DATA = {
       "action": "押す前に児のお尻の位置を確認する。レオポルド触診を術前にやる",
       "sources": [
         "帝王切開_2026-02-26"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -942,6 +1171,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-18",
         "帝王切開_2026-02-27"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -954,6 +1186,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-30",
         "帝王切開_2026-02-18"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -963,6 +1198,9 @@ window.BRIEFING_DATA = {
       "condition": "児を娩出した直後",
       "action": "顔を十分に拭く。拭きが不十分と指摘されやすい（笠井先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -973,6 +1211,9 @@ window.BRIEFING_DATA = {
       "action": "子宮収縮薬（アトニン等）の投与タイミングが来ることを予測し、ぼうっとしない。上級医に先読みして動けるよう準備しておく",
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-19"
     },
@@ -985,6 +1226,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-21"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -995,6 +1239,9 @@ window.BRIEFING_DATA = {
       "action": "ガーゼをもらってから掴む",
       "sources": [
         "帝王切開_2026-02-27"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-19"
     },
@@ -1007,6 +1254,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1018,6 +1268,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-27"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1028,6 +1281,9 @@ window.BRIEFING_DATA = {
       "action": "ダグラス窩にタオルを挿入してから、ケリー2本を通してクーパーで切離→2-0で結紮。癒着が外れると子宮を腹腔外に挙上でき、縫合・筋腫核出がやりやすくなる",
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-19"
     },
@@ -1041,6 +1297,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-26",
         "帝王切開_2026-02-27"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1050,6 +1309,9 @@ window.BRIEFING_DATA = {
       "condition": "子宮切開を用手的に広げる",
       "action": "開創器の3枚目ブレードを外してから行う（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1061,6 +1323,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1070,6 +1335,9 @@ window.BRIEFING_DATA = {
       "condition": "下節が空虚で伸展が不良な症例（小児・早産・骨盤位等）で子宮切開ラインを決める",
       "action": "「どこで切るか」を術者と事前に確認する。切開位置の判断が難しいことを念頭に置く（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1080,6 +1348,9 @@ window.BRIEFING_DATA = {
       "action": "臍帯を傷つけないようへそに触れないよう腰をつかんで娩出する",
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -1092,6 +1363,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1103,6 +1377,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1112,6 +1389,9 @@ window.BRIEFING_DATA = {
       "condition": "第一助手として尾側のT字鉗子を持っている",
       "action": "しっかり把持して術野を安定させる。緩くなっていないか意識する（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1122,6 +1402,9 @@ window.BRIEFING_DATA = {
       "action": "子宮の傷は床と垂直ではなく曲面であるため、都度キズに対して垂直を意識する",
       "sources": [
         "帝王切開_2026-01-28"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1134,6 +1417,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-30"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1144,6 +1430,9 @@ window.BRIEFING_DATA = {
       "action": "たくさんとると筋層に入り込み菲薄化の一因となるため、少量にとどめる",
       "sources": [
         "帝王切開_2026-02-18"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1156,6 +1445,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-27_2"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1166,6 +1458,10 @@ window.BRIEFING_DATA = {
       "action": "広く取るが薄くとる（厚くとると団子になる）。頭側は薄く狭くとる",
       "sources": [
         "帝王切開_2026-01-29"
+      ],
+      "roles": [
+        "第一助手",
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1178,6 +1474,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-28"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1187,6 +1486,9 @@ window.BRIEFING_DATA = {
       "condition": "ストラタフィックス2本で筋層を縫合する",
       "action": "2本を互いに反対方向にかけると重なりが少なくなり縫いやすい（笠井先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1197,6 +1499,9 @@ window.BRIEFING_DATA = {
       "action": "第一助手として忘れないこと",
       "sources": [
         "帝王切開_2026-02-26"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1209,6 +1514,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1219,6 +1527,9 @@ window.BRIEFING_DATA = {
       "action": "全層で縫合する",
       "sources": [
         "帝王切開_2026-02-18"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1231,6 +1542,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-30"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1241,6 +1555,9 @@ window.BRIEFING_DATA = {
       "action": "内腔にしっかり針先を出す",
       "sources": [
         "帝王切開_2026-02-27_2"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1254,6 +1571,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2025-09-05",
         "帝王切開_2026-01-29"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1264,6 +1585,9 @@ window.BRIEFING_DATA = {
       "action": "鑷子とドベーキーの両方を使うと貼りやすい。大網がかかっていたらよけてから貼る",
       "sources": [
         "帝王切開_2026-01-28"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1277,6 +1601,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-13",
         "帝王切開_2026-03-03"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1287,6 +1614,9 @@ window.BRIEFING_DATA = {
       "action": "術者は子宮を頭側に支えておく",
       "sources": [
         "帝王切開_2026-02-27"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-19"
     },
@@ -1299,6 +1629,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1309,6 +1642,9 @@ window.BRIEFING_DATA = {
       "action": "頭側の二層境界が分厚くてはっきりしない場合でも、尾側と同様に色味の変化を手がかりに境界を同定しようとする。不明瞭な場合は上級医に確認する",
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-19"
     },
@@ -1321,6 +1657,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1331,6 +1670,9 @@ window.BRIEFING_DATA = {
       "action": "Y字部分を1-0ポリゾーブで一塊に縛り細くしておく。キャップとガイドワイヤーも外してから挿入する（頸部通過のための前処理）",
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -1343,6 +1685,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1352,6 +1697,9 @@ window.BRIEFING_DATA = {
       "condition": "膀胱子宮窩腹膜の両脇（厚い部分）を結紮する",
       "action": "出血を止めるようしっかり締める。薄い中央部と同じ力加減でやらない（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1362,6 +1710,9 @@ window.BRIEFING_DATA = {
       "action": "Z縫合で解消する。糸をしっかり締める",
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -1374,6 +1725,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1383,6 +1737,9 @@ window.BRIEFING_DATA = {
       "condition": "尾側の筋層縫合で運針が難しい",
       "action": "体の向きを変えて運針する方法を試みる（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1393,6 +1750,9 @@ window.BRIEFING_DATA = {
       "action": "T字鉗子は言われるまで外さない",
       "sources": [
         "帝王切開_2025-11-21"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -1407,6 +1767,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-09",
         "帝王切開_2026-02-20"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1417,6 +1780,9 @@ window.BRIEFING_DATA = {
       "action": "使用前に種類を確認する。ペアン要求にコッヘルが来ることがある",
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1429,6 +1795,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_前置胎盤_2026-03-18"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1439,6 +1808,9 @@ window.BRIEFING_DATA = {
       "action": "ありったけのペアンをもらう。エッケには必ずかける。2つだけで満足しない",
       "sources": [
         "帝王切開_2026-01-09"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1453,6 +1825,11 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-20",
         "帝王切開_2026-01-29"
       ],
+      "roles": [
+        "執刀",
+        "第二助手",
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1463,6 +1840,9 @@ window.BRIEFING_DATA = {
       "action": "バイトを広めに取る（2-3mmでは狭すぎる）",
       "sources": [
         "帝王切開_2026-02-27_2"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1475,6 +1855,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-27_2"
       ],
+      "roles": [
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1485,6 +1868,9 @@ window.BRIEFING_DATA = {
       "action": "針をフリーにしない。必ず長鑷子でつかむ",
       "sources": [
         "帝王切開_2026-01-09"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1497,6 +1883,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-21"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1507,6 +1896,9 @@ window.BRIEFING_DATA = {
       "action": "膀胱が近いからバイトを狭くする",
       "sources": [
         "帝王切開_2026-01-21"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1520,6 +1912,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-10",
         "帝王切開_2026-01-21"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1532,6 +1928,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-20",
         "帝王切開_2026-02-13"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1543,6 +1942,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1553,6 +1955,9 @@ window.BRIEFING_DATA = {
       "action": "断端を垂直にひっぱりあげることで境界がわかる（鉤ピンでめくるより有効）",
       "sources": [
         "帝王切開_2026-01-21"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1566,6 +1971,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-28",
         "帝王切開_2026-02-13"
       ],
+      "roles": [
+        "執刀",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1576,6 +1985,9 @@ window.BRIEFING_DATA = {
       "action": "広く浅く取る。幅が狭いとちぎれる",
       "sources": [
         "帝王切開_2026-01-09"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1588,6 +2000,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-20"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1598,6 +2013,9 @@ window.BRIEFING_DATA = {
       "action": "白線側は筋膜と腹膜がくっついていがちなので広く浅くとる。ただし2cmは取りすぎ",
       "sources": [
         "帝王切開_2026-01-28"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1610,6 +2028,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-21"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1620,6 +2041,9 @@ window.BRIEFING_DATA = {
       "action": "できるだけ真上から垂直に送る。斜めに送ると針間が広がって見える",
       "sources": [
         "帝王切開_2026-02-20"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1632,6 +2056,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-21"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1642,6 +2069,9 @@ window.BRIEFING_DATA = {
       "action": "しゃもじの理論からハの字に運針する",
       "sources": [
         "帝王切開_2026-02-10"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1654,6 +2084,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-10"
       ],
+      "roles": [
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1664,6 +2097,9 @@ window.BRIEFING_DATA = {
       "action": "間に追加で入れることになるので、最初から均等なピッチを意識する",
       "sources": [
         "帝王切開_2026-02-10"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1676,6 +2112,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-19"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1687,6 +2126,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-19"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1697,6 +2139,9 @@ window.BRIEFING_DATA = {
       "action": "筋鉤だけでなく手で皮膚を反転させて皮下脂肪側の出血も確認する",
       "sources": [
         "帝王切開_2026-02-20"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1710,6 +2155,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-20",
         "帝王切開_2026-02-10"
       ],
+      "roles": [
+        "第二助手",
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1720,6 +2169,9 @@ window.BRIEFING_DATA = {
       "action": "浅筋膜だけでなく背側の脂肪層も拾い、腹側もそこそこ拾う",
       "sources": [
         "帝王切開_2026-02-27"
+      ],
+      "roles": [
+        "執刀"
       ],
       "added_date": "2026-03-10"
     },
@@ -1734,6 +2186,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-05",
         "帝王切開_2026-01-09"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1744,6 +2200,9 @@ window.BRIEFING_DATA = {
       "action": "組織を拾う量に差があるとよじれの原因になる。尾側の刺出点を深くする or 頭側を浅くする",
       "sources": [
         "帝王切開_2026-02-13"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1756,6 +2215,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-02-13"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1766,6 +2228,9 @@ window.BRIEFING_DATA = {
       "action": "相手側から縫っていくとやりやすい",
       "sources": [
         "帝王切開_2026-02-13"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1778,6 +2243,10 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-08-20_2"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1788,6 +2257,9 @@ window.BRIEFING_DATA = {
       "action": "片手で切るときは切る前に一瞬止める",
       "sources": [
         "帝王切開_2026-02-10"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-19"
     },
@@ -1800,6 +2272,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-21"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -1810,6 +2285,9 @@ window.BRIEFING_DATA = {
       "action": "ガーゼを使うと滑りも良い",
       "sources": [
         "帝王切開_2025-11-21"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-19"
     },
@@ -1822,6 +2300,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-08-20"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1832,6 +2313,9 @@ window.BRIEFING_DATA = {
       "action": "術者が近づいてきたら早めに逃げる",
       "sources": [
         "帝王切開_2025-11-21"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -1844,6 +2328,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-21"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1854,6 +2341,9 @@ window.BRIEFING_DATA = {
       "action": "すぐにライトを合わせる。言われる前に動く",
       "sources": [
         "帝王切開_2026-02-09"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1867,6 +2357,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-05",
         "帝王切開_2026-02-20"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1878,6 +2371,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-11-21"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1888,6 +2384,9 @@ window.BRIEFING_DATA = {
       "action": "クレキサン使用予定ならより念入りに。ガーゼで拭いて怪しいところを凝固する",
       "sources": [
         "帝王切開_2026-02-13"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1901,6 +2400,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2025-09-03",
         "帝王切開_2026-01-28"
       ],
+      "roles": [
+        "執刀",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1912,6 +2415,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-09-05_2"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1922,6 +2428,10 @@ window.BRIEFING_DATA = {
       "action": "不潔なので外回りが外すまで触らず辛抱して待つ",
       "sources": [
         "帝王切開_2025-08-20_2"
+      ],
+      "roles": [
+        "第一助手",
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1935,6 +2445,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2025-08-20_2",
         "帝王切開_2026-02-20"
       ],
+      "roles": [
+        "第一助手",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1945,6 +2459,9 @@ window.BRIEFING_DATA = {
       "action": "青色ではなく白手袋にする（青は滑る）",
       "sources": [
         "帝王切開_2026-01-09"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -1957,6 +2474,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-09-05"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1967,6 +2487,9 @@ window.BRIEFING_DATA = {
       "action": "白線のラインが推測できる",
       "sources": [
         "帝王切開_2025-11-21"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -1980,6 +2503,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-01-09",
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第二助手",
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -1992,6 +2519,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2025-08-20",
         "帝王切開_2026-02-26"
       ],
+      "roles": [
+        "第二助手",
+        "第一助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2003,6 +2534,10 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2025-09-03"
       ],
+      "roles": [
+        "執刀",
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2013,6 +2548,9 @@ window.BRIEFING_DATA = {
       "action": "糸をさっと捌いてビシッと止めておく。フラフラさせない",
       "sources": [
         "帝王切開_2026-02-10"
+      ],
+      "roles": [
+        "第一助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -2026,6 +2564,9 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-09",
         "帝王切開_2026-02-13"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2037,6 +2578,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_2026-01-21"
       ],
+      "roles": [
+        "第二助手"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2047,6 +2591,9 @@ window.BRIEFING_DATA = {
       "action": "先端寄りではなくクーパーの真ん中寄りで切る。噛み合わせをしっかり合わせてから切断する",
       "sources": [
         "帝王切開_2026-02-20"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -2060,6 +2607,10 @@ window.BRIEFING_DATA = {
         "帝王切開_2026-02-26",
         "帝王切開_2026-02-27_2"
       ],
+      "roles": [
+        "第一助手",
+        "執刀"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2070,6 +2621,9 @@ window.BRIEFING_DATA = {
       "action": "尾側の筋鉤は第二助手がかけること（第一助手の手が空くように）",
       "sources": [
         "帝王切開_2026-02-20"
+      ],
+      "roles": [
+        "第二助手"
       ],
       "added_date": "2026-03-10"
     },
@@ -2082,6 +2636,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "帝王切開_分葉胎盤_筋腫核出_2026-03-18"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2092,6 +2649,9 @@ window.BRIEFING_DATA = {
       "action": "受容体飽和後は「今の陣痛が最大」と考え、今の陣痛で分娩進行するかで方針を決める（増量=陣痛増強ではない）",
       "sources": [
         "吸引分娩_2026-03-02"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2104,6 +2664,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "吸引分娩_2026-03-02"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2114,6 +2677,9 @@ window.BRIEFING_DATA = {
       "action": "カップを手のひらに当てて圧がかかるか確認する（最も重要なステップ）",
       "sources": [
         "吸引分娩_2026-03-02"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2126,6 +2692,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "吸引分娩_2026-03-02"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2136,6 +2705,9 @@ window.BRIEFING_DATA = {
       "action": "子宮底を押す人用の足台を設置する",
       "sources": [
         "吸引分娩_2026-03-02"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2148,6 +2720,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "吸引分娩_2026-03-02"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2158,6 +2733,9 @@ window.BRIEFING_DATA = {
       "action": "怒責時の児頭下降を評価して経腟分娩の可否を判断する",
       "sources": [
         "2026-03-03_経腟分娩"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2170,6 +2748,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-03_経腟分娩"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2180,6 +2761,9 @@ window.BRIEFING_DATA = {
       "action": "指で死腔（ポケット状の空間）がないか確認する。放置すると血腫形成リスクがある",
       "sources": [
         "2026-03-03_経腟分娩"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2192,6 +2776,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-03_経腟分娩"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2202,6 +2789,9 @@ window.BRIEFING_DATA = {
       "action": "弛緩出血リスクが高い。分娩後の子宮収縮が弱くなることを警戒する",
       "sources": [
         "2026-03-03_経腟分娩"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2214,6 +2804,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-17_経腟分娩"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2223,6 +2816,9 @@ window.BRIEFING_DATA = {
       "condition": "助産師が複数いて相互に指導・練習中の場面である",
       "action": "人員が足りているため医師が不必要に手を出さない。介入する前に人員と指導状況を確認する（篠原先生 [[2026-03-17_経腟分娩]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2232,6 +2828,9 @@ window.BRIEFING_DATA = {
       "condition": "展退度を評価する",
       "action": "頚管長3cmを基準に「どのくらい短くなっているか」の雰囲気で判断する。厳密な計測値ではなく、指が頚管内に何cm入っているかと頚管の薄さから主観的に判断する（安田先生より 2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2241,6 +2840,9 @@ window.BRIEFING_DATA = {
       "condition": "触診による展退度と経腟エコー計測値が乖離している",
       "action": "触診は主観的評価であり乖離はありうると認識する。エコーが正確だが触診にはリアルタイム性・動的評価という固有の意義がある（安田先生より 2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2250,6 +2852,9 @@ window.BRIEFING_DATA = {
       "condition": "内診所見を申告する",
       "action": "その数字に責任を持てる丁寧な評価を行う。一度申告した所見は臨床の流れの中で訂正しにくい場面があるため、初回評価を慎重に行う（安田先生より 2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2259,6 +2864,9 @@ window.BRIEFING_DATA = {
       "condition": "会陰縫合を始める前である",
       "action": "ガーゼを腟奥（中枢側）に1枚入れてから縫合を開始する。中枢側からの血液垂れ込みを防いで視野を確保するための標準手技（安田先生・篠原先生両方で確認 [[2026-03-17_経腟分娩]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2268,6 +2876,9 @@ window.BRIEFING_DATA = {
       "condition": "会陰部に縫合針を刺入する前である",
       "action": "触診で血管走行を確認してから刺入する。4-5時方向に走行する血管を刺すと動脈性出血のリスクがある（篠原先生 [[2026-03-17_経腟分娩]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2277,6 +2888,9 @@ window.BRIEFING_DATA = {
       "condition": "1度裂傷で出血がないが、ポケット状（袋状）の形態をしている",
       "action": "感染・血腫リスクを考慮して縫合を検討する（篠原先生 [[2026-03-17_経腟分娩]]）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2286,6 +2900,9 @@ window.BRIEFING_DATA = {
       "condition": "会陰切開創を縫合する前である",
       "action": "ガーゼを子宮頸部側に突っ込んで上方からの出血を堰き止めてから縫合を開始する（篠原先生 2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2296,6 +2913,9 @@ window.BRIEFING_DATA = {
       "action": "ガーゼを腟内に押し込んで出血を堰き止め、視野を確保してから縫合を続ける",
       "sources": [
         "2026-03-16_経腟分娩"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2308,6 +2928,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-16_経腟分娩"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2318,6 +2941,9 @@ window.BRIEFING_DATA = {
       "action": "糸端が創面外に出ると汚染リスクが高まるため、できるだけ短くギリギリで切る",
       "sources": [
         "2026-03-16_経腟分娩"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2330,6 +2956,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-16_経腟分娩"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2339,6 +2968,9 @@ window.BRIEFING_DATA = {
       "condition": "マットレス縫合の表層縫合を行う",
       "action": "表皮＋真皮の少しをすくう。深く拾うと（3-4mm）外反するが、表皮だけでは浅すぎる（篠原先生 2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2348,6 +2980,9 @@ window.BRIEFING_DATA = {
       "condition": "縫合後に傷が外反している",
       "action": "糸を強く締めても外反は悪化するだけ。間に1針追加するか、やり直す判断をする（篠原先生 2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2357,6 +2992,9 @@ window.BRIEFING_DATA = {
       "condition": "傷が外反して真皮が露出している",
       "action": "感染リスクが上がるため、外反を放置しない（篠原先生 2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2368,6 +3006,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-16_経腟分娩"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2377,6 +3018,9 @@ window.BRIEFING_DATA = {
       "condition": "児頭娩出後に肩が出ない",
       "action": "前在肩甲が出た瞬間に介入する。母体の横から児の腋窩に二本指を入れて娩出を補助する動きを覚えておく（笠井先生の対応 2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2386,6 +3030,9 @@ window.BRIEFING_DATA = {
       "condition": "推定体重3800g以上の経腟分娩",
       "action": "肩甲難産のリスクを念頭に置き、介入できる準備をしておく（2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2395,6 +3042,9 @@ window.BRIEFING_DATA = {
       "condition": "癒着胎盤の既往がある経腟分娩",
       "action": "今回も癒着する可能性を念頭に置く。胎盤娩出時にエコーガイド下で臍帯試験牽引を行い癒着の有無を確認する（2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2404,6 +3054,9 @@ window.BRIEFING_DATA = {
       "condition": "経腟分娩で癒着胎盤を確認した",
       "action": "アトニン停止 → リナセートF全開フラッシュ → ニトロ・ソセゴン・セルシン投与 → 用手剥離 → 剥離後アトニン全開、の手順で対応する（篠原先生 2026-03-10）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-19"
     },
     {
@@ -2414,6 +3067,9 @@ window.BRIEFING_DATA = {
       "action": "疲労・業務状況・子宮口の数字に関係なく、最低30分に1回は分娩室を覗きに行く。空振り5分の損失 < 症例を逃す損失",
       "sources": [
         "2026-03-06_吸引分娩_見逃し振り返り"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-19"
     },
@@ -2426,6 +3082,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-02-26_初診エコー_8w6d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2436,6 +3095,9 @@ window.BRIEFING_DATA = {
       "action": "まず子宮全体のオリエンテーション画像を1枚保存する（子宮の形、後屈有無、児の位置確認）",
       "sources": [
         "2026-02-26_初診エコー_8w6d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2448,6 +3110,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-02-26_初診エコー_8w6d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2458,6 +3123,9 @@ window.BRIEFING_DATA = {
       "action": "視床だけでなく透明中隔腔まで必ず描出する。34wでも描出可能。見えないときは「週数のせい」と決めつけずプローブ角度を調整して粘る",
       "sources": [
         "2026-03-02_初診エコー_34w"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2470,6 +3138,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-02_初診エコー_34w"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2480,6 +3151,9 @@ window.BRIEFING_DATA = {
       "action": "もっと奥まで挿入する。子宮頚管の位置が尾側寄りの可能性を念頭に置く",
       "sources": [
         "2026-03-02_初診エコー_34w"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2492,6 +3166,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-02_初診エコー_9w6d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2502,6 +3179,9 @@ window.BRIEFING_DATA = {
       "action": "患者さんを部屋に案内しない。予習を終えてから案内してもらう",
       "sources": [
         "2026-03-02_初診エコー_9w6d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2514,6 +3194,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-02_初診エコー_9w6d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2524,6 +3207,9 @@ window.BRIEFING_DATA = {
       "action": "まず児頭と臀部の位置関係を把握し、児を追いながらプローブを90度回転させて矢状断を出す",
       "sources": [
         "2026-03-05_初診エコー_10w1d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2536,6 +3222,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-05_初診エコー_10w1d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2546,6 +3235,9 @@ window.BRIEFING_DATA = {
       "action": "計測ボタンを押してから数字キーを押す。ROIの範囲調節は丸いボタンで行う",
       "sources": [
         "2026-03-05_初診エコー_10w1d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2558,6 +3250,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2568,6 +3263,9 @@ window.BRIEFING_DATA = {
       "action": "母体腹部の丸みを広く使い、見たい断面が水平になるような位置からビームを入れる",
       "sources": [
         "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2580,6 +3278,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2590,6 +3291,9 @@ window.BRIEFING_DATA = {
       "action": "まず対象を画面中央に持ってきてから拡大する。端に置いたまま拡大しない",
       "sources": [
         "2026-03-05_妊婦健診エコー_21w3d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2602,6 +3306,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-05_妊婦健診エコー_19w6d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2612,6 +3319,9 @@ window.BRIEFING_DATA = {
       "action": "プローブが斜めに入っているサイン。断面が正円に近くなるまでプローブ角度を修正する",
       "sources": [
         "2026-03-05_妊婦健診エコー_19w6d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2624,6 +3334,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-05_妊婦健診エコー_22w5d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2634,6 +3347,9 @@ window.BRIEFING_DATA = {
       "action": "輪郭が不明瞭な部分を補完して大きく計測しない。プローブ角度を変えて全周が明瞭に描出される断面を探してから計測する",
       "sources": [
         "2026-03-05_妊婦健診エコー_23w2d"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2646,6 +3362,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "2026-03-05_妊婦健診エコー_23w2d"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2655,6 +3374,9 @@ window.BRIEFING_DATA = {
       "condition": "経腟エコーで低置胎盤・前置胎盤を評価する",
       "action": "児頭がはまり込んでいると胎盤が見えにくいことを念頭に置く。前置胎盤の方が確認しやすい（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2664,6 +3386,9 @@ window.BRIEFING_DATA = {
       "condition": "経腟エコーで後壁に白い帯状構造が見えて胎盤と区別できない",
       "action": "児頭と内子宮口の間に少量羊水がある場合、後壁子宮筋層がアーチファクトで白く映ることがある。児頭を動かして鑑別する（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2673,6 +3398,9 @@ window.BRIEFING_DATA = {
       "condition": "経腟エコーで児頭が邪魔で内子宮口付近が見えにくい",
       "action": "経腹から児頭を上方へ持ち上げるか、経腟プローブで児頭をパッと持ち上げてすぐ元の位置に戻しフリーズする方法を試みる（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2682,6 +3410,9 @@ window.BRIEFING_DATA = {
       "condition": "前置胎盤症例のMRIで子宮頚管の走行を確認する",
       "action": "頚管が水平になっていないかを見る（水平化は癒着や圧迫の指標となりうる）（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2691,6 +3422,9 @@ window.BRIEFING_DATA = {
       "condition": "前置胎盤で子宮後壁に癒着が疑われる",
       "action": "圧迫縫合ができない可能性がある。バルーン止血を選択肢として術前から準備しておく（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2700,6 +3434,9 @@ window.BRIEFING_DATA = {
       "condition": "頚管拡張デバイスを選択する",
       "action": "原則としてダイラパンを使用する。感染リスクが低いため（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2709,6 +3446,9 @@ window.BRIEFING_DATA = {
       "condition": "頚管が硬く拡張困難な症例（稽留流産など）に頚管前処置を行う",
       "action": "ラミナリアを選択肢に含める。ダイラパンより拡張力が高い（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2718,6 +3458,9 @@ window.BRIEFING_DATA = {
       "condition": "ラミナリアを使用した",
       "action": "海藻由来で感染リスクがあることを念頭に置き、術後の感染徴候をより注意深く観察する（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2727,6 +3470,9 @@ window.BRIEFING_DATA = {
       "condition": "ラミナリア挿入後にエコーで位置確認しようとする",
       "action": "ラミナリアはエコーに映りにくいことを前提に評価する。見えないからといって正常挿入を否定できない（2026-03-09）",
       "sources": [],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2737,6 +3483,9 @@ window.BRIEFING_DATA = {
       "action": "子宮内腔の長さを計測するだけでなく、頚管の方向を正確にイメージしてからダイレーター挿入に移る",
       "sources": [
         "子宮内容除去術_2026-03-06"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2749,6 +3498,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "子宮内容除去術_2026-03-06"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2759,6 +3511,9 @@ window.BRIEFING_DATA = {
       "action": "焦らずゆっくり持続的に力を加える。一気に押し込むと穿孔のリスクがある",
       "sources": [
         "子宮内容除去術_2026-03-06"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2771,6 +3526,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "子宮内容除去術_2026-03-06"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2782,6 +3540,9 @@ window.BRIEFING_DATA = {
       "sources": [
         "子宮内容除去術_2026-03-06"
       ],
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-10"
     },
     {
@@ -2792,6 +3553,9 @@ window.BRIEFING_DATA = {
       "action": "絨毛成分（ふわふわした外観）と脱落膜成分を区別し、胞状奇胎の有無を確認してから終了する",
       "sources": [
         "子宮内容除去術_2026-03-06"
+      ],
+      "roles": [
+        "共通"
       ],
       "added_date": "2026-03-10"
     },
@@ -2805,6 +3569,9 @@ window.BRIEFING_DATA = {
         "吸引分娩_2026-03-02"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2817,6 +3584,9 @@ window.BRIEFING_DATA = {
         "吸引分娩_2026-03-02"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2829,6 +3599,9 @@ window.BRIEFING_DATA = {
         "吸引分娩_2026-03-02"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2841,6 +3614,9 @@ window.BRIEFING_DATA = {
         "吸引分娩_2026-03-02"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2853,6 +3629,9 @@ window.BRIEFING_DATA = {
         "2026-03-03_経腟分娩"
       ],
       "date": "2026-03-03",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2865,6 +3644,9 @@ window.BRIEFING_DATA = {
         "2026-03-03_経腟分娩"
       ],
       "date": "2026-03-03",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2877,6 +3659,9 @@ window.BRIEFING_DATA = {
         "2026-03-03_経腟分娩"
       ],
       "date": "2026-03-03",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2889,6 +3674,9 @@ window.BRIEFING_DATA = {
         "2026-03-06_吸引分娩_見逃し振り返り"
       ],
       "date": "2026-03-06",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2901,6 +3689,9 @@ window.BRIEFING_DATA = {
         "2026-03-06_吸引分娩_見逃し振り返り"
       ],
       "date": "2026-03-06",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -2913,6 +3704,9 @@ window.BRIEFING_DATA = {
         "2026-03-06_吸引分娩_見逃し振り返り"
       ],
       "date": "2026-03-06",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -2925,6 +3719,9 @@ window.BRIEFING_DATA = {
         "2026-03-06_吸引分娩_見逃し振り返り"
       ],
       "date": "2026-03-06",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -2937,6 +3734,9 @@ window.BRIEFING_DATA = {
         "2026-03-06_吸引分娩_見逃し振り返り"
       ],
       "date": "2026-03-06",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -2949,6 +3749,9 @@ window.BRIEFING_DATA = {
         "2026-03-16_経腟分娩"
       ],
       "date": "2026-03-16",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2961,6 +3764,9 @@ window.BRIEFING_DATA = {
         "2026-03-16_経腟分娩"
       ],
       "date": "2026-03-16",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -2973,6 +3779,9 @@ window.BRIEFING_DATA = {
         "2026-03-16_経腟分娩"
       ],
       "date": "2026-03-16",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -2985,6 +3794,9 @@ window.BRIEFING_DATA = {
         "2026-03-17_経腟分娩"
       ],
       "date": "2026-03-17",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -2997,6 +3809,9 @@ window.BRIEFING_DATA = {
         "2026-03-17_経腟分娩"
       ],
       "date": "2026-03-17",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3009,6 +3824,9 @@ window.BRIEFING_DATA = {
         "2026-03-17_経腟分娩"
       ],
       "date": "2026-03-17",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3021,6 +3839,9 @@ window.BRIEFING_DATA = {
         "2026-03-17_経腟分娩"
       ],
       "date": "2026-03-17",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3033,6 +3854,9 @@ window.BRIEFING_DATA = {
         "2026-03-17_経腟分娩"
       ],
       "date": "2026-03-17",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3045,6 +3869,9 @@ window.BRIEFING_DATA = {
         "2026-02-26_初診エコー_8w6d"
       ],
       "date": "2026-02-26",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -3057,6 +3884,9 @@ window.BRIEFING_DATA = {
         "2026-02-26_初診エコー_8w6d"
       ],
       "date": "2026-02-26",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -3069,6 +3899,9 @@ window.BRIEFING_DATA = {
         "2026-02-26_初診エコー_8w6d"
       ],
       "date": "2026-02-26",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -3081,6 +3914,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_34w"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -3093,6 +3929,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_34w"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -3105,6 +3944,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_34w"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -3117,6 +3959,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_34w"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -3129,6 +3974,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_9w6d"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-06"
     },
     {
@@ -3141,6 +3989,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_9w6d"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -3153,6 +4004,9 @@ window.BRIEFING_DATA = {
         "2026-03-02_初診エコー_9w6d"
       ],
       "date": "2026-03-02",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-02"
     },
     {
@@ -3165,6 +4019,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_初診エコー_10w1d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3177,6 +4034,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_初診エコー_10w1d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3189,6 +4049,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_初診エコー_10w1d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3201,6 +4064,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_19w6d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3213,6 +4079,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_19w6d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3225,6 +4094,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_19w6d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3237,6 +4109,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3249,6 +4124,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3261,6 +4139,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3273,6 +4154,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3285,6 +4169,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_21w3d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3297,6 +4184,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_22w5d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3309,6 +4199,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_22w5d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3321,6 +4214,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_23w2d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3333,6 +4229,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_23w2d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3345,6 +4244,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_23w2d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     },
     {
@@ -3357,6 +4259,9 @@ window.BRIEFING_DATA = {
         "2026-03-05_妊婦健診エコー_23w2d"
       ],
       "date": "2026-03-05",
+      "roles": [
+        "共通"
+      ],
       "added_date": "2026-03-05"
     }
   ]
@@ -3389,6 +4294,7 @@ window.BRIEFING_DATA = {
     <div class="header-title" id="briefing-title"></div>
     <div class="header-subtitle" id="briefing-subtitle"></div>
   </div>
+  <div id="role-bar" class="role-bar"></div>
   <div id="phase-bar" class="phase-bar"></div>
   <div id="trigger-list" class="trigger-list scrollable"></div>
 </div>
@@ -3401,14 +4307,15 @@ let APP_DATA = null;
 // ===== 状態 =====
 let currentProcedure = null;
 let currentPhase = null; // null = 全て
+let currentRole = null;  // null = 全て
 let checkedItems = {};
 
 const PROCEDURE_META = {
-  '帝王切開': { icon: '🔪', color: 'red', phases: ['術前','開腹','子宮切開〜児娩出','子宮筋層縫合','閉腹','その他（助手手技・全般）'] },
-  '吸引分娩': { icon: '⬇️', color: 'orange', phases: [] },
-  '経腟分娩': { icon: '💗', color: 'pink', phases: ['会陰縫合','内診所見・分娩管理','分娩待機の判断','癒着胎盤（経腟分娩）','肩甲難産'] },
-  '胎児エコー': { icon: '📡', color: 'blue', phases: [] },
-  '子宮内容除去術（MVA）': { icon: '🏥', color: 'pink', phases: ['手技','頚管前処置（ラミナリア・ダイラパン）'] },
+  '帝王切開': { icon: '🔪', color: 'red', phases: ['術前','開腹','子宮切開〜児娩出','子宮筋層縫合','閉腹','その他（助手手技・全般）'], roles: ['執刀','第一助手','第二助手'] },
+  '吸引分娩': { icon: '⬇️', color: 'orange', phases: [], roles: [] },
+  '経腟分娩': { icon: '💗', color: 'pink', phases: ['会陰縫合','内診所見・分娩管理','分娩待機の判断','癒着胎盤（経腟分娩）','肩甲難産'], roles: [] },
+  '胎児エコー': { icon: '📡', color: 'blue', phases: [], roles: [] },
+  '子宮内容除去術（MVA）': { icon: '🏥', color: 'pink', phases: ['手技','頚管前処置（ラミナリア・ダイラパン）'], roles: [] },
 };
 
 // ===== localStorage でデイリーチェック管理 =====
@@ -3442,10 +4349,14 @@ function toggleCheck(id) {
 }
 
 // ===== フィルタ・ソート =====
-function triggersFor(procedure, phase) {
+function triggersFor(procedure, phase, role) {
   if (!APP_DATA) return [];
   let list = APP_DATA.triggers.filter(t => t.procedure === procedure);
   if (phase) list = list.filter(t => t.phase === phase);
+  if (role) list = list.filter(t =>
+    (t.roles && (t.roles.includes(role) || t.roles.includes('共通')))
+    || !t.roles
+  );
   return list;
 }
 function sortTriggers(list) {
@@ -3505,23 +4416,38 @@ function renderHome() {
   el.innerHTML = html;
 }
 
+function renderRoleBar(procedure) {
+  const meta = PROCEDURE_META[procedure];
+  const bar = document.getElementById('role-bar');
+  if (!meta || !meta.roles || meta.roles.length === 0) { bar.style.display='none'; return; }
+  bar.style.display = 'flex';
+
+  const allCount = triggersFor(procedure, currentPhase, null).length;
+  let html = `<button class="role-chip ${currentRole===null?'active':''}" onclick="setRole(null)">全て <span class="count">${allCount}</span></button>`;
+  for (const role of meta.roles) {
+    const cnt = triggersFor(procedure, currentPhase, role).length;
+    html += `<button class="role-chip ${currentRole===role?'active':''}" onclick="setRole('${role}')">${role} <span class="count">${cnt}</span></button>`;
+  }
+  bar.innerHTML = html;
+}
+
 function renderPhaseBar(procedure) {
   const meta = PROCEDURE_META[procedure];
   const bar = document.getElementById('phase-bar');
   if (!meta || meta.phases.length === 0) { bar.style.display='none'; return; }
   bar.style.display = 'flex';
 
-  const allCount = triggersFor(procedure, null).length;
+  const allCount = triggersFor(procedure, null, currentRole).length;
   let html = `<button class="phase-chip ${currentPhase===null?'active':''}" onclick="setPhase(null)">全て <span class="count">${allCount}</span></button>`;
   for (const phase of meta.phases) {
-    const cnt = triggersFor(procedure, phase).length;
+    const cnt = triggersFor(procedure, phase, currentRole).length;
     html += `<button class="phase-chip ${currentPhase===phase?'active':''}" onclick="setPhase('${phase}')">${phase} <span class="count">${cnt}</span></button>`;
   }
   bar.innerHTML = html;
 }
 
 function renderTriggerList() {
-  const list = sortTriggers(triggersFor(currentProcedure, currentPhase));
+  const list = sortTriggers(triggersFor(currentProcedure, currentPhase, currentRole));
   const el = document.getElementById('trigger-list');
   const checkedCount = list.filter(t => isCheckedToday(t.id)).length;
 
@@ -3587,6 +4513,7 @@ function renderSearchResults(query) {
 function showHome() {
   currentProcedure = null;
   currentPhase = null;
+  currentRole = null;
   document.getElementById('view-home').classList.add('active');
   document.getElementById('view-briefing').classList.remove('active');
   renderHome();
@@ -3595,12 +4522,14 @@ function showHome() {
 function showBriefing(procedure) {
   currentProcedure = procedure;
   currentPhase = null;
+  currentRole = null;
   document.getElementById('view-home').classList.remove('active');
   document.getElementById('view-briefing').classList.add('active');
   document.getElementById('briefing-title').textContent = procedure;
-  const all = triggersFor(procedure, null);
+  const all = triggersFor(procedure, null, null);
   const unchecked = all.filter(t => !isCheckedToday(t.id)).length;
   document.getElementById('briefing-subtitle').textContent = `${all.length} 件のトリガー・残り ${unchecked}`;
+  renderRoleBar(procedure);
   renderPhaseBar(procedure);
   renderTriggerList();
   // スクロールトップ
@@ -3609,6 +4538,14 @@ function showBriefing(procedure) {
 
 function setPhase(phase) {
   currentPhase = phase;
+  renderRoleBar(currentProcedure);
+  renderPhaseBar(currentProcedure);
+  renderTriggerList();
+}
+
+function setRole(role) {
+  currentRole = role;
+  renderRoleBar(currentProcedure);
   renderPhaseBar(currentProcedure);
   renderTriggerList();
 }
@@ -3618,8 +4555,10 @@ function handleCheck(id) {
   // 現在の画面を再レンダリング
   if (currentProcedure) {
     renderTriggerList();
+    renderRoleBar(currentProcedure);
+    renderPhaseBar(currentProcedure);
     // subtitle 更新
-    const all = triggersFor(currentProcedure, null);
+    const all = triggersFor(currentProcedure, null, currentRole);
     const unchecked = all.filter(t => !isCheckedToday(t.id)).length;
     document.getElementById('briefing-subtitle').textContent = `${all.length} 件のトリガー・残り ${unchecked}`;
   } else {
