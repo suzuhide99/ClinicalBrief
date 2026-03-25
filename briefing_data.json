@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-25T06:06:41.190881+09:00",
+  "generated_at": "2026-03-25T22:09:34.125920+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -1571,6 +1571,18 @@
       "id": "cs-close-009",
       "procedure": "帝王切開",
       "phase": "閉腹",
+      "condition": "腹膜のペアンを外して尾側に掛け直す",
+      "action": "掛け直した後に必ず目視で最内層の腹膜を把持できているか確認する。外側を掴むと腹膜を落とす（篠原先生 [[帝王切開_2026-03-25]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-010",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
       "condition": "奥の腹膜を縫う",
       "action": "針をフリーにしない。必ず長鑷子でつかむ",
       "sources": [
@@ -1582,7 +1594,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-010",
+      "id": "cs-close-011",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "腹膜縫合でエッケのペアンを引っ張っている",
@@ -1596,7 +1608,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-011",
+      "id": "cs-close-012",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "尾側の腹膜を縫う",
@@ -1610,7 +1622,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-012",
+      "id": "cs-close-013",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "腹膜縫合後に止血確認をする",
@@ -1626,7 +1638,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-013",
+      "id": "cs-close-014",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜を縫合する",
@@ -1641,7 +1653,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-014",
+      "id": "cs-close-015",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "縦切開の筋膜縫合をする",
@@ -1655,7 +1667,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-015",
+      "id": "cs-close-016",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜と筋肉の境界が分かりにくい",
@@ -1669,7 +1681,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-016",
+      "id": "cs-close-017",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "一針目の筋膜縫合を行う",
@@ -1685,7 +1697,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-017",
+      "id": "cs-close-018",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜の縫いしろが短い",
@@ -1699,7 +1711,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-018",
+      "id": "cs-close-019",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜のエッケがわかりにくい",
@@ -1713,7 +1725,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-019",
+      "id": "cs-close-020",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜縫合で白線側を縫う",
@@ -1727,7 +1739,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-020",
+      "id": "cs-close-021",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜を縫うときに表層の脂肪がある",
@@ -1741,7 +1753,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-021",
+      "id": "cs-close-022",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜縫合の糸を尾側から送る",
@@ -1755,7 +1767,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-022",
+      "id": "cs-close-023",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜を縫うとき尾側の糸を引っ張っている",
@@ -1769,7 +1781,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-023",
+      "id": "cs-close-024",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜の最尾側の1針を縫う",
@@ -1783,7 +1795,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-024",
+      "id": "cs-close-025",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "左側の筋膜が斜面で流れている",
@@ -1797,7 +1809,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-025",
+      "id": "cs-close-026",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜縫合でピッチが広がってきた",
@@ -1811,7 +1823,31 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-026",
+      "id": "cs-close-027",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜縫合のピッチを意識する",
+      "action": "1cmでは広い。8mm目安でいく（篠原先生 [[帝王切開_2026-03-25]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-028",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜が「流れて」見える部分がある",
+      "action": "確実に筋膜を拾えているか毎針確認する。取り損ねたら間に追加の1針を入れる（篠原先生 [[帝王切開_2026-03-25]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-029",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "腹膜や筋膜を縫う",
@@ -1825,7 +1861,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-027",
+      "id": "cs-close-030",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜や腹膜を把持する",
@@ -1839,7 +1875,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-028",
+      "id": "cs-close-031",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "筋膜閉鎖後の止血を確認する",
@@ -1853,7 +1889,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-029",
+      "id": "cs-close-032",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "浅筋膜を3-0で縫合する",
@@ -1869,7 +1905,19 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-030",
+      "id": "cs-close-033",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "浅筋膜の1針目（真ん中）で頭側と尾側の高さが合わない",
+      "action": "真皮ギリギリまで出すことで高さを合わせやすくする。または端から順番に縫っていく（篠原先生 [[帝王切開_2026-03-25]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-close-034",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "既往CSでケロイド切除しており創と創の距離が遠い",
@@ -1883,7 +1931,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-031",
+      "id": "cs-close-035",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "真皮縫合で4-0 PDSを使う",
@@ -1900,7 +1948,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-close-032",
+      "id": "cs-close-036",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "真皮縫合で頭側の刺入が深いが尾側の刺出が浅い",
@@ -1911,10 +1959,10 @@
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-close-033",
+      "id": "cs-close-037",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "真皮縫合で針が表皮を貫くことが多い",
@@ -1925,10 +1973,10 @@
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-close-034",
+      "id": "cs-close-038",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "真皮縫合を一人で縫っていく",
@@ -1939,10 +1987,10 @@
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-close-035",
+      "id": "cs-close-039",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "縫合時に糸を切る",
@@ -1954,10 +2002,10 @@
         "第一助手",
         "第二助手"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "cs-close-036",
+      "id": "cs-close-040",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "2-0の結紮を切る",
@@ -1968,10 +2016,10 @@
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "cs-close-037",
+      "id": "cs-close-041",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "皮下ドレーンを固定する",
@@ -1982,10 +2030,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "cs-close-038",
+      "id": "cs-close-042",
       "procedure": "帝王切開",
       "phase": "閉腹",
       "condition": "皮下ドレーンの接続でねじこむ",
@@ -1996,7 +2044,7 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-25"
     },
     {
       "id": "cs-misc-001",
@@ -2817,6 +2865,30 @@
     {
       "id": "vag-gen-026",
       "procedure": "経腟分娩",
+      "phase": "CTG異常・臍帯評価",
+      "condition": "変動一過性徐脈が連発している",
+      "action": "経腟エコーのカラードップラーで臍帯下垂の有無を確認する。臍帯下垂を除外できなければ急速遂娩の適応を検討する（安田先生 [[2026-03-25_経腟分娩]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-24"
+    },
+    {
+      "id": "vag-gen-027",
+      "procedure": "経腟分娩",
+      "phase": "CTG異常・臍帯評価",
+      "condition": "経会陰エコーと経腟エコーを組み合わせて評価する",
+      "action": "経会陰エコー（矢状断）で児頭回旋を確認し、続いて経腟エコー（カラードップラー）で臍帯位置を確認する2段階評価を行う（安田先生 [[2026-03-25_経腟分娩]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-24"
+    },
+    {
+      "id": "vag-gen-028",
+      "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコー横断像で回旋を評価する",
       "action": "プローブを地面と水平に当てる。透明中隔腔が見え、ミッドラインの向きで第二回旋の完了を判定する（篠原先生 [[2026-03-24_経腟分娩_2]]）",
@@ -2827,7 +2899,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-027",
+      "id": "vag-gen-029",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PAが書籍上140°以上で急速遂娩の適応に見える",
@@ -2839,7 +2911,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-028",
+      "id": "vag-gen-030",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "努責時にPA 140°程度",
@@ -2851,7 +2923,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-029",
+      "id": "vag-gen-031",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PA画面を見る",
@@ -2863,7 +2935,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-030",
+      "id": "vag-gen-032",
       "procedure": "経腟分娩",
       "phase": "膣壁裂傷の確認",
       "condition": "膣壁裂傷を確認する",
@@ -2875,7 +2947,19 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-031",
+      "id": "vag-gen-033",
+      "procedure": "経腟分娩",
+      "phase": "リスク管理・計画分娩",
+      "condition": "低置胎盤症例の分娩管理を計画する",
+      "action": "自己血貯血＋計画分娩としてリスク管理する。出血量の推移を意識して経時的に観察する（安田先生 [[2026-03-25_経腟分娩]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-24"
+    },
+    {
+      "id": "vag-gen-034",
       "procedure": "経腟分娩",
       "phase": "分娩前・破膜のタイミング",
       "condition": "内診や経会陰エコーで胎胞が下降しているように見える",
@@ -2887,7 +2971,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-032",
+      "id": "vag-gen-035",
       "procedure": "経腟分娩",
       "phase": "新生児初期対応",
       "condition": "娩出直後の新生児がよく泣いている",
@@ -2899,7 +2983,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-033",
+      "id": "vag-gen-036",
       "procedure": "経腟分娩",
       "phase": "胎盤娩出後の診察",
       "condition": "胎盤娩出後の診察を始める",
@@ -2911,7 +2995,19 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-034",
+      "id": "vag-gen-037",
+      "procedure": "経腟分娩",
+      "phase": "胎盤娩出後の診察",
+      "condition": "胎盤娩出後に卵膜遺残を認める",
+      "action": "胎盤鉗子で焦らずゆっくり引き出す。無理に急ぐと卵膜が途中で切れる（安田先生 [[2026-03-25_経腟分娩]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-24"
+    },
+    {
+      "id": "vag-gen-038",
       "procedure": "経腟分娩",
       "phase": "児娩出後の観察",
       "condition": "頸部臍帯巻絡があった児の顔面が娩出後も青っぽい",
@@ -2925,7 +3021,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-035",
+      "id": "vag-gen-039",
       "procedure": "経腟分娩",
       "phase": "肩甲難産",
       "condition": "児頭娩出後に肩が出ない",
@@ -2937,7 +3033,7 @@
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-036",
+      "id": "vag-gen-040",
       "procedure": "経腟分娩",
       "phase": "肩甲難産",
       "condition": "推定体重3800g以上の経腟分娩",
@@ -2946,10 +3042,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-24"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-037",
+      "id": "vag-gen-041",
       "procedure": "経腟分娩",
       "phase": "癒着胎盤（経腟分娩）",
       "condition": "癒着胎盤の既往がある経腟分娩",
@@ -2958,10 +3054,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-24"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-038",
+      "id": "vag-gen-042",
       "procedure": "経腟分娩",
       "phase": "癒着胎盤（経腟分娩）",
       "condition": "経腟分娩で癒着胎盤を確認した",
@@ -2970,10 +3066,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-24"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-039",
+      "id": "vag-gen-043",
       "procedure": "経腟分娩",
       "phase": "分娩待機の判断",
       "condition": "陣発している症例がある",
@@ -2984,7 +3080,7 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-24"
+      "added_date": "2026-03-25"
     },
     {
       "id": "us-001",
@@ -4064,6 +4160,51 @@
         "共通"
       ],
       "added_date": "2026-03-05"
+    },
+    {
+      "id": "cl-028",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "変動一過性徐脈が出た際に、自分でも臍帯下垂の鑑別を考える",
+      "sources": [
+        "2026-03-25_経腟分娩"
+      ],
+      "date": "2026-03-25",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-25"
+    },
+    {
+      "id": "cl-029",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "低置胎盤症例では出血量の推移を意識して観察する",
+      "sources": [
+        "2026-03-25_経腟分娩"
+      ],
+      "date": "2026-03-25",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-25"
+    },
+    {
+      "id": "cl-030",
+      "procedure": "経腟分娩",
+      "phase": "",
+      "condition": "",
+      "action": "胎盤娩出後の卵膜・胎盤の検査（欠損チェック）を注視する",
+      "sources": [
+        "2026-03-25_経腟分娩"
+      ],
+      "date": "2026-03-25",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-25"
     },
     {
       "id": "cl-001",
