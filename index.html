@@ -277,6 +277,112 @@ body {
 }
 .no-results .icon { font-size: 48px; margin-bottom: 12px; opacity:0.4; }
 
+/* ── 直前カード ── */
+.quickref-container {
+  padding: 16px;
+  padding-bottom: calc(var(--safe-bottom) + 80px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100dvh - 160px);
+}
+.quickref-section-title {
+  font-size: 13px; font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 8px 0 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.quickref-fixed-list {
+  list-style: none; padding: 0;
+}
+.quickref-fixed-list li {
+  position: relative;
+  padding: 10px 12px 10px 28px;
+  font-size: 14px; line-height: 1.6;
+  border-bottom: 1px solid var(--border);
+}
+.quickref-fixed-list li::before {
+  content: '';
+  position: absolute; left: 8px; top: 16px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: none;
+}
+.quickref-fixed-list li:last-child { border-bottom: none; }
+.quickref-recent-block {
+  margin-top: 4px;
+  padding: 12px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+.quickref-recent-source {
+  font-size: 12px; font-weight: 600;
+  color: var(--accent-light);
+  margin-bottom: 8px;
+}
+.quickref-recent-items {
+  list-style: none; padding: 0;
+}
+.quickref-recent-items li {
+  font-size: 13px; line-height: 1.5;
+  color: var(--text);
+  padding: 4px 0 4px 16px;
+  position: relative;
+}
+.quickref-recent-items li::before {
+  content: '→';
+  position: absolute; left: 0; top: 4px;
+  color: var(--green); font-size: 12px; font-weight: 700;
+}
+.quickref-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* ── タブバー（直前カード / トリガー一覧 切替） ── */
+.tab-bar {
+  display: flex;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 50;
+}
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px; font-weight: 600;
+  color: var(--text-secondary);
+  background: none; border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab-btn.active {
+  color: var(--accent-light);
+  border-bottom-color: var(--accent);
+}
+
+/* ── トリガー一覧へボタン ── */
+.quickref-goto-triggers {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: calc(100% - 32px);
+  margin: 16px auto 0;
+  padding: 12px;
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--accent-light);
+  font-size: 14px; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.quickref-goto-triggers:active { background: var(--accent); color: #fff; }
+.quickref-goto-triggers svg { width: 16px; height: 16px; }
+
 /* ── 画面切り替えアニメーション ── */
 .view { display:none; }
 .view.active { display:block; animation: fadeIn 0.2s ease-out; }
@@ -292,7 +398,7 @@ body {
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-04-06T06:09:56.721160+09:00",
+  "generated_at": "2026-04-06T20:31:44.934355+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -3357,6 +3463,18 @@ window.BRIEFING_DATA = {
     {
       "id": "vag-gen-006",
       "procedure": "経腟分娩",
+      "phase": "内診所見・分娩管理",
+      "condition": "内診で子宮口に1本指が入った",
+      "action": "そこで終わらず2本目の指も入れてみる。1指フィット＝1.5cmと思い込むと過小評価になる。2指入れば3cm。安田先生は「2本目を入れ込んでみることで2指＝3cmと判断した」（安田先生 [[2026-04-06_初診エコー_24w]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "vag-gen-007",
+      "procedure": "経腟分娩",
       "phase": "回旋異常の管理",
       "condition": "回旋異常が疑われ帝王切開の準備を進めている",
       "action": "Ope室搬送・準備の間に自然回旋が進む可能性があるため、搬入直前に再評価する（須波先生 [[2026-04-02_経腟分娩]]）",
@@ -3367,7 +3485,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "vag-gen-007",
+      "id": "vag-gen-008",
       "procedure": "経腟分娩",
       "phase": "会陰切開",
       "condition": "会陰切開を実施する際に体の位置を決める",
@@ -3379,7 +3497,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "vag-gen-008",
+      "id": "vag-gen-009",
       "procedure": "経腟分娩",
       "phase": "会陰切開",
       "condition": "会陰切開をする",
@@ -3391,7 +3509,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "vag-gen-009",
+      "id": "vag-gen-010",
       "procedure": "経腟分娩",
       "phase": "会陰切開",
       "condition": "会陰切開の長さを決める",
@@ -3403,7 +3521,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "vag-gen-010",
+      "id": "vag-gen-011",
       "procedure": "経腟分娩",
       "phase": "会陰切開",
       "condition": "会陰切開を実施する",
@@ -3415,7 +3533,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "vag-gen-011",
+      "id": "vag-gen-012",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰縫合を始める前である",
@@ -3427,7 +3545,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "vag-gen-012",
+      "id": "vag-gen-013",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰部に縫合針を刺入する前である",
@@ -3436,10 +3554,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-013",
+      "id": "vag-gen-014",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "1度裂傷で出血がないが、ポケット状（袋状）の形態をしている",
@@ -3451,7 +3569,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-014",
+      "id": "vag-gen-015",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰切開創を縫合する前である",
@@ -3463,7 +3581,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-015",
+      "id": "vag-gen-016",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "縫合中に中枢側から血液が垂れ込んで視野が妨げられる",
@@ -3477,7 +3595,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-016",
+      "id": "vag-gen-017",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰裂傷の縫合順序を決める",
@@ -3491,7 +3609,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-017",
+      "id": "vag-gen-018",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "埋没縫合の糸を切る",
@@ -3505,7 +3623,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-018",
+      "id": "vag-gen-019",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "埋没縫合で組織を把持する",
@@ -3519,7 +3637,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-019",
+      "id": "vag-gen-020",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "正中の会陰裂傷を縫合する",
@@ -3531,7 +3649,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-020",
+      "id": "vag-gen-021",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "Z縫合の1針目で体動が強く視野展開が困難",
@@ -3545,7 +3663,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-021",
+      "id": "vag-gen-022",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合の表層縫合を行う",
@@ -3557,7 +3675,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "vag-gen-022",
+      "id": "vag-gen-023",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "2-0バイクリルラピッドで会陰縫合の結紮をする",
@@ -3566,10 +3684,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-023",
+      "id": "vag-gen-024",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "縫合後に傷が外反している",
@@ -3581,7 +3699,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-024",
+      "id": "vag-gen-025",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "傷が外反して真皮が露出している",
@@ -3593,7 +3711,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-025",
+      "id": "vag-gen-026",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合で片方が外反する",
@@ -3605,7 +3723,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-026",
+      "id": "vag-gen-027",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合の尾側に創部の開きが残る",
@@ -3617,7 +3735,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-027",
+      "id": "vag-gen-028",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰皮下を縫合する",
@@ -3629,7 +3747,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-028",
+      "id": "vag-gen-029",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合で出血がないところを運針する",
@@ -3641,7 +3759,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-029",
+      "id": "vag-gen-030",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合で出血があるところを運針する",
@@ -3653,7 +3771,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-030",
+      "id": "vag-gen-031",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "膣壁裂傷と会陰の縫合が終わった",
@@ -3665,7 +3783,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-031",
+      "id": "vag-gen-032",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰切開創から出血が多い",
@@ -3677,7 +3795,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-032",
+      "id": "vag-gen-033",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "エッケZ縫合でポケット・トンネル状の空間がある",
@@ -3689,7 +3807,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-033",
+      "id": "vag-gen-034",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰の中縫いで組織を寄せる",
@@ -3701,7 +3819,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-034",
+      "id": "vag-gen-035",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "膣壁側と皮膚側が捲れるように裂けた裂傷を縫合する",
@@ -3713,7 +3831,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-035",
+      "id": "vag-gen-036",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰縫合を始める前である",
@@ -3725,7 +3843,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-036",
+      "id": "vag-gen-037",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰裂傷にポケットが深く奥まで達している",
@@ -3737,7 +3855,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-037",
+      "id": "vag-gen-038",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "エッケZ縫合で一番奥の運針をする",
@@ -3749,7 +3867,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-038",
+      "id": "vag-gen-039",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰切開創の左右を縫合で合わせる際に目印を探す",
@@ -3761,7 +3879,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-24"
     },
     {
-      "id": "vag-gen-039",
+      "id": "vag-gen-040",
       "procedure": "経腟分娩",
       "phase": "新生児対応（臍帯処置）",
       "condition": "助産師が臍帯を切断する",
@@ -3770,10 +3888,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-24"
+      "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-040",
+      "id": "vag-gen-041",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "変動一過性徐脈が連発している",
@@ -3785,7 +3903,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-041",
+      "id": "vag-gen-042",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "経会陰エコーと経腟エコーを組み合わせて評価する",
@@ -3797,7 +3915,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-042",
+      "id": "vag-gen-043",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコー横断像で回旋を評価する",
@@ -3809,7 +3927,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-25"
     },
     {
-      "id": "vag-gen-043",
+      "id": "vag-gen-044",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーの矢状断で回旋を評価する",
@@ -3818,10 +3936,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-25"
+      "added_date": "2026-04-01"
     },
     {
-      "id": "vag-gen-044",
+      "id": "vag-gen-045",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーを縦（矢状断）で当てようとして正中では見えにくい",
@@ -3833,7 +3951,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-01"
     },
     {
-      "id": "vag-gen-045",
+      "id": "vag-gen-046",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーで描出する",
@@ -3845,7 +3963,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-01"
     },
     {
-      "id": "vag-gen-046",
+      "id": "vag-gen-047",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PAを測定する",
@@ -3857,7 +3975,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-01"
     },
     {
-      "id": "vag-gen-047",
+      "id": "vag-gen-048",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーで回旋・PAを評価した",
@@ -3869,7 +3987,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-01"
     },
     {
-      "id": "vag-gen-048",
+      "id": "vag-gen-049",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PAが書籍上140°以上で急速遂娩の適応に見える",
@@ -3881,7 +3999,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-01"
     },
     {
-      "id": "vag-gen-049",
+      "id": "vag-gen-050",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "努責時にPA 140°程度",
@@ -3890,10 +4008,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-01"
+      "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-050",
+      "id": "vag-gen-051",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PA画面を見る",
@@ -3905,7 +4023,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-051",
+      "id": "vag-gen-052",
       "procedure": "経腟分娩",
       "phase": "膣壁裂傷の確認",
       "condition": "膣壁裂傷を確認する",
@@ -3917,7 +4035,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-052",
+      "id": "vag-gen-053",
       "procedure": "経腟分娩",
       "phase": "リスク管理・計画分娩",
       "condition": "低置胎盤症例の分娩管理を計画する",
@@ -3929,7 +4047,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-053",
+      "id": "vag-gen-054",
       "procedure": "経腟分娩",
       "phase": "分娩前・破膜のタイミング",
       "condition": "内診や経会陰エコーで胎胞が下降しているように見える",
@@ -3941,7 +4059,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-054",
+      "id": "vag-gen-055",
       "procedure": "経腟分娩",
       "phase": "新生児初期対応",
       "condition": "娩出直後の新生児がよく泣いている",
@@ -3953,7 +4071,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-055",
+      "id": "vag-gen-056",
       "procedure": "経腟分娩",
       "phase": "胎盤娩出後の診察",
       "condition": "胎盤娩出後の診察を始める",
@@ -3965,7 +4083,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-056",
+      "id": "vag-gen-057",
       "procedure": "経腟分娩",
       "phase": "胎盤娩出後の診察",
       "condition": "胎盤娩出後に卵膜遺残を認める",
@@ -3977,7 +4095,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-057",
+      "id": "vag-gen-058",
       "procedure": "経腟分娩",
       "phase": "児娩出後の観察",
       "condition": "頸部臍帯巻絡があった児の顔面が娩出後も青っぽい",
@@ -3991,7 +4109,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-058",
+      "id": "vag-gen-059",
       "procedure": "経腟分娩",
       "phase": "肩甲難産",
       "condition": "児頭娩出後に肩が出ない",
@@ -4003,7 +4121,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-059",
+      "id": "vag-gen-060",
       "procedure": "経腟分娩",
       "phase": "肩甲難産",
       "condition": "推定体重3800g以上の経腟分娩",
@@ -4015,7 +4133,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-02"
     },
     {
-      "id": "vag-gen-060",
+      "id": "vag-gen-061",
       "procedure": "経腟分娩",
       "phase": "癒着胎盤（経腟分娩）",
       "condition": "癒着胎盤の既往がある経腟分娩",
@@ -4024,10 +4142,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-02"
+      "added_date": "2026-04-03"
     },
     {
-      "id": "vag-gen-061",
+      "id": "vag-gen-062",
       "procedure": "経腟分娩",
       "phase": "癒着胎盤（経腟分娩）",
       "condition": "経腟分娩で癒着胎盤を確認した",
@@ -4039,7 +4157,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "vag-gen-062",
+      "id": "vag-gen-063",
       "procedure": "経腟分娩",
       "phase": "分娩促進の意思決定",
       "condition": "分娩促進（アトニン増量等）を検討する",
@@ -4048,10 +4166,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-05"
     },
     {
-      "id": "vag-gen-063",
+      "id": "vag-gen-064",
       "procedure": "経腟分娩",
       "phase": "分娩待機の判断",
       "condition": "陣発している症例がある",
@@ -4062,7 +4180,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-05"
+      "added_date": "2026-04-06"
     },
     {
       "id": "us-001",
@@ -4549,6 +4667,60 @@ window.BRIEFING_DATA = {
     {
       "id": "us-gen-001",
       "procedure": "胎児エコー",
+      "phase": "中期エコー（20〜28週）の計測テクニック",
+      "condition": "AC断面で「そこそこ良い断面」が出た",
+      "action": "深追いせず早めにフリーズする。ベストを求めて微調整しすぎると児の体動で断面を失うリスクが高い",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-03"
+    },
+    {
+      "id": "us-gen-002",
+      "procedure": "胎児エコー",
+      "phase": "中期エコー（20〜28週）の計測テクニック",
+      "condition": "臍帯動脈ドプラで児が動きすぎてまとが定まらない",
+      "action": "自由臍帯を追いかけず、胎盤の臍帯付着部で計測する。胎盤付着部なら児の体動に影響されない",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-03"
+    },
+    {
+      "id": "us-gen-003",
+      "procedure": "胎児エコー",
+      "phase": "中期エコー（20〜28週）の計測テクニック",
+      "condition": "MVP（羊水ポケット）を計測し忘れそうになる",
+      "action": "計測順序を固定する：BPD → AC → FL → MVP → ドプラ。MVPをスキップしない",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-03"
+    },
+    {
+      "id": "us-gen-004",
+      "procedure": "胎児エコー",
+      "phase": "中期エコー（20〜28週）の計測テクニック",
+      "condition": "BPD等でベストな断面がどうしても得られない",
+      "action": "「どこで妥協するか」を判断して前に進む。上級医でも完璧な断面が取れないことはある。不十分でも記録して次の計測に移る（安田先生 [[2026-04-06_初診エコー_24w]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-03"
+    },
+    {
+      "id": "us-gen-005",
+      "procedure": "胎児エコー",
       "phase": "多胎確認・胎嚢計測",
       "condition": "初期エコーで胎嚢を確認する",
       "action": "水平方向にゆっくりプローブをスイングし、続いて垂直方向にもゆっくりスイングして多胎を見逃さないようにする",
@@ -4561,7 +4733,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-002",
+      "id": "us-gen-006",
       "procedure": "胎児エコー",
       "phase": "多胎確認・胎嚢計測",
       "condition": "GS（胎嚢径）を計測する",
@@ -4575,7 +4747,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-003",
+      "id": "us-gen-007",
       "procedure": "胎児エコー",
       "phase": "初期エコー（7〜10週）の計測・所見",
       "condition": "7週前後でCRLを計測する",
@@ -4589,7 +4761,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-004",
+      "id": "us-gen-008",
       "procedure": "胎児エコー",
       "phase": "初期エコー（7〜10週）の計測・所見",
       "condition": "CRLを計測する",
@@ -4603,7 +4775,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-005",
+      "id": "us-gen-009",
       "procedure": "胎児エコー",
       "phase": "初期エコー（7〜10週）の計測・所見",
       "condition": "初産婦の初期採血を行う",
@@ -4617,7 +4789,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-006",
+      "id": "us-gen-010",
       "procedure": "胎児エコー",
       "phase": "初期エコー（7〜10週）の計測・所見",
       "condition": "エコー写真を取得した",
@@ -4631,7 +4803,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-007",
+      "id": "us-gen-011",
       "procedure": "胎児エコー",
       "phase": "12週エコー（スクリーニング）",
       "condition": "12週頃のエコーを行う",
@@ -4645,7 +4817,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "us-gen-008",
+      "id": "us-gen-012",
       "procedure": "胎児エコー",
       "phase": "12週エコー（スクリーニング）",
       "condition": "12週頃にBPDが計りにくい",
@@ -4656,10 +4828,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-06"
     },
     {
-      "id": "us-gen-009",
+      "id": "us-gen-013",
       "procedure": "胎児エコー",
       "phase": "12週エコー（スクリーニング）",
       "condition": "12週頃のエコーを行う",
@@ -4670,10 +4842,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-06"
     },
     {
-      "id": "us-gen-010",
+      "id": "us-gen-014",
       "procedure": "胎児エコー",
       "phase": "12週エコー（スクリーニング）",
       "condition": "12週頃のエコーで全前脳胞症を除外する",
@@ -4684,10 +4856,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-06"
     },
     {
-      "id": "us-gen-011",
+      "id": "us-gen-015",
       "procedure": "胎児エコー",
       "phase": "12週エコー（スクリーニング）",
       "condition": "12週頃にFHRが高値である",
@@ -4698,7 +4870,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-06"
     },
     {
       "id": "unk-gen-001",
@@ -6196,8 +6368,191 @@ window.BRIEFING_DATA = {
         "共通"
       ],
       "added_date": "2026-04-01"
+    },
+    {
+      "id": "cl-039",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "ACは良い断面が出たら深追いせず早めにフリーズする",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "date": "2026-04-06",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-01"
+    },
+    {
+      "id": "cl-040",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "臍帯動脈ドプラは胎盤付着部で計測する（児の体動の影響を回避）",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "date": "2026-04-06",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-02"
+    },
+    {
+      "id": "cl-041",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "MVP計測を忘れない（計測順序: BPD → AC → FL → MVP → ドプラ の順を意識）",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "date": "2026-04-06",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-02"
+    },
+    {
+      "id": "cl-042",
+      "procedure": "胎児エコー",
+      "phase": "",
+      "condition": "",
+      "action": "断面が不十分でも「どこで妥協するか」を意識して前に進む",
+      "sources": [
+        "2026-04-06_初診エコー_24w"
+      ],
+      "date": "2026-04-06",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-02"
     }
-  ]
+  ],
+  "quickref_cards": {
+    "帝王切開": {
+      "subtitle": "手洗い前の30秒で確認する。",
+      "fixed": [
+        "鉤ピンを先にもらっておく（タイムアウト前に）",
+        "筋鉤は尾側を寝かせる、頭側は先を効かせてOK",
+        "腹膜を開ける → ペアンで押し付けて開いて夾鉗→持ち上げる。都度指を入れて臓器から離す",
+        "ペアン→ペアン→開創器→3枚目の順。3枚目を忘れない",
+        "子宮筋層はメスで垂直に、幅広く深めに。一点集中で掘らない",
+        "吸引管がすぐ使える位置にあるか確認してから子宮筋切開",
+        "焦っても手袋はしっかりはめる"
+      ],
+      "recent": [
+        {
+          "source": "帝王切開_2026-04-03",
+          "items": [
+            "動きの速い術者にはコッヘルで先に創縁を牽引しておく",
+            "左右の深さは先に見えた片側の筋膜の高さを基準に揃える",
+            "膀胱つり上がり時は頭側に腹膜切開を延長して長さを確保",
+            "筋膜縫合で相手側から運針すると膀胱を刺すリスク→安全に見える運針を",
+            "真皮縫合は脂肪を含めない方が左右の高さが合う"
+          ]
+        },
+        {
+          "source": "帝王切開_2026-04-01",
+          "items": [
+            "呼ばれる前に自分から入室する",
+            "指示がなくても自分から吸引・外拭き・子宮前面拭きを行う",
+            "児頭挙上は左手でグーパンの形、腹側に上げる力を入れる",
+            "エッケの結紮はスペースがある方に糸を出す（スペースがない方に出すとはみ出る）"
+          ]
+        },
+        {
+          "source": "帝王切開_2026-03-31",
+          "items": [
+            "膀胱圧定鈎が不要になったら外し忘れないか確認",
+            "縦方向の細い血管は頭尾側方向に電メスを動かして長い範囲で凝固"
+          ]
+        }
+      ]
+    },
+    "経腟分娩": {
+      "subtitle": "分娩室に向かう前の30秒で確認する。",
+      "fixed": [
+        "会陰切開は体を左側に置いて下手から水平方向に切る",
+        "切開前に人差し指で児頭幅を確認→指を会陰方向に押しつけて切開長を決定",
+        "エッケZ縫合は床（深部）を拾う。天井を拾うと死腔が残る。ただし深く取りすぎると疼痛",
+        "縫合前にガーゼを腟奥に入れて上方からの出血を堰き止める",
+        "縫合前に裂傷の全体像を把握し、膣壁側も含めた縫合計画を立てる",
+        "会陰エコー画像は必ず保存する",
+        "30分に1回は分娩室を覗きに行く。空振り5分 < 症例を逃す損失",
+        "内診で1指入ったら必ず2指目も試す。1指フィット＝開大度ではない（1.5cm vs 3cmの誤差あり）"
+      ],
+      "recent": [
+        {
+          "source": "2026-04-03_経腟分娩",
+          "items": [
+            "会陰切開が45度になった原因は右側から覆い被さる体位。左側・下手を徹底",
+            "分娩促進判断は病棟の他の分娩進行状況・マンパワーも確認"
+          ]
+        },
+        {
+          "source": "2026-04-02_経腟分娩",
+          "items": [
+            "会陰エコー矢状断法：頭と背骨を同時に描出→プローブの向き＝回旋の向き",
+            "正中で見えにくい時は外側の外陰から斜めにビーム",
+            "PA測定は恥骨の髄質側（内側）を通る接線。計測ボタン2回押し",
+            "エッケの運針で深く取りすぎた→適切な深さの判断が課題",
+            "ためらい創が縫合時の左右位置合わせの目印になる"
+          ]
+        },
+        {
+          "source": "2026-04-01_経腟分娩",
+          "items": [
+            "初回会陰切開：切開後はガーゼ圧迫で出血コントロール",
+            "エッケZ縫合でポケットの天井を拾ってしまい失敗→次回は床を拾う",
+            "中縫いの寄せすぎ注意。高さを一定に保つ",
+            "臍帯切断時に児を優しく保定する"
+          ]
+        }
+      ]
+    },
+    "胎児エコー": {
+      "subtitle": "外来エコーの前に30秒で確認する。",
+      "fixed": [
+        "まず子宮全体のオリエンテーション画像を1枚保存",
+        "ROI拡大で児を大きく描出してから計測。小さいまま測らない",
+        "BPD断面は透明中隔腔＋四丘体槽を描出。キャリパーは外縁にしっかり合わせる",
+        "AC計測は全周きれいに描出されてから。ACの誤差がEFWに90g以上の差を生む",
+        "FLは水平にしてから計測。斜めだと過大評価",
+        "エコー写真を印刷して患者に渡す。保存だけで終わらない",
+        "心拍確認したらFHRも必ず計測"
+      ],
+      "recent": [
+        {
+          "source": "2026-04-06_初診エコー_24w",
+          "items": [
+            "ACは良い断面が出たら深追いせず即フリーズ。微調整中の体動で断面を失った",
+            "臍帯動脈ドプラは胎盤付着部で計測→児の体動に影響されない",
+            "MVP計測忘れ防止：BPD→AC→FL→MVP→ドプラの順を固定",
+            "断面が不十分でも「妥協点」を判断して前に進む（安田先生でもBPDベスト断面取れず）"
+          ]
+        },
+        {
+          "source": "2026-04-02_初診エコー_MD双胎_12w2d",
+          "items": [
+            "12週頃は経膣/経腹どちらも見にくい。見えやすい方を選択（後屈なら経膣）",
+            "BPDが計りにくい→無脳症を疑う",
+            "4チャンバー確認＋三尖弁逆流を評価",
+            "脈絡叢が左右に分かれているかで全前脳胞症を除外",
+            "FHR高値はNTと同様にトリソミーのマーカー"
+          ]
+        },
+        {
+          "source": "2026-04-02_初診エコー_9w3d",
+          "items": [
+            "多胎見逃し防止：水平→垂直にゆっくりプローブスイング",
+            "初産婦はsFlt-1/PlGFを初期採血に追加"
+          ]
+        }
+      ]
+    }
+  }
 };
 // __BRIEFING_DATA_END__
 </script>
@@ -6227,9 +6582,18 @@ window.BRIEFING_DATA = {
     <div class="header-title" id="briefing-title"></div>
     <div class="header-subtitle" id="briefing-subtitle"></div>
   </div>
-  <div id="role-bar" class="role-bar"></div>
-  <div id="phase-bar" class="phase-bar"></div>
-  <div id="trigger-list" class="trigger-list scrollable"></div>
+  <div class="tab-bar" id="tab-bar">
+    <button class="tab-btn active" id="tab-quickref" onclick="switchTab('quickref')">直前カード</button>
+    <button class="tab-btn" id="tab-triggers" onclick="switchTab('triggers')">トリガー一覧</button>
+  </div>
+  <div id="quickref-view">
+    <div id="quickref-content" class="quickref-container"></div>
+  </div>
+  <div id="triggers-view" style="display:none">
+    <div id="role-bar" class="role-bar"></div>
+    <div id="phase-bar" class="phase-bar"></div>
+    <div id="trigger-list" class="trigger-list scrollable"></div>
+  </div>
 </div>
 
 <script>
@@ -6241,6 +6605,7 @@ let APP_DATA = null;
 let currentProcedure = null;
 let currentPhase = null; // null = 全て
 let currentRole = null;  // null = 全て
+let currentTab = 'quickref'; // 'quickref' or 'triggers'
 let checkedItems = {};
 
 const PROCEDURE_META = {
@@ -6442,13 +6807,82 @@ function renderSearchResults(query) {
   el.innerHTML = html;
 }
 
+// ===== タブ切替 =====
+function switchTab(tab) {
+  currentTab = tab;
+  const qv = document.getElementById('quickref-view');
+  const tv = document.getElementById('triggers-view');
+  const tq = document.getElementById('tab-quickref');
+  const tt = document.getElementById('tab-triggers');
+  if (tab === 'quickref') {
+    qv.style.display = 'block';
+    tv.style.display = 'none';
+    tq.classList.add('active');
+    tt.classList.remove('active');
+  } else {
+    qv.style.display = 'none';
+    tv.style.display = 'block';
+    tq.classList.remove('active');
+    tt.classList.add('active');
+  }
+}
+
+// ===== 直前カード レンダリング =====
+function renderQuickrefCard(procedure) {
+  const el = document.getElementById('quickref-content');
+  if (!APP_DATA || !APP_DATA.quickref_cards || !APP_DATA.quickref_cards[procedure]) {
+    el.innerHTML = '';
+    return;
+  }
+  const card = APP_DATA.quickref_cards[procedure];
+  const meta = PROCEDURE_META[procedure] || { color: 'blue' };
+
+  let html = '';
+
+  // 固定ルール
+  html += `<div class="quickref-section-title">📌 固定（毎回確認）</div>`;
+  html += '<ul class="quickref-fixed-list">';
+  for (const item of card.fixed) {
+    html += `<li>${escHtml(item)}</li>`;
+  }
+  html += '</ul>';
+
+  // 区切り
+  html += '<hr class="quickref-divider">';
+
+  // 直近の学び
+  html += `<div class="quickref-section-title">🔄 直近の学び（${card.recent.length}回分）</div>`;
+  for (const block of card.recent) {
+    html += '<div class="quickref-recent-block">';
+    html += `<div class="quickref-recent-source">${escHtml(block.source)}</div>`;
+    html += '<ul class="quickref-recent-items">';
+    for (const item of block.items) {
+      html += `<li>${escHtml(item)}</li>`;
+    }
+    html += '</ul></div>';
+  }
+
+  // トリガー一覧へのボタン
+  const allCount = triggersFor(procedure, null, null).length;
+  html += `<button class="quickref-goto-triggers" onclick="switchTab('triggers')">
+    トリガー一覧を見る (${allCount}件)
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+  </button>`;
+
+  el.innerHTML = html;
+  el.scrollTop = 0;
+}
+
 // ===== ナビゲーション =====
 function showHome() {
   currentProcedure = null;
   currentPhase = null;
   currentRole = null;
+  currentTab = 'quickref';
   document.getElementById('view-home').classList.add('active');
   document.getElementById('view-briefing').classList.remove('active');
+  // タブリセット
+  document.getElementById('tab-quickref').style.display = '';
   renderHome();
 }
 
@@ -6456,17 +6890,27 @@ function showBriefing(procedure) {
   currentProcedure = procedure;
   currentPhase = null;
   currentRole = null;
+  currentTab = 'quickref';
   document.getElementById('view-home').classList.remove('active');
   document.getElementById('view-briefing').classList.add('active');
   document.getElementById('briefing-title').textContent = procedure;
   const all = triggersFor(procedure, null, null);
   const unchecked = all.filter(t => !isCheckedToday(t.id)).length;
   document.getElementById('briefing-subtitle').textContent = `${all.length} 件のトリガー・残り ${unchecked}`;
+  // 直前カードがあればそちらを最初に表示
+  const hasCard = APP_DATA.quickref_cards && APP_DATA.quickref_cards[procedure];
+  if (hasCard) {
+    switchTab('quickref');
+    renderQuickrefCard(procedure);
+    document.getElementById('tab-bar').style.display = 'flex';
+  } else {
+    switchTab('triggers');
+    document.getElementById('tab-bar').style.display = 'flex';
+    document.getElementById('tab-quickref').style.display = 'none';
+  }
   renderRoleBar(procedure);
   renderPhaseBar(procedure);
   renderTriggerList();
-  // スクロールトップ
-  document.getElementById('trigger-list').scrollTop = 0;
 }
 
 function setPhase(phase) {
