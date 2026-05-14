@@ -477,7 +477,7 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-05-14T06:06:18.964808+09:00",
+  "generated_at": "2026-05-14T22:07:13.645700+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -652,6 +652,20 @@ window.BRIEFING_DATA = {
       "id": "cs-preop-014",
       "procedure": "帝王切開",
       "phase": "術前",
+      "condition": "既往帝王切開＋セプラフィルム貼付なし＋早剥既往のCSに入る",
+      "action": "腹膜〜子宮漿膜間に多層癒着が生じている可能性を高く見積もる。「1回切開で下ろせる」と期待せず、癒着強固で術者交代・時間延長になることを術前から想定して入る",
+      "sources": [
+        "帝王切開_2026-05-14"
+      ],
+      "roles": [
+        "第一助手"
+      ],
+      "added_date": "2026-05-09"
+    },
+    {
+      "id": "cs-preop-015",
+      "procedure": "帝王切開",
+      "phase": "術前",
       "condition": "小児科（NICU）に立ち会いを依頼するコールをする",
       "action": "「立ち会いに来てほしい」か「待機でよい」かを電話口で明確に伝える。すれ違いを防ぐ",
       "sources": [
@@ -660,7 +674,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-14"
     },
     {
       "id": "cs-open-001",
@@ -864,6 +878,20 @@ window.BRIEFING_DATA = {
       "id": "cs-open-015",
       "procedure": "帝王切開",
       "phase": "開腹",
+      "condition": "既往キュストネル例でキュストネル開腹を行い、かつ痩せ型である",
+      "action": "皮下が薄く、瘢痕剥離で皮膚側に近づきすぎると穿孔ギリギリになる。フレッシュな脂肪層に入れても「今どの深さか」を層の手触りと視覚で都度確認しながら進む",
+      "sources": [
+        "帝王切開_2026-05-14"
+      ],
+      "roles": [
+        "第一助手"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-016",
+      "procedure": "帝王切開",
+      "phase": "開腹",
       "condition": "前2回以上キュストネル既往例で筋膜切開長を決める",
       "action": "瘢痕化により創の伸展性が落ちることを前提に、頭側に通常より1–2cm余分に切開ラインを伸ばす。左右のラインと合わせて「左右ライン＋頭側余分1–2cm」を初期切開設計に組み込む（篠原先生 [[帝王切開_2026-05-01]]）",
       "sources": [],
@@ -873,7 +901,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-016",
+      "id": "cs-open-017",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "前CS既往で癒着が強く膀胱フラップ作成が困難である",
@@ -887,7 +915,21 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-017",
+      "id": "cs-open-018",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "膀胱フラップ作成中に「漿膜と思った層の下にまた漿膜様の層」が出現する（多層癒着症例）",
+      "action": "1回の切開で「これで下ろせた」と判断せず、両側の漿膜をそれぞれ切開してから中央で繋げて下ろす（両側→中央連結）手順で進める",
+      "sources": [
+        "帝王切開_2026-05-14"
+      ],
+      "roles": [
+        "第一助手"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-open-019",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "術前評価で癒着が強く膀胱フラップ非造設が予想される",
@@ -901,7 +943,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-018",
+      "id": "cs-open-020",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "皮膚切開で真皮の切り残しが生じた",
@@ -913,7 +955,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-019",
+      "id": "cs-open-021",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "皮膚切開でメスが端まで切れなかった",
@@ -927,7 +969,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-020",
+      "id": "cs-open-022",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "浅筋膜を両端まで切開し終えた",
@@ -939,7 +981,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-021",
+      "id": "cs-open-023",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪層切開中に筋膜がチラリとでも見えた",
@@ -951,7 +993,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-022",
+      "id": "cs-open-024",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜を切り始める前に手順を組み立てる",
@@ -963,7 +1005,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-023",
+      "id": "cs-open-025",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪層の鈍的剥離中に前立ち側へ攻めたくなった",
@@ -975,7 +1017,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-open-024",
+      "id": "cs-open-026",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "尾側の脂肪-筋膜剥離を行う",
@@ -987,10 +1029,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-025",
+      "id": "cs-open-027",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪-筋膜剥離で尾側を剥離する",
@@ -1002,10 +1044,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-026",
+      "id": "cs-open-028",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪-筋膜剥離で左手のカウンタートラクションをかけている",
@@ -1019,7 +1061,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-027",
+      "id": "cs-open-029",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜を縦に切開する",
@@ -1033,7 +1075,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-028",
+      "id": "cs-open-030",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜切開で第一助手として鉤ピンで対側をつまむ",
@@ -1047,7 +1089,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-029",
+      "id": "cs-open-031",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "右手で筋鉤を引きながら左手で鉤ピンを持っている",
@@ -1061,7 +1103,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-030",
+      "id": "cs-open-032",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "尾側の筋膜を切る",
@@ -1075,7 +1117,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-031",
+      "id": "cs-open-033",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜切開中にケリーを通されたとしても",
@@ -1089,7 +1131,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-032",
+      "id": "cs-open-034",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜を切っていたら腹膜も開いてしまった",
@@ -1104,7 +1146,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-033",
+      "id": "cs-open-035",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋肉と筋膜の間を切開している",
@@ -1118,7 +1160,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-034",
+      "id": "cs-open-036",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋肉の裏側に指を入れようとしている",
@@ -1132,7 +1174,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-open-035",
+      "id": "cs-open-037",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜を開ける",
@@ -1144,10 +1186,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-27"
     },
     {
-      "id": "cs-open-036",
+      "id": "cs-open-038",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜を切開中",
@@ -1159,10 +1201,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-27"
     },
     {
-      "id": "cs-open-037",
+      "id": "cs-open-039",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜の尾側切開を進める",
@@ -1176,7 +1218,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-27"
     },
     {
-      "id": "cs-open-038",
+      "id": "cs-open-040",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜を頭側に切開する",
@@ -1190,7 +1232,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-27"
     },
     {
-      "id": "cs-open-039",
+      "id": "cs-open-041",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "開創器を設置した",
@@ -1206,7 +1248,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-27"
     },
     {
-      "id": "cs-open-040",
+      "id": "cs-open-042",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "尾側の脂肪-筋膜剥離中で第一助手としてやることがない",
@@ -1217,10 +1259,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-03-27"
+      "added_date": "2026-03-31"
     },
     {
-      "id": "cs-open-041",
+      "id": "cs-open-043",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜剥離の際に尾側のペアンを外した",
@@ -1231,10 +1273,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-27"
+      "added_date": "2026-03-31"
     },
     {
-      "id": "cs-open-042",
+      "id": "cs-open-044",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "ローテーション確認をする",
@@ -1246,10 +1288,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-03-31"
+      "added_date": "2026-04-03"
     },
     {
-      "id": "cs-open-043",
+      "id": "cs-open-045",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜切開で第二助手として尾側の筋鉤を持つ",
@@ -1258,10 +1300,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-31"
+      "added_date": "2026-04-03"
     },
     {
-      "id": "cs-open-044",
+      "id": "cs-open-046",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜を広く浅く切開した後に筋肉が見えない",
@@ -1275,7 +1317,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-03"
     },
     {
-      "id": "cs-open-045",
+      "id": "cs-open-047",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪〜筋膜剥離で頭側へ剥離を進める（篠原先生流）",
@@ -1286,10 +1328,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-09"
     },
     {
-      "id": "cs-open-046",
+      "id": "cs-open-048",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜切開に進む",
@@ -1298,10 +1340,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-03"
+      "added_date": "2026-04-09"
     },
     {
-      "id": "cs-open-047",
+      "id": "cs-open-049",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜をペアンで開けに行く（腹膜夾鉗〜持ち上げの段階）",
@@ -1313,7 +1355,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-09"
     },
     {
-      "id": "cs-open-048",
+      "id": "cs-open-050",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "膀胱圧定鈎の準備タイミングを判断する",
@@ -1327,7 +1369,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-09"
     },
     {
-      "id": "cs-open-049",
+      "id": "cs-open-051",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "開創器を開いた直後",
@@ -1336,10 +1378,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-09"
+      "added_date": "2026-04-10"
     },
     {
-      "id": "cs-open-050",
+      "id": "cs-open-052",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "開創器をかけた／膀胱圧定鈎をかけた",
@@ -1348,10 +1390,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-09"
+      "added_date": "2026-04-15"
     },
     {
-      "id": "cs-open-051",
+      "id": "cs-open-053",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "膀胱が吊り上がっており膀胱圧定鈎が入らない",
@@ -1363,10 +1405,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-10"
+      "added_date": "2026-04-24"
     },
     {
-      "id": "cs-open-052",
+      "id": "cs-open-054",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "膀胱フラップ作成で長いペアンを2本保持しながら漿膜を切開する",
@@ -1375,10 +1417,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-15"
+      "added_date": "2026-04-24"
     },
     {
-      "id": "cs-open-053",
+      "id": "cs-open-055",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "前置胎盤で膀胱フラップを作成する",
@@ -1389,10 +1431,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-24"
+      "added_date": "2026-04-26"
     },
     {
-      "id": "cs-open-054",
+      "id": "cs-open-056",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "長いペアンで子宮漿膜断端を把持し長鑷子に移行した後（膀胱フラップ作成前）",
@@ -1403,10 +1445,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-04-24"
+      "added_date": "2026-04-28"
     },
     {
-      "id": "cs-open-055",
+      "id": "cs-open-057",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪層切開中に縦方向の細い血管を発見した",
@@ -1415,10 +1457,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-26"
+      "added_date": "2026-04-28"
     },
     {
-      "id": "cs-open-056",
+      "id": "cs-open-058",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "動きの速い術者に第一助手として鉤ピン一本でついていけないと感じた",
@@ -1432,7 +1474,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-open-057",
+      "id": "cs-open-059",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪-筋膜切開で左右の深さを揃えたい",
@@ -1444,7 +1486,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-open-058",
+      "id": "cs-open-060",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "皮下脂肪の剥離を開始する",
@@ -1453,10 +1495,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-28"
+      "added_date": "2026-05-02"
     },
     {
-      "id": "cs-open-059",
+      "id": "cs-open-061",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "大筋鉤で頭側に脂肪を持ち上げた後、残っている脂肪がある",
@@ -1465,10 +1507,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-28"
+      "added_date": "2026-05-02"
     },
     {
-      "id": "cs-open-060",
+      "id": "cs-open-062",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "正面に筋鉤を入れたすぐ脇の突っ張った組織を切る",
@@ -1480,7 +1522,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-02"
     },
     {
-      "id": "cs-open-061",
+      "id": "cs-open-063",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜切開ラインを引く",
@@ -1489,10 +1531,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-02"
+      "added_date": "2026-05-08"
     },
     {
-      "id": "cs-open-062",
+      "id": "cs-open-064",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "膀胱がつり上がっており尾側への腹膜切開延長が危険と判断した",
@@ -1501,10 +1543,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-02"
+      "added_date": "2026-05-08"
     },
     {
-      "id": "cs-open-063",
+      "id": "cs-open-065",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "ドレープ（おいふ）を貼付する",
@@ -1518,7 +1560,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-open-064",
+      "id": "cs-open-066",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "メスで皮切する",
@@ -1532,7 +1574,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-open-065",
+      "id": "cs-open-067",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋膜-筋肉間の剥離ラインを決める",
@@ -1541,10 +1583,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-08"
+      "added_date": "2026-05-09"
     },
     {
-      "id": "cs-open-066",
+      "id": "cs-open-068",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "腹膜前脂肪に到達して腹膜を同定する（篠原先生流）",
@@ -1553,10 +1595,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-08"
+      "added_date": "2026-05-09"
     },
     {
-      "id": "cs-open-067",
+      "id": "cs-open-069",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "前回瘢痕を切り取るように皮膚切開し自分側2本の切開を繋げる",
@@ -1570,7 +1612,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-open-068",
+      "id": "cs-open-070",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "脂肪剥離中に筋膜までの深さを判断する",
@@ -1584,7 +1626,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-open-069",
+      "id": "cs-open-071",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "子宮筋切開でメスの切れ味が出ない",
@@ -1595,10 +1637,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-10"
     },
     {
-      "id": "cs-open-070",
+      "id": "cs-open-072",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "前2回以上CS既往＋癒着＋皮下脂肪少なめ症例で筋膜を縦方向に頭側拡大切開する",
@@ -1607,10 +1649,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-14"
     },
     {
-      "id": "cs-open-071",
+      "id": "cs-open-073",
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "電気メスによる上腹部皮膚穿孔が発生した",
@@ -1619,7 +1661,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-10"
+      "added_date": "2026-05-14"
     },
     {
       "id": "cs-delivery-001",
@@ -2035,6 +2077,18 @@ window.BRIEFING_DATA = {
       "id": "cs-delivery-031",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
+      "condition": "帝王切開で子宮底を押す（クリステル圧迫）ときの方向を決める",
+      "action": "地面に垂直（真下）ではなく、尾側＝子宮切開層の方向へ押す。CSは開脚位＋水平臥位（時に頭低位）のため、分娩台上での感覚（垂直でOK）とは体位が異なる。切開層に向かう斜め下方向を意識する（須波先生 [[帝王切開_2026-05-14]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-19"
+    },
+    {
+      "id": "cs-delivery-032",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
       "condition": "児を娩出して持つ",
       "action": "片手で背中/胸を支え4本の指が脇下に入る感じ。助産師に渡すときは片手で背中、もう片手で臀部を支え、自分の体に密着させる。お姫様抱っこのように下から両腕で抱える",
       "sources": [
@@ -2047,7 +2101,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-032",
+      "id": "cs-delivery-033",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児を受け取った直後",
@@ -2062,7 +2116,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-033",
+      "id": "cs-delivery-034",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児を娩出した直後",
@@ -2074,7 +2128,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-034",
+      "id": "cs-delivery-035",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出の直後",
@@ -2088,7 +2142,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-035",
+      "id": "cs-delivery-036",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位での児娩出で吸引を行う",
@@ -2102,7 +2156,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-036",
+      "id": "cs-delivery-037",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "胎盤を掴んで引っ張る",
@@ -2116,7 +2170,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-037",
+      "id": "cs-delivery-038",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "前置胎盤でパルタン半筒を投与した後",
@@ -2130,7 +2184,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-038",
+      "id": "cs-delivery-039",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "胎盤娩出後",
@@ -2141,10 +2195,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-31"
     },
     {
-      "id": "cs-delivery-039",
+      "id": "cs-delivery-040",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "ダグラス窩にタオルを挿入する",
@@ -2155,10 +2209,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-03-31"
+      "added_date": "2026-04-01"
     },
     {
-      "id": "cs-delivery-040",
+      "id": "cs-delivery-041",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮後面に癒着があって腹腔外挙上が難しい",
@@ -2169,10 +2223,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-01"
+      "added_date": "2026-04-24"
     },
     {
-      "id": "cs-delivery-041",
+      "id": "cs-delivery-042",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "第一助手として胎盤娩出後にいる",
@@ -2184,10 +2238,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-04-24"
+      "added_date": "2026-04-26"
     },
     {
-      "id": "cs-delivery-042",
+      "id": "cs-delivery-043",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮切開を用手的に広げる",
@@ -2196,10 +2250,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-26"
+      "added_date": "2026-04-28"
     },
     {
-      "id": "cs-delivery-043",
+      "id": "cs-delivery-044",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "第二助手として吸引チューブを術野に降ろす",
@@ -2213,7 +2267,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-delivery-044",
+      "id": "cs-delivery-045",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "下節が空虚で伸展が不良な症例（小児・早産・骨盤位等）で子宮切開ラインを決める",
@@ -2225,7 +2279,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-delivery-045",
+      "id": "cs-delivery-046",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位の児を娩出する",
@@ -2236,10 +2290,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-28"
+      "added_date": "2026-04-29"
     },
     {
-      "id": "cs-delivery-046",
+      "id": "cs-delivery-047",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位で児が出づらいとき",
@@ -2253,7 +2307,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-04-29"
     },
     {
-      "id": "cs-delivery-047",
+      "id": "cs-delivery-048",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位娩出で児頭が引っかかる",
@@ -2265,10 +2319,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-04-29"
+      "added_date": "2026-05-02"
     },
     {
-      "id": "cs-delivery-048",
+      "id": "cs-delivery-049",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮切開で最後の1膜が残っており内腔到達前の段階でペアンを使いたくなった",
@@ -2282,7 +2336,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-02"
     },
     {
-      "id": "cs-delivery-049",
+      "id": "cs-delivery-050",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "既往CS+筋膜瘢痕化の症例で児頭が引っかかって娩出困難になった",
@@ -2291,10 +2345,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-02"
+      "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-050",
+      "id": "cs-delivery-051",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "第一助手として尾側のT字鉗子を持っている",
@@ -2306,7 +2360,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-051",
+      "id": "cs-delivery-052",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "破膜する際に直下に児頭がない（膜が張っていない）",
@@ -2318,7 +2372,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-052",
+      "id": "cs-delivery-053",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "深く嵌入した児頭を経腟的に挙上する",
@@ -2332,7 +2386,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-053",
+      "id": "cs-delivery-054",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩中NRFSの緊急帝王切開で児頭が高いまま（下節に嵌入していない）の状態で児頭娩出をする",
@@ -2344,7 +2398,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-054",
+      "id": "cs-delivery-055",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩中（陣発）の子宮筋層を切開する",
@@ -2356,7 +2410,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-055",
+      "id": "cs-delivery-056",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩進行中（陣発）の帝王切開に入る前",
@@ -2368,7 +2422,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-056",
+      "id": "cs-delivery-057",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩進行中CSで児の顔が母体背側を向いている（後方後頭位）と確認された",
@@ -2377,10 +2431,10 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-08"
+      "added_date": "2026-05-09"
     },
     {
-      "id": "cs-delivery-057",
+      "id": "cs-delivery-058",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩進行中CSで回旋困難な児頭を娩出する（須波先生流）",
@@ -2392,7 +2446,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-delivery-058",
+      "id": "cs-delivery-059",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児頭娩出が困難で術野が狭い",
@@ -2404,7 +2458,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-delivery-059",
+      "id": "cs-delivery-060",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮内に手を入れて児頭を娩出する",
@@ -2415,7 +2469,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-14"
     },
     {
       "id": "cs-suture-001",
@@ -8882,13 +8936,12 @@ window.BRIEFING_DATA = {
           ]
         },
         {
-          "source": "帝王切開_2026-05-08_3",
+          "source": "帝王切開_2026-05-14",
           "items": [
-            "胎盤前壁付着 → 通常より低位で切開。メス→ペアン頻回持ち替えで幸帽児娩出を狙う",
-            "子宮が小さく腹腔外挙上が困難 → 腹腔内縫合に切り替える判断",
-            "低位切開で出血が術野を覆う（助手として） → 吸引とタオル拭きを積極的・継続的に行う",
-            "篠原先生流の刺出位置コントロール → 左手は素手で筋層創部に直接触れて感覚で決める",
-            "早産児の臍帯血ガス採取 → 灌流圧低いためゆっくり引く（観察記録）"
+            "既往CS＋セプラなし＋早剥既往 → 多層癒着（腹膜〜漿膜）を高く見積もって入る。術者交代・時間延長を術前から想定",
+            "キュストネル開腹×痩せ型 → フレッシュ脂肪に入れても「今の深さ」を層の手触りと視覚で都度確認。穿孔ギリギリ回避",
+            "膀胱フラップ作成困難（多層癒着）→ 「また漿膜様層が出た」でも慌てず、両側をそれぞれ切開→中央で繋げて下ろす",
+            "CS時の子宮底圧迫 → 垂直（真下）ではなく尾側＝切開層方向へ押す。CS体位（水平・時に頭低位）は分娩台と違うと意識"
           ]
         }
       ]
