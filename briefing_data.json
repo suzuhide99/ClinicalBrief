@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T06:06:25.911164+09:00",
+  "generated_at": "2026-06-03T22:00:04.920066+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -1333,6 +1333,32 @@
       "id": "cs-delivery-006",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
+      "condition": "臍帯を2本のコッヘルで結紮する際、2本目のコッヘルを夾鉗しようとしている",
+      "action": "夾鉗前にコッヘルをスライドさせて2本のコッヘル間の血液を減らしておく。血液が残ったまま切離すると吹き出す可能性がある（安田先生 [[帝王切開_2026-06-03_2]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-007",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "児頭を頭側へ片手で押し上げる操作をする",
+      "action": "頭の側面ではなく「てっぺんのポイント」を捉えて持ち上げる。最初の一手でポイントがずれていると持ち上がらない。一旦持ち上げてしまえばポイントは多少ずらしても保持できる",
+      "sources": [
+        "帝王切開_2026-06-03_2"
+      ],
+      "roles": [
+        "第一助手"
+      ],
+      "added_date": "2026-03-10"
+    },
+    {
+      "id": "cs-delivery-008",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
       "condition": "子宮筋切開に入る前",
       "action": "吸引がすぐ使える位置にあるか確認する",
       "sources": [
@@ -1344,7 +1370,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-007",
+      "id": "cs-delivery-009",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "前置胎盤で子宮筋切開を左側へ延長するとき",
@@ -1358,7 +1384,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-008",
+      "id": "cs-delivery-010",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "胎盤前壁付着症例で子宮筋切開位置を決める",
@@ -1370,7 +1396,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-009",
+      "id": "cs-delivery-011",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮漿膜切開後に子宮表面から小出血がある",
@@ -1382,7 +1408,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-010",
+      "id": "cs-delivery-012",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開に入る前に上級医から切開位置の指示を受けている",
@@ -1396,7 +1422,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-011",
+      "id": "cs-delivery-013",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開で破水した後にクーパーで切開延長しようとする",
@@ -1410,7 +1436,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-012",
+      "id": "cs-delivery-014",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "DD双胎の第2児を娩出する",
@@ -1422,7 +1448,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-013",
+      "id": "cs-delivery-015",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮漿膜を切開する",
@@ -1437,7 +1463,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-014",
+      "id": "cs-delivery-016",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "第一助手として動きの速い術者の漿膜切開についていく",
@@ -1449,7 +1475,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-015",
+      "id": "cs-delivery-017",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋切開で一刀目が入った後",
@@ -1463,7 +1489,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-016",
+      "id": "cs-delivery-018",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮漿膜切開を側方へ進める",
@@ -1477,7 +1503,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-017",
+      "id": "cs-delivery-019",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "膀胱フラップを作るとき",
@@ -1491,7 +1517,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-018",
+      "id": "cs-delivery-020",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "膀胱剥離時につっぱる組織がある",
@@ -1505,7 +1531,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-019",
+      "id": "cs-delivery-021",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "膀胱剥離が固くて剥離困難な時",
@@ -1519,7 +1545,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-020",
+      "id": "cs-delivery-022",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開で皮膚ペンのマーキングをする",
@@ -1533,7 +1559,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-021",
+      "id": "cs-delivery-023",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層をメスで切開中",
@@ -1548,7 +1574,7 @@
       "added_date": "2026-03-10"
     },
     {
-      "id": "cs-delivery-022",
+      "id": "cs-delivery-024",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開の幅を決める",
@@ -1559,10 +1585,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-023",
+      "id": "cs-delivery-025",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋切開時に出血で切開ラインが隠れている",
@@ -1573,10 +1599,10 @@
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-10"
+      "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-024",
+      "id": "cs-delivery-026",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開を広げるときに指を入れる",
@@ -1590,7 +1616,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-025",
+      "id": "cs-delivery-027",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "膀胱子宮窩腹膜を縫うとき",
@@ -1604,7 +1630,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-026",
+      "id": "cs-delivery-028",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "左手で子宮を押しつけようとしている",
@@ -1618,7 +1644,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-027",
+      "id": "cs-delivery-029",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児が娩出された",
@@ -1632,7 +1658,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-028",
+      "id": "cs-delivery-030",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出で吸引カップを使う",
@@ -1647,7 +1673,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-029",
+      "id": "cs-delivery-031",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児頭が出た後",
@@ -1661,7 +1687,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-030",
+      "id": "cs-delivery-032",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出後に臍帯をペアンで夾鉗する",
@@ -1675,7 +1701,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-031",
+      "id": "cs-delivery-033",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "ペアン→ペアン→はさみの間に児の処理をしている",
@@ -1689,7 +1715,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-032",
+      "id": "cs-delivery-034",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "お腹を押す（クリステル）",
@@ -1704,7 +1730,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-033",
+      "id": "cs-delivery-035",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "帝王切開で子宮底を押す（クリステル圧迫）ときの方向を決める",
@@ -1716,7 +1742,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-034",
+      "id": "cs-delivery-036",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児を娩出して持つ",
@@ -1731,7 +1757,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-035",
+      "id": "cs-delivery-037",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児を受け取った直後",
@@ -1746,7 +1772,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-036",
+      "id": "cs-delivery-038",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児を娩出した直後",
@@ -1758,7 +1784,7 @@
       "added_date": "2026-03-19"
     },
     {
-      "id": "cs-delivery-037",
+      "id": "cs-delivery-039",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出の直後",
@@ -1769,10 +1795,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-03-19"
+      "added_date": "2026-03-31"
     },
     {
-      "id": "cs-delivery-038",
+      "id": "cs-delivery-040",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位での児娩出で吸引を行う",
@@ -1783,42 +1809,14 @@
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-03-19"
-    },
-    {
-      "id": "cs-delivery-039",
-      "procedure": "帝王切開",
-      "phase": "子宮切開〜児娩出",
-      "condition": "胎盤を掴んで引っ張る",
-      "action": "ガーゼをもらってから掴む",
-      "sources": [
-        "帝王切開_2026-02-27"
-      ],
-      "roles": [
-        "執刀"
-      ],
-      "added_date": "2026-03-31"
-    },
-    {
-      "id": "cs-delivery-040",
-      "procedure": "帝王切開",
-      "phase": "子宮切開〜児娩出",
-      "condition": "前置胎盤でパルタン半筒を投与した後",
-      "action": "自己血返血の準備等を麻酔科と確認してから胎盤娩出に移る",
-      "sources": [
-        "帝王切開_前置胎盤_2026-03-18"
-      ],
-      "roles": [
-        "共通"
-      ],
       "added_date": "2026-04-01"
     },
     {
       "id": "cs-delivery-041",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
-      "condition": "胎盤娩出後",
-      "action": "開創器を外し、子宮を腹側に挙上、ダグラス窩にタオルを挿入する",
+      "condition": "胎盤を掴んで引っ張る",
+      "action": "ガーゼをもらってから掴む",
       "sources": [
         "帝王切開_2026-02-27"
       ],
@@ -1831,6 +1829,34 @@
       "id": "cs-delivery-042",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
+      "condition": "前置胎盤でパルタン半筒を投与した後",
+      "action": "自己血返血の準備等を麻酔科と確認してから胎盤娩出に移る",
+      "sources": [
+        "帝王切開_前置胎盤_2026-03-18"
+      ],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-26"
+    },
+    {
+      "id": "cs-delivery-043",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "胎盤娩出後",
+      "action": "開創器を外し、子宮を腹側に挙上、ダグラス窩にタオルを挿入する",
+      "sources": [
+        "帝王切開_2026-02-27"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "2026-04-28"
+    },
+    {
+      "id": "cs-delivery-044",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
       "condition": "ダグラス窩にタオルを挿入する",
       "action": "折らずに広げたタオルの角から少しずつ入れ、腸を押し上げながら送り込む。取り出す際も同様に少しずつ引き出す。一気に折り込んで挿入しない",
       "sources": [
@@ -1839,10 +1865,10 @@
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-04-26"
+      "added_date": "2026-04-28"
     },
     {
-      "id": "cs-delivery-043",
+      "id": "cs-delivery-045",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮後面に癒着があって腹腔外挙上が難しい",
@@ -1856,7 +1882,7 @@
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-delivery-044",
+      "id": "cs-delivery-046",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "第一助手として胎盤娩出後にいる",
@@ -1868,40 +1894,14 @@
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-04-28"
-    },
-    {
-      "id": "cs-delivery-045",
-      "procedure": "帝王切開",
-      "phase": "子宮切開〜児娩出",
-      "condition": "子宮切開を用手的に広げる",
-      "action": "開創器の3枚目ブレードを外してから行う（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
-      "sources": [],
-      "roles": [
-        "共通"
-      ],
-      "added_date": "2026-04-28"
-    },
-    {
-      "id": "cs-delivery-046",
-      "procedure": "帝王切開",
-      "phase": "子宮切開〜児娩出",
-      "condition": "第二助手として吸引チューブを術野に降ろす",
-      "action": "第一助手の右側（術者側）から降ろす。左側から降ろすと邪魔になる",
-      "sources": [
-        "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
-      ],
-      "roles": [
-        "第二助手"
-      ],
       "added_date": "2026-04-29"
     },
     {
       "id": "cs-delivery-047",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
-      "condition": "下節が空虚で伸展が不良な症例（小児・早産・骨盤位等）で子宮切開ラインを決める",
-      "action": "「どこで切るか」を術者と事前に確認する。切開位置の判断が難しいことを念頭に置く（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
+      "condition": "子宮切開を用手的に広げる",
+      "action": "開創器の3枚目ブレードを外してから行う（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
       "sources": [],
       "roles": [
         "共通"
@@ -1912,6 +1912,32 @@
       "id": "cs-delivery-048",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
+      "condition": "第二助手として吸引チューブを術野に降ろす",
+      "action": "第一助手の右側（術者側）から降ろす。左側から降ろすと邪魔になる",
+      "sources": [
+        "帝王切開_臍帯ヘルニア_骨盤位_2026-03-11"
+      ],
+      "roles": [
+        "第二助手"
+      ],
+      "added_date": "2026-05-02"
+    },
+    {
+      "id": "cs-delivery-049",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "下節が空虚で伸展が不良な症例（小児・早産・骨盤位等）で子宮切開ラインを決める",
+      "action": "「どこで切るか」を術者と事前に確認する。切開位置の判断が難しいことを念頭に置く（すなみ先生 [[帝王切開_臍帯ヘルニア_骨盤位_2026-03-11]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-05-02"
+    },
+    {
+      "id": "cs-delivery-050",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
       "condition": "骨盤位の児を娩出する",
       "action": "臍帯を傷つけないようへそに触れないよう腰をつかんで娩出する",
       "sources": [
@@ -1920,10 +1946,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-02"
+      "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-049",
+      "id": "cs-delivery-051",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位で児が出づらいとき",
@@ -1934,10 +1960,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-02"
+      "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-050",
+      "id": "cs-delivery-052",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "骨盤位娩出で児頭が引っかかる",
@@ -1952,7 +1978,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-051",
+      "id": "cs-delivery-053",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮切開で最後の1膜が残っており内腔到達前の段階でペアンを使いたくなった",
@@ -1966,7 +1992,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-052",
+      "id": "cs-delivery-054",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "既往CS+筋膜瘢痕化の症例で児頭が引っかかって娩出困難になった",
@@ -1978,7 +2004,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-053",
+      "id": "cs-delivery-055",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "第一助手として尾側のT字鉗子を持っている",
@@ -1990,7 +2016,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-054",
+      "id": "cs-delivery-056",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "破膜する際に直下に児頭がない（膜が張っていない）",
@@ -2002,7 +2028,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-delivery-055",
+      "id": "cs-delivery-057",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "深く嵌入した児頭を経腟的に挙上する",
@@ -2013,10 +2039,10 @@
       "roles": [
         "第二助手"
       ],
-      "added_date": "2026-05-08"
+      "added_date": "2026-05-09"
     },
     {
-      "id": "cs-delivery-056",
+      "id": "cs-delivery-058",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩中NRFSの緊急帝王切開で児頭が高いまま（下節に嵌入していない）の状態で児頭娩出をする",
@@ -2025,10 +2051,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-08"
+      "added_date": "2026-05-09"
     },
     {
-      "id": "cs-delivery-057",
+      "id": "cs-delivery-059",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩中（陣発）の子宮筋層を切開する",
@@ -2040,7 +2066,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-delivery-058",
+      "id": "cs-delivery-060",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩進行中（陣発）の帝王切開に入る前",
@@ -2049,10 +2075,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-14"
     },
     {
-      "id": "cs-delivery-059",
+      "id": "cs-delivery-061",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩進行中CSで児の顔が母体背側を向いている（後方後頭位）と確認された",
@@ -2061,10 +2087,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-16"
     },
     {
-      "id": "cs-delivery-060",
+      "id": "cs-delivery-062",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "分娩進行中CSで回旋困難な児頭を娩出する（須波先生流）",
@@ -2073,10 +2099,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-14"
+      "added_date": "2026-05-16"
     },
     {
-      "id": "cs-delivery-061",
+      "id": "cs-delivery-063",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開で脱落膜が見え始め、かつ触診で児頭が筋層から離れている感触がある",
@@ -2088,7 +2114,7 @@
       "added_date": "2026-05-16"
     },
     {
-      "id": "cs-delivery-062",
+      "id": "cs-delivery-064",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層切開で脱落膜が露出し、卵膜を破らずに内腔に入りたい",
@@ -2100,7 +2126,7 @@
       "added_date": "2026-05-16"
     },
     {
-      "id": "cs-delivery-063",
+      "id": "cs-delivery-065",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "既往帝王切開で膀胱癒着が強固で膀胱を落とせず、膀胱圧定鈎による高い位置からの児頭娩出になった",
@@ -2109,10 +2135,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-16"
+      "added_date": "2026-05-22"
     },
     {
-      "id": "cs-delivery-064",
+      "id": "cs-delivery-066",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層をペアンで押し当てて開大延長する",
@@ -2121,10 +2147,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-16"
+      "added_date": "2026-05-27"
     },
     {
-      "id": "cs-delivery-065",
+      "id": "cs-delivery-067",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出時に左手をどこに置くか判断する",
@@ -2133,10 +2159,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-22"
+      "added_date": "2026-05-27"
     },
     {
-      "id": "cs-delivery-066",
+      "id": "cs-delivery-068",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児頭娩出が困難で術野が狭い",
@@ -2148,7 +2174,7 @@
       "added_date": "2026-05-27"
     },
     {
-      "id": "cs-delivery-067",
+      "id": "cs-delivery-069",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮内に手を入れて児頭を娩出する",
@@ -2159,10 +2185,10 @@
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-05-27"
+      "added_date": "2026-05-30"
     },
     {
-      "id": "cs-delivery-068",
+      "id": "cs-delivery-070",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児頭娩出が困難で肩甲娩出操作に移行する",
@@ -2171,10 +2197,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-27"
+      "added_date": "2026-06-03"
     },
     {
-      "id": "cs-delivery-069",
+      "id": "cs-delivery-071",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "通常の帝王切開で児頭に手を当てて娩出する際にアップテンションをかけても出にくい",
@@ -2183,7 +2209,7 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-30"
+      "added_date": "2026-06-03"
     },
     {
       "id": "cs-suture-001",
@@ -2641,6 +2667,18 @@
       "id": "cs-suture-034",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
+      "condition": "低置胎盤＋既往帝王切開の症例で胎盤娩出後に出血が持続しており止血縫合をしたくなった",
+      "action": "闇雲に縫いに行く前に、まずパルタン等の子宮収縮薬を投与して子宮を収縮させる。収縮が不十分な状態ではあちこちから出血し続け、弛緩出血か胎盤剥離面出血かの判別がつかない。収縮を作って出血源を可視化してから止血手技を選択する（須波先生 [[帝王切開_2026-06-03]]）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "2026-04-09"
+    },
+    {
+      "id": "cs-suture-035",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
       "condition": "術者がセプラフィルムを貼ろうとしている",
       "action": "貼付直前に濡れガーゼを手渡す",
       "sources": [
@@ -2652,7 +2690,7 @@
       "added_date": "2026-04-09"
     },
     {
-      "id": "cs-suture-035",
+      "id": "cs-suture-036",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "ストラタフィックス1層目で1/2拾いの深さが安定しない",
@@ -2663,10 +2701,10 @@
       "roles": [
         "第一助手"
       ],
-      "added_date": "2026-04-09"
+      "added_date": "2026-04-10"
     },
     {
-      "id": "cs-suture-036",
+      "id": "cs-suture-037",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "膀胱癒着強固で膀胱が落としきれず体部寄りの切開になった",
@@ -2677,10 +2715,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-10"
+      "added_date": "2026-04-24"
     },
     {
-      "id": "cs-suture-037",
+      "id": "cs-suture-038",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮筋層縫合で筋層の流れ方向を判断する",
@@ -2692,7 +2730,7 @@
       "added_date": "2026-04-24"
     },
     {
-      "id": "cs-suture-038",
+      "id": "cs-suture-039",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮切開創からの出血が強くストラタフィックス1層では止血困難と判断した",
@@ -2706,7 +2744,7 @@
       "added_date": "2026-04-24"
     },
     {
-      "id": "cs-suture-039",
+      "id": "cs-suture-040",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮筋層縫合創付近から出血がある",
@@ -2715,10 +2753,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-04-24"
+      "added_date": "2026-04-28"
     },
     {
-      "id": "cs-suture-040",
+      "id": "cs-suture-041",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮漿膜剥離面（頭側）から出血がある",
@@ -2732,7 +2770,7 @@
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-suture-041",
+      "id": "cs-suture-042",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "止血が必要な出血点がある",
@@ -2744,7 +2782,7 @@
       "added_date": "2026-04-28"
     },
     {
-      "id": "cs-suture-042",
+      "id": "cs-suture-043",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "エッケ（角）をPDSで縫合する（須波先生流）",
@@ -2755,10 +2793,10 @@
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-04-28"
+      "added_date": "2026-05-08"
     },
     {
-      "id": "cs-suture-043",
+      "id": "cs-suture-044",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "エッケ付近にT字鉗子をかける",
@@ -2770,7 +2808,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-suture-044",
+      "id": "cs-suture-045",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "ストラタフィックスで子宮筋層を全層一層縫合する",
@@ -2782,7 +2820,7 @@
       "added_date": "2026-05-08"
     },
     {
-      "id": "cs-suture-045",
+      "id": "cs-suture-046",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮漿膜縫合前に断端の漿膜がめくれて筋肉が露出している",
@@ -2791,10 +2829,10 @@
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-08"
+      "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-046",
+      "id": "cs-suture-047",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "ストラタフィックスで筋層を拾う深さを決める",
@@ -2806,7 +2844,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-047",
+      "id": "cs-suture-048",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮筋層一層目を縫合するとき（ストラタフィックス等）に運針ピッチを決める",
@@ -2818,7 +2856,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-048",
+      "id": "cs-suture-049",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮縫合中または縫合後に子宮収縮が弱くなってきたと感じた",
@@ -2832,7 +2870,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-049",
+      "id": "cs-suture-050",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "2層縫合後も子宮筋層の弛緩・ゆるみが残っている",
@@ -2844,7 +2882,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-050",
+      "id": "cs-suture-051",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "助手としてモノディオックスの本結紮に入る",
@@ -2856,7 +2894,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-051",
+      "id": "cs-suture-052",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "既破水で帝王切開を施行した",
@@ -2870,7 +2908,7 @@
       "added_date": "2026-05-09"
     },
     {
-      "id": "cs-suture-052",
+      "id": "cs-suture-053",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "前CS既往症例で子宮筋層切開位置を決める",
@@ -2881,10 +2919,10 @@
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-05-09"
+      "added_date": "2026-05-16"
     },
     {
-      "id": "cs-suture-053",
+      "id": "cs-suture-054",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮筋層が薄い症例（5mm以下など）で縫合する",
@@ -2898,7 +2936,7 @@
       "added_date": "2026-05-16"
     },
     {
-      "id": "cs-suture-054",
+      "id": "cs-suture-055",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "大量出血症例で子宮筋層を縫合している",
@@ -2910,7 +2948,7 @@
       "added_date": "2026-05-16"
     },
     {
-      "id": "cs-suture-055",
+      "id": "cs-suture-056",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮口からの出血量が少なく子宮内バルーン留置を検討している",
@@ -2921,10 +2959,10 @@
       "roles": [
         "執刀"
       ],
-      "added_date": "2026-05-16"
+      "added_date": "2026-05-22"
     },
     {
-      "id": "cs-suture-056",
+      "id": "cs-suture-057",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮が小さく（超早産・低体重児等）腹腔外への挙上が困難な場合",
@@ -2936,25 +2974,11 @@
       "added_date": "2026-05-22"
     },
     {
-      "id": "cs-suture-057",
+      "id": "cs-suture-058",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "低位子宮切開で出血が術野を覆い視野が悪い（第一助手として）",
       "action": "吸引と清潔タオルによる拭きを積極的かつ継続的に行う。視野確保が助手の最優先タスクとなる",
-      "sources": [
-        "帝王切開_2026-05-08_3"
-      ],
-      "roles": [
-        "第一助手"
-      ],
-      "added_date": "2026-05-22"
-    },
-    {
-      "id": "cs-suture-058",
-      "procedure": "帝王切開",
-      "phase": "子宮筋層縫合",
-      "condition": "子宮筋層縫合で針の刺出位置を感覚でコントロールしたい（篠原先生流）",
-      "action": "左手は長鑷子ではなく素手で筋層創部に直接触れ、筋層の厚み・抵抗を指先で感じながら刺出位置を決定する",
       "sources": [
         "帝王切開_2026-05-08_3"
       ],
@@ -2967,13 +2991,27 @@
       "id": "cs-suture-059",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
+      "condition": "子宮筋層縫合で針の刺出位置を感覚でコントロールしたい（篠原先生流）",
+      "action": "左手は長鑷子ではなく素手で筋層創部に直接触れ、筋層の厚み・抵抗を指先で感じながら刺出位置を決定する",
+      "sources": [
+        "帝王切開_2026-05-08_3"
+      ],
+      "roles": [
+        "第一助手"
+      ],
+      "added_date": "2026-05-30"
+    },
+    {
+      "id": "cs-suture-060",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
       "condition": "子宮筋層縫合の助手として子宮を押さえる",
       "action": "押さえる方向は頭側に真っ直ぐにする。自分の体側に引き寄せると体軸からずれ、術者が対称に縫合できなくなる（安田先生 [[帝王切開_2026-05-15]]）",
       "sources": [],
       "roles": [
         "共通"
       ],
-      "added_date": "2026-05-30"
+      "added_date": "2026-06-03"
     },
     {
       "id": "cs-close-001",
@@ -9281,10 +9319,16 @@
           ]
         },
         {
-          "source": "帝王切開_2026-05-27",
+          "source": "帝王切開_2026-06-03",
           "items": [
-            "通常例の児頭娩出でアップテンションをかけても出にくいとき → 「アップテンション」方向ではなく、屈位を保ちつつ首を傾げさせる方向（ピアノを弾くように指を動かす）に力をかける（篠原先生）",
-            "創部出血が多い気がしてストラタを多めにすくいたくなったとき → まず出血が落ち着いているか確認。落ち着いているなら頭尾側で組織量を均一にすることを優先する。片側だけ多くすると縫合部が盛り上がって歪な形になる"
+            "低置胎盤＋既往帝切で胎盤娩出後に出血が持続しているとき → 闇雲に縫いに行く前に、まずパルタン等で子宮を収縮させる。収縮が不十分だと弛緩出血か剥離面出血か判別不能（須波先生）"
+          ]
+        },
+        {
+          "source": "帝王切開_2026-06-03_2",
+          "items": [
+            "臍帯を2本コッヘルで結紮する際、2本目を夾鉗する前 → コッヘルをスライドさせてコッヘル間の血液を減らしておく。残ったまま切離すると吹き出す（安田先生）",
+            "児頭を頭側へ片手で押し上げるとき → 頭の側面でなく「てっぺんのポイント」を捉えて持ち上げる。最初の一手のポイント選択が成否を分ける（気づき）"
           ]
         }
       ]
