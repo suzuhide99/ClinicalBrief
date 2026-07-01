@@ -477,7 +477,7 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-07-01T06:06:57.708891+09:00",
+  "generated_at": "2026-07-01T22:03:48.535349+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -1826,6 +1826,34 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-22"
     },
     {
+      "id": "cs-open-082",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "既往帝王切開（特に前回腹壁切開法と今回が異なる例）で術前の時間配分を計画する",
+      "action": "筋膜〜腹膜層の癒着が皮下脂肪層より強固になることを前提に、筋膜切開フェーズの所要時間を「通常より長め」に見積もりに組み込む",
+      "sources": [
+        "帝王切開_2026-07-01"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "2026-07-01"
+    },
+    {
+      "id": "cs-open-083",
+      "procedure": "帝王切開",
+      "phase": "開腹",
+      "condition": "既往帝王切開後で膀胱剥離・膀胱子宮窩腹膜切開に臨む",
+      "action": "「時間がかかって当然の場面」として事前に想定内に置く。焦らず、予め想定難所として事前予測にも明記しておく",
+      "sources": [
+        "帝王切開_2026-07-01"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "2026-07-01"
+    },
+    {
       "id": "cs-delivery-001",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
@@ -1844,7 +1872,7 @@ window.BRIEFING_DATA = {
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮筋層をメスで切開する",
-      "action": "子宮壁に対して垂直に切る。筋層は均一な厚みではないため幅広く深めに切開し、一番薄いポイントで脱落膜が露出するのを待つ。一点集中で掘ると難易度が上がる。メスが垂直でないと最深部が尾側に偏り、追加切開の方向を誤りやすい（安田先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]], [[帝王切開_2026-06-23]]）",
+      "action": "子宮壁に対して垂直に切る。筋層は均一な厚みではないため**幅広く**深めに切開し、一番薄いポイントで脱落膜が露出するのを待つ。一点集中で掘ると難易度が上がる。メスが垂直でないと最深部が尾側に偏り、追加切開の方向を誤りやすい。幅が十分あれば「内膜に到達したか」を前立ちと確認・相談できる余裕が生まれる。**垂直方向より幅（横方向）が優先的な意識ポイント**（安田先生 [[帝王切開_分葉胎盤_筋腫核出_2026-03-18]], [[帝王切開_2026-06-23]], [[帝王切開_2026-07-01]]）",
       "sources": [],
       "roles": [
         "共通"
@@ -2961,6 +2989,20 @@ window.BRIEFING_DATA = {
       "id": "cs-delivery-086",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
+      "condition": "児頭娩出を試みてアップテンション後も動かず「色々トライした」状況になった",
+      "action": "深追いせず早めに上級医への交代を検討する。交代後のスムーズな娩出を知っていれば「もう少し頑張ろう」より「交代」を選ぶ閾値を低く設定できる",
+      "sources": [
+        "帝王切開_2026-07-01"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "2026-06-29"
+    },
+    {
+      "id": "cs-delivery-087",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
       "condition": "子宮切開の「2cm延長してよいか」を判断する",
       "action": "「下節の2cm」と「体部の2cm」は伸縮性・娩出可能性・裂けやすさが全く違うものと認識する。同じ2cmでもリスクと有効性は別物。下節は薄く伸びやすく押し広げで娩出可能、体部は伸びないので長く切らないと出ない（須波先生 [[帝王切開_2026-06-22_2]]）",
       "sources": [],
@@ -2970,7 +3012,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-087",
+      "id": "cs-delivery-088",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮切開の長さがやや短いように見えても",
@@ -2982,7 +3024,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-088",
+      "id": "cs-delivery-089",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮体部に切り込みそうである",
@@ -2994,7 +3036,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-089",
+      "id": "cs-delivery-090",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児頭が下降しており＋膀胱フラップが十分作成できている",
@@ -3006,7 +3048,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-090",
+      "id": "cs-delivery-091",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮下節領域の中でも「高め」の位置で切開に入った",
@@ -3018,7 +3060,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-091",
+      "id": "cs-delivery-092",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "真横方向に切開を延長してよいか迷う",
@@ -3030,7 +3072,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-092",
+      "id": "cs-delivery-093",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "体部方向にU字や縦に切り上げて延長しようとする",
@@ -3042,7 +3084,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-093",
+      "id": "cs-delivery-094",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "U字 vs 真横で迷う",
@@ -3054,7 +3096,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-094",
+      "id": "cs-delivery-095",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮切開拡大中に子宮動脈方向への延長が懸念される",
@@ -3066,7 +3108,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-095",
+      "id": "cs-delivery-096",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮動脈本管に近い側で切開延長を検討する",
@@ -3078,7 +3120,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-096",
+      "id": "cs-delivery-097",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "帝王切開のリスク階層を意識する",
@@ -3090,7 +3132,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-097",
+      "id": "cs-delivery-098",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "切開ライン決定で「子宮動脈が怖い」と感じている",
@@ -3102,7 +3144,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-098",
+      "id": "cs-delivery-099",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮下節の下方寄りで切開を開始してしまったことに気づいた",
@@ -3114,7 +3156,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-099",
+      "id": "cs-delivery-100",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮下節の下方寄りで切開を開始してしまった",
@@ -3126,7 +3168,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-100",
+      "id": "cs-delivery-101",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮下節の下方寄りで切開を開始してしまった",
@@ -3138,7 +3180,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-101",
+      "id": "cs-delivery-102",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "卵膜剥離が終わった",
@@ -3150,7 +3192,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-102",
+      "id": "cs-delivery-103",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "上司が切開ラインを決めて切開している",
@@ -3162,7 +3204,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-103",
+      "id": "cs-delivery-104",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出後に振り返りをする",
@@ -3174,7 +3216,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-104",
+      "id": "cs-delivery-105",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "前回帝王切開既往＋筋層菲薄化を術前/術中に認識した",
@@ -3186,7 +3228,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-105",
+      "id": "cs-delivery-106",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "筋層菲薄化部位を認識した",
@@ -3198,7 +3240,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-106",
+      "id": "cs-delivery-107",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "筋層菲薄化部位を含む子宮で切開ラインを決める",
@@ -3210,7 +3252,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-107",
+      "id": "cs-delivery-108",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "通常例では「下節高め＋真横で伸縮性活用」のロジックを採用している",
@@ -3222,7 +3264,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-108",
+      "id": "cs-delivery-109",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "子宮切開の方向（真横 vs U字 vs V字 vs コの字）を決定する",
@@ -3234,7 +3276,7 @@ window.BRIEFING_DATA = {
       "added_date": "2026-06-29"
     },
     {
-      "id": "cs-delivery-109",
+      "id": "cs-delivery-110",
       "procedure": "帝王切開",
       "phase": "子宮切開〜児娩出",
       "condition": "児娩出が予想より困難で切開延長を考える",
@@ -3243,7 +3285,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "2026-06-29"
+      "added_date": "2026-07-01"
     },
     {
       "id": "cs-suture-001",
@@ -10640,15 +10682,6 @@ window.BRIEFING_DATA = {
       ],
       "recent": [
         {
-          "source": "帝王切開_2026-06-17",
-          "items": [
-            "MD双胎（または多胎）で第1児娩出操作を始めるとき → 左手で第2児の卵膜を子宮内腔に押し込みながら、右手で第1児を娩出させる。子宮底圧迫と同時に第2児卵膜が降りてくることがある（篠原先生）",
-            "子宮筋層切開で脱落膜の膨隆が見えた（3mm程度） → ペアンでなく指で進む。満期近いほど卵膜は薄く破膜しやすい",
-            "MD双胎・巨大子宮で子宮縫合が終わったとき → 現時点で弛緩がなくても、過伸展による潜在弛緩リスクを考慮してモノディオックス先回りを上級医と検討する",
-            "MD双胎・過伸展子宮のタイムアウトで予測出血量を申告するとき → 「自分の直感より一段上」を宣言。MD双胎なら3000mlを超えうると見積もる（篠原先生）"
-          ]
-        },
-        {
           "source": "帝王切開_2026-06-19",
           "items": [
             "子宮筋層切開中に出血で切開ラインが見えなくなったとき → メスに固執せずペアンに切り替える。視野が奪われた状態でメスを進めない（正解パターン）",
@@ -10663,6 +10696,15 @@ window.BRIEFING_DATA = {
             "子宮筋層をメスで切開するとき → 子宮壁に対して垂直に入れる。垂直でないと最深部が尾側に偏り、追加切開の方向を誤りやすい",
             "最初のアップテンションで「娩出の方向に進んでいる感覚」がないとき → 一旦子宮底圧迫を止め、右手を入れ直して側頭部＋後頭部寄りまで指をかけ直してから再開する。指が側頭部だけでは力が逃げる",
             "臍帯切断前に児の顔・背中をタオルで拭いているとき → 児を高い位置で保持する。低いままだとハサミ・鉗子で児を傷つけるリスクがある（篠原先生）"
+          ]
+        },
+        {
+          "source": "帝王切開_2026-07-01",
+          "items": [
+            "子宮筋層をメスで切り始めるとき → 幅を意識。垂直（深さ）だけでなく横幅を広めに切る。幅があれば「内膜到達したか」を前立ちと相談する余裕が生まれる",
+            "既往CSで筋膜〜腹膜層の癒着が想定より強いとき → 「筋膜切開に時間がかかって当然」と事前に組み込んでおく。次回は予測難所欄に明記する",
+            "既往CSで膀胱剥離・膀胱子宮窩腹膜切開に入るとき → 「時間を食う場面」として想定内に置く。焦りの源泉は「予想外」なので予測自体を変える",
+            "児頭娩出で色々トライしても動かない状況になったとき → 深追いせず早めに上級医交代を検討する。交代後スムーズに出ることを知っていれば閾値は低くてよい"
           ]
         }
       ]
