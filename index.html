@@ -186,6 +186,64 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
   padding: 40px 0 120px;
 }
 
+/* ── Settings ── */
+.settings-container {
+  padding: 8px 24px 132px;
+}
+.settings-panel {
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(224,191,189,0.28);
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 24px rgba(88,65,64,0.05);
+}
+.settings-panel h2 {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.settings-count-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.settings-count {
+  background: var(--surface-container-low);
+  border-radius: 8px;
+  padding: 12px;
+}
+.settings-count strong {
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+}
+.settings-count span {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--on-surface-variant);
+}
+.settings-action {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.settings-path {
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: rgba(88,65,64,0.58);
+  overflow-wrap: anywhere;
+}
+
 /* ── Tab Bar (Segmented Control) ── */
 .tab-bar {
   display: flex; padding: 6px;
@@ -541,7 +599,7 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-07-04T22:00:00.289699+09:00",
+  "generated_at": "2026-07-04T22:06:18.189739+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -12744,6 +12802,18 @@ window.BRIEFING_DATA = {
   </main>
 </div>
 
+<!-- ===== 設定画面 ===== -->
+<div id="view-settings" class="view">
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">設定</h1>
+    </div>
+  </header>
+  <main style="max-width:448px;margin:0 auto;">
+    <div id="settings-content" class="settings-container"></div>
+  </main>
+</div>
+
 <!-- ===== ボトムナビ ===== -->
 <nav class="bottom-nav" id="bottom-nav">
   <button class="nav-item active" id="nav-home" onclick="navHome()">
@@ -12758,7 +12828,7 @@ window.BRIEFING_DATA = {
     <span class="material-symbols-outlined">notifications</span>
     <span class="nav-label">通知</span>
   </button>
-  <button class="nav-item" id="nav-settings" onclick="void(0)">
+  <button class="nav-item" id="nav-settings" onclick="navSettings()">
     <span class="material-symbols-outlined">settings</span>
     <span class="nav-label">設定</span>
   </button>
@@ -12924,6 +12994,9 @@ function exportTriggerDecisions() {
       condition: t && t.condition,
       action: t && t.action,
       sources: t && t.sources,
+      source_keys: t && t.source_keys,
+      scope: value.scope || '',
+      safety_tier: value.safety_tier || '',
       decision: value.decision,
       priority: value.priority,
       updated_at: value.updated_at
@@ -12950,6 +13023,13 @@ function exportTriggerDecisions() {
   } else {
     alert('本人判定JSONをダウンロードしました');
   }
+}
+
+function decisionCounts() {
+  const rows = APP_DATA && APP_DATA.triggers ? APP_DATA.triggers : [];
+  const counts = Object.fromEntries(DECISION_OPTIONS.map(d => [d, 0]));
+  rows.forEach(t => { counts[getTriggerDecision(t).decision] += 1; });
+  return counts;
 }
 
 // ===== フィルタ・ソート =====
@@ -13031,6 +13111,24 @@ function renderHome() {
   html += `<div class="generated-at"><span class="material-symbols-outlined" style="font-size:14px">update</span> データ更新: ${dateDisplay}</div>`;
 
   el.innerHTML = html;
+}
+
+function renderSettings() {
+  const el = document.getElementById('settings-content');
+  if (!el || !APP_DATA) return;
+  const counts = decisionCounts();
+  el.innerHTML = `
+    <section class="settings-panel">
+      <h2>本人判定</h2>
+      <div class="settings-count-grid">
+        <div class="settings-count"><strong>${counts['最優先']}</strong><span>最優先</span></div>
+        <div class="settings-count"><strong>${counts['表示']}</strong><span>表示</span></div>
+        <div class="settings-count"><strong>${counts['もういい']}</strong><span>もういい</span></div>
+        <div class="settings-count"><strong>${counts['未判定']}</strong><span>未判定</span></div>
+      </div>
+      <button class="settings-action" onclick="exportTriggerDecisions()">JSONを書き出す</button>
+      <div class="settings-path">同期先: scripts/apply_clinicalbrief_decisions.js → ★20_Areas/Learning/ClinicalBrief選別同期.md</div>
+    </section>`;
 }
 
 // ===== レンダリング: フィルタチップ =====
@@ -13318,6 +13416,7 @@ function showHome() {
   currentTab = 'quickref';
   document.getElementById('view-home').classList.add('active');
   document.getElementById('view-briefing').classList.remove('active');
+  document.getElementById('view-settings').classList.remove('active');
   updateNavState('nav-home');
   renderHome();
 }
@@ -13330,6 +13429,7 @@ function showBriefing(procedure) {
   currentTab = 'quickref';
   document.getElementById('view-home').classList.remove('active');
   document.getElementById('view-briefing').classList.add('active');
+  document.getElementById('view-settings').classList.remove('active');
   document.getElementById('briefing-title').textContent = procedure;
   updateNavState('nav-cards');
 
@@ -13347,6 +13447,18 @@ function showBriefing(procedure) {
   renderPhaseBar(procedure);
   renderDecisionBar(procedure);
   renderTriggerList();
+}
+
+function navSettings() {
+  currentProcedure = null;
+  currentPhase = null;
+  currentRole = null;
+  currentDecisionFilter = null;
+  document.getElementById('view-home').classList.remove('active');
+  document.getElementById('view-briefing').classList.remove('active');
+  document.getElementById('view-settings').classList.add('active');
+  updateNavState('nav-settings');
+  renderSettings();
 }
 
 function setPhase(phase) {
@@ -13435,6 +13547,8 @@ document.addEventListener('visibilitychange', () => {
       renderDecisionBar(currentProcedure);
       renderTriggerList();
       if (currentTab === 'quickref') renderQuickrefCard(currentProcedure);
+    } else if (document.getElementById('view-settings').classList.contains('active')) {
+      renderSettings();
     } else { renderHome(); }
   }
 });
