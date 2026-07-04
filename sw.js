@@ -1,4 +1,4 @@
-const CACHE_NAME = 'clinical-brief-v3';
+const CACHE_NAME = 'clinical-brief-v5';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
