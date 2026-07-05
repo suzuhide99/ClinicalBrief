@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T06:00:03.402979+09:00",
+  "generated_at": "2026-07-05T22:00:03.337442+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -9082,6 +9082,222 @@
       ],
       "added_date": "05-31",
       "source_keys": []
+    },
+    {
+      "id": "cl-001",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "脂肪剥離時：筋膜が震える瞬間を見逃さず、深さを決める",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-002",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "メスの持ち方を**テーブルナイフ持ち**で試してみる（子宮切開・皮膚切開で）",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-003",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "子宮切開：一刀目以降も最薄部を切り続けられるよう、視野と力加減を意識",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-004",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "子宮漿膜切開：長鑷子は**強く**持ち上げる",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-005",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "筋層縫合：薄く拾うを徹底、止血不安な箇所はZ縫合で補う判断",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-06",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-006",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "ダグラス窩タオル：折らず、角から少しずつ、腸を押し上げながら",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-06",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-007",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "浅筋膜縫合3-0：頭側で真皮寄りに攻めすぎない",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-06",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-008",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "**「初診外来＋緊急手術が重なる日」用の術前チェックリスト**を作る（自己血・NICU依頼・カルテ確認・直前エコー・直前内診）",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-06",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-009",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "骨盤位娩出時、**自分から分担を提案**してみる",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-010",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "側臍靭帯透見を**意識的に試行**し、再現性を検証",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-011",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "閉腹工程は時間をかけない。腹膜・筋膜・真皮すべて「ここに時間を使うな」を肝に銘じる",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
+    },
+    {
+      "id": "cl-012",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "明日、創部確認に行く ✅ 04-26",
+      "sources": [
+        "帝王切開 / 04-23 / 須波先生"
+      ],
+      "date": "04-23",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0423-a74830"
+      ]
     },
     {
       "id": "cl-001",
