@@ -599,7 +599,7 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-08-20T06:00:01.166795+09:00",
+  "generated_at": "2026-08-20T22:05:25.204764+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -908,6 +908,19 @@ window.BRIEFING_DATA = {
         "共通"
       ],
       "added_date": "07-26",
+      "source_keys": []
+    },
+    {
+      "id": "cs-preop-021",
+      "procedure": "帝王切開",
+      "phase": "術前",
+      "condition": "帝王切開前の内診で上級医の触診所見と自分の所見が割れた",
+      "action": "自分の触診所見とエコー所見を根拠に判断を組み立ててよい。上級医の所見に無条件に従う必要はない（今回は自身の骨盤位判断が結果的に正しかった 帝王切開 / 08-19 / 須波先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "08-20",
       "source_keys": []
     },
     {
@@ -1648,16 +1661,18 @@ window.BRIEFING_DATA = {
       "procedure": "帝王切開",
       "phase": "開腹",
       "condition": "筋肉の裏側に指を入れようとしている",
-      "action": "筋肉の裏側には血管が多いので指をつっこまない",
+      "action": "筋肉の裏側には血管が多いので指をつっこまない。腹腔到達時、特に自分側（母体右側。筋膜切開により腹直筋そのものが露出し白線に包まれていない側）の腹直筋裏は術後の筋膜下血腫リスクがあるため意識して触らない",
       "sources": [
-        "帝王切開 / 02-27 / 安田先生"
+        "帝王切開 / 02-27 / 安田先生",
+        "帝王切開 / 08-19 / 須波先生"
       ],
       "roles": [
         "執刀"
       ],
       "added_date": "04-09",
       "source_keys": [
-        "src-cs-0227-e1b6d6"
+        "src-cs-0227-e1b6d6",
+        "src-cs-0819-a1a7d7"
       ]
     },
     {
@@ -4258,6 +4273,59 @@ window.BRIEFING_DATA = {
       ]
     },
     {
+      "id": "cs-delivery-124",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "DD双胎の帝王切開で子宮切開を開始したが子宮腔到達までに時間がかかっている（未破膜での到達に固執している）",
+      "action": "破膜回避よりも子宮腔到達のスムーズさを優先する。時間が経つほど子宮収縮で筋層が肥厚し、児の娩出難易度が上がる。単胎では破膜回避が成立する場面",
+      "sources": [
+        "帝王切開 / 08-12 / 篠原先生",
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "08-20",
+      "source_keys": [
+        "src-cs-0812-ea774f",
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cs-delivery-125",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "骨盤位帝王切開で子宮切開創を用手的に拡大し殿部を片手で把持できる状態になった",
+      "action": "殿部を掴んで一度頭側にクイッと持ち上げてから娩出に入ると流れが決まる。続けて上下の振り子運動で両上肢を遊離・娩出する",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "08-20",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cs-delivery-126",
+      "procedure": "帝王切開",
+      "phase": "子宮切開〜児娩出",
+      "condition": "DD双胎の後続児（頭位）を卵膜に包まれたまま子宮底圧迫と合わせて誘導していたが途中で停止した",
+      "action": "コッヘルで破膜して頭位に整えてから娩出する",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "08-20",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
       "id": "cs-suture-001",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
@@ -5076,7 +5144,7 @@ window.BRIEFING_DATA = {
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "ストラタフィックスで筋層を拾う深さを決める",
-      "action": "「こんなに薄く拾って大丈夫か」と不安になるくらいの薄さで拾う。薄く拾う方が筋層が綺麗に合わさる。止血効果が不安なら2-0ポリゾーブのZ縫合で補う。特に2層目は薄めに取ることで美しい仕上がりになる（須波先生 帝王切開 / 04-23 / 須波先生, 帝王切開 / 06-17 / 篠原先生）",
+      "action": "「こんなに薄く拾って大丈夫か」と不安になるくらいの薄さで拾う。薄く拾う方が筋層が綺麗に合わさる。止血効果が不安なら2-0ポリゾーブのZ縫合で補う。特に2層目は薄めに取ることで美しい仕上がりになる。内腔側を先に2-0結節で合わせている二層縫合では、外層のストラタフィックスは内膜を拾う必要はなく、一部筋層が取り切れなくても十分（須波先生 帝王切開 / 04-23 / 須波先生, 帝王切開 / 06-17 / 篠原先生, 帝王切開 / 08-19 / 須波先生）",
       "sources": [],
       "roles": [
         "共通"
@@ -5086,6 +5154,19 @@ window.BRIEFING_DATA = {
     },
     {
       "id": "cs-suture-053",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
+      "condition": "ストラタフィックス一層縫合で最後の自分側（子宮右側）の一針を縫う場面で、すでに創部が寄ってきている",
+      "action": "全層を拾うことに固執せず、表面を少しかける程度の深さで縫合する（須波先生 帝王切開 / 08-19 / 須波先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "05-16",
+      "source_keys": []
+    },
+    {
+      "id": "cs-suture-054",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮筋層一層目を縫合するとき（ストラタフィックス等）に運針ピッチを決める",
@@ -5098,7 +5179,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-suture-054",
+      "id": "cs-suture-055",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "ストラタフィックスで子宮筋層を連続縫合する際の牽引力（糸を引く強さ）を決める",
@@ -5111,7 +5192,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-suture-055",
+      "id": "cs-suture-056",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮縫合中または縫合後に子宮収縮が弱くなってきたと感じた",
@@ -5123,14 +5204,14 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "05-16",
+      "added_date": "05-22",
       "source_keys": [
         "src-cs-0522-5775c7",
         "src-cs-0612-bab546"
       ]
     },
     {
-      "id": "cs-suture-056",
+      "id": "cs-suture-057",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "2層縫合後も子宮筋層の弛緩・ゆるみが残っている",
@@ -5143,7 +5224,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-suture-057",
+      "id": "cs-suture-058",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "MD双胎・巨大子宮など過伸展子宮で子宮縫合を終えたとき、現時点での収縮が悪くなくても",
@@ -5154,13 +5235,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "05-22",
+      "added_date": "05-27",
       "source_keys": [
         "src-cs-0617-fb8012"
       ]
     },
     {
-      "id": "cs-suture-058",
+      "id": "cs-suture-059",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "助手としてモノディオックスの本結紮に入る",
@@ -5169,11 +5250,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "05-27",
+      "added_date": "05-30",
       "source_keys": []
     },
     {
-      "id": "cs-suture-059",
+      "id": "cs-suture-060",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "モノディオックス圧迫縫合で針を切った後にペアンを挟む",
@@ -5184,13 +5265,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "05-30",
+      "added_date": "06-03",
       "source_keys": [
         "src-cs-0619-60ed8e"
       ]
     },
     {
-      "id": "cs-suture-060",
+      "id": "cs-suture-061",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "既破水で帝王切開を施行した",
@@ -5201,34 +5282,17 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "06-03",
-      "source_keys": [
-        "src-cs-0423-a74830"
-      ]
-    },
-    {
-      "id": "cs-suture-061",
-      "procedure": "帝王切開",
-      "phase": "子宮筋層縫合",
-      "condition": "前CS既往症例で子宮筋層切開位置を決める",
-      "action": "旧瘢痕部（筋層が最も薄い部分）を避けてやや頭側で切開する。瘢痕部での切開は穿孔・過剰出血リスクが高い",
-      "sources": [
-        "帝王切開 / 05-08 / 安田先生"
-      ],
-      "roles": [
-        "執刀"
-      ],
       "added_date": "06-17",
       "source_keys": [
-        "src-cs-0508-9e864e"
+        "src-cs-0423-a74830"
       ]
     },
     {
       "id": "cs-suture-062",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
-      "condition": "子宮筋層が薄い症例（5mm以下など）で縫合する",
-      "action": "ストラタフィックスで全層1層縫合後、さらにストラタフィックスをピッチ広めで表層だけかけて2層目を補強する（全層1層＋表層補強のハイブリッド縫合）",
+      "condition": "前CS既往症例で子宮筋層切開位置を決める",
+      "action": "旧瘢痕部（筋層が最も薄い部分）を避けてやや頭側で切開する。瘢痕部での切開は穿孔・過剰出血リスクが高い",
       "sources": [
         "帝王切開 / 05-08 / 安田先生"
       ],
@@ -5244,6 +5308,23 @@ window.BRIEFING_DATA = {
       "id": "cs-suture-063",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
+      "condition": "子宮筋層が薄い症例（5mm以下など）で縫合する",
+      "action": "ストラタフィックスで全層1層縫合後、さらにストラタフィックスをピッチ広めで表層だけかけて2層目を補強する（全層1層＋表層補強のハイブリッド縫合）",
+      "sources": [
+        "帝王切開 / 05-08 / 安田先生"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "07-09",
+      "source_keys": [
+        "src-cs-0508-9e864e"
+      ]
+    },
+    {
+      "id": "cs-suture-064",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
       "condition": "大量出血症例で子宮筋層を縫合している",
       "action": "精度を保ちながらもテンポを落とさない。精度への意識が速度低下に転化しやすいため「正確かつテンポよく」を意識的に並立させる（篠原先生 帝王切開 / 05-08 / 篠原先生）",
       "sources": [],
@@ -5254,7 +5335,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-suture-064",
+      "id": "cs-suture-065",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮口からの出血量が少なく子宮内バルーン留置を検討している",
@@ -5265,13 +5346,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "07-09",
+      "added_date": "07-26",
       "source_keys": [
         "src-cs-0508-37f2f9"
       ]
     },
     {
-      "id": "cs-suture-065",
+      "id": "cs-suture-066",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "子宮が小さく（超早産・低体重児等）腹腔外への挙上が困難な場合",
@@ -5280,32 +5361,15 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "07-26",
-      "source_keys": []
-    },
-    {
-      "id": "cs-suture-066",
-      "procedure": "帝王切開",
-      "phase": "子宮筋層縫合",
-      "condition": "低位子宮切開で出血が術野を覆い視野が悪い（第一助手として）",
-      "action": "吸引と清潔タオルによる拭きを積極的かつ継続的に行う。視野確保が助手の最優先タスクとなる",
-      "sources": [
-        "帝王切開 / 05-08 / 篠原先生"
-      ],
-      "roles": [
-        "第一助手"
-      ],
       "added_date": "08-04",
-      "source_keys": [
-        "src-cs-0508-13f5a0"
-      ]
+      "source_keys": []
     },
     {
       "id": "cs-suture-067",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
-      "condition": "子宮筋層縫合で針の刺出位置を感覚でコントロールしたい（篠原先生流）",
-      "action": "左手は長鑷子ではなく素手で筋層創部に直接触れ、筋層の厚み・抵抗を指先で感じながら刺出位置を決定する",
+      "condition": "低位子宮切開で出血が術野を覆い視野が悪い（第一助手として）",
+      "action": "吸引と清潔タオルによる拭きを積極的かつ継続的に行う。視野確保が助手の最優先タスクとなる",
       "sources": [
         "帝王切開 / 05-08 / 篠原先生"
       ],
@@ -5321,6 +5385,23 @@ window.BRIEFING_DATA = {
       "id": "cs-suture-068",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
+      "condition": "子宮筋層縫合で針の刺出位置を感覚でコントロールしたい（篠原先生流）",
+      "action": "左手は長鑷子ではなく素手で筋層創部に直接触れ、筋層の厚み・抵抗を指先で感じながら刺出位置を決定する",
+      "sources": [
+        "帝王切開 / 05-08 / 篠原先生"
+      ],
+      "roles": [
+        "第一助手"
+      ],
+      "added_date": "08-15",
+      "source_keys": [
+        "src-cs-0508-13f5a0"
+      ]
+    },
+    {
+      "id": "cs-suture-069",
+      "procedure": "帝王切開",
+      "phase": "子宮筋層縫合",
       "condition": "子宮筋層縫合の助手として子宮を押さえる",
       "action": "押さえる方向は頭側に真っ直ぐにする。自分の体側に引き寄せると体軸からずれ、術者が対称に縫合できなくなる（安田先生 帝王切開 / 05-15 / 安田先生）",
       "sources": [],
@@ -5331,7 +5412,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-suture-069",
+      "id": "cs-suture-070",
       "procedure": "帝王切開",
       "phase": "子宮筋層縫合",
       "condition": "第2助手不在で出血点を拭う・血を吸う・子宮を保持するなど複数の補助動作が同時に必要になった",
@@ -5342,7 +5423,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "08-15",
+      "added_date": "08-20",
       "source_keys": [
         "src-cs-0803-958749"
       ]
@@ -6323,6 +6404,53 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
+      "id": "cs-close-061",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜縫合で母体左側（助手側の腹直筋が白線に包まれ筋膜内にある側）のバイトを広く取ろうとしている",
+      "action": "広く取りすぎない。盲目的に筋肉を刺してしまい、針穴からじわじわ持続出血する原因になる",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "08-20",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cs-close-062",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "筋膜縫合後に針穴からじわじわ出血している",
+      "action": "筋肉を刺したサインと認識し、止血を確認する",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "08-20",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cs-close-063",
+      "procedure": "帝王切開",
+      "phase": "閉腹",
+      "condition": "開腹・進入の過程で止血しながら進んだ部位がある",
+      "action": "閉腹時にもう一度その部位から再出血していないかを意識し、再度止血を確認しながら閉腹を進める（須波先生 帝王切開 / 08-19 / 須波先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "08-20",
+      "source_keys": []
+    },
+    {
       "id": "cs-misc-001",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
@@ -6494,6 +6622,19 @@ window.BRIEFING_DATA = {
       "id": "cs-misc-011",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
+      "condition": "単一臍帯動脈（SUA）症例で臍帯血ガスを採取する",
+      "action": "動脈欠損部が索状構造になっており通常の動脈と誤認して穿刺しかけることがあると認識した上で、迷わず正しい動脈を穿刺する。上級医から迅速な採取を求められる場面である（須波先生 帝王切開 / 08-19 / 須波先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-10",
+      "source_keys": []
+    },
+    {
+      "id": "cs-misc-012",
+      "procedure": "帝王切開",
+      "phase": "その他（助手手技・全般）",
       "condition": "リトドリン持続投与で管理していた早産児が出生した",
       "action": "出生直後の血糖測定を行い低値（20mg/dL前後）が予想される。NICUへ事前コンサルトし、低血糖対応の準備を依頼しておく",
       "sources": [
@@ -6508,7 +6649,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-012",
+      "id": "cs-misc-013",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "電気メスの先端で止血する",
@@ -6528,7 +6669,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-013",
+      "id": "cs-misc-014",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "電気メスをスプレーにする",
@@ -6545,7 +6686,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-014",
+      "id": "cs-misc-015",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "機械台の埃よけの青いカバーがある",
@@ -6563,7 +6704,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-015",
+      "id": "cs-misc-016",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "吸引チューブを貼る",
@@ -6583,7 +6724,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-016",
+      "id": "cs-misc-017",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "手袋にピンホールがあきインナー手袋に切り替える",
@@ -6600,7 +6741,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-017",
+      "id": "cs-misc-018",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "不潔になり手洗い後に術野に戻る",
@@ -6617,7 +6758,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-018",
+      "id": "cs-misc-019",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "筋膜を結紮するときに力んでいる",
@@ -6634,7 +6775,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-019",
+      "id": "cs-misc-020",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "ヘソの位置を見る",
@@ -6651,7 +6792,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-020",
+      "id": "cs-misc-021",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "運針中",
@@ -6671,7 +6812,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-021",
+      "id": "cs-misc-022",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "子宮漿膜または膀胱フラップの縫合・結紮をする",
@@ -6693,7 +6834,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-022",
+      "id": "cs-misc-023",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "ストラタフィックス縫合中にハサミが必要",
@@ -6711,7 +6852,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-023",
+      "id": "cs-misc-024",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "術者が運針している間",
@@ -6722,13 +6863,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "03-10",
+      "added_date": "03-19",
       "source_keys": [
         "src-cs-0210-173247"
       ]
     },
     {
-      "id": "cs-misc-024",
+      "id": "cs-misc-025",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "第二助手として筋膜縫合後に右手の筋鉤を持っている",
@@ -6740,14 +6881,14 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "03-19",
+      "added_date": "04-01",
       "source_keys": [
         "src-cs-0209-213afa",
         "src-cs-0213-272d47"
       ]
     },
     {
-      "id": "cs-misc-025",
+      "id": "cs-misc-026",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "縫合時に姿勢が前のめりになっている",
@@ -6758,13 +6899,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "04-01",
+      "added_date": "04-15",
       "source_keys": [
         "src-cs-0121-afc99b"
       ]
     },
     {
-      "id": "cs-misc-026",
+      "id": "cs-misc-027",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "ストラタフィックスで子宮筋層縫合中に視野を確保しようとして体が右に傾いていることに気づいた",
@@ -6775,13 +6916,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "04-15",
+      "added_date": "04-29",
       "source_keys": [
         "src-cs-0527-7111ba"
       ]
     },
     {
-      "id": "cs-misc-027",
+      "id": "cs-misc-028",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "クーパーで糸を切断する",
@@ -6798,7 +6939,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-028",
+      "id": "cs-misc-029",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "洗浄時に温生食を使う",
@@ -6811,14 +6952,14 @@ window.BRIEFING_DATA = {
         "第一助手",
         "執刀"
       ],
-      "added_date": "04-29",
+      "added_date": "05-02",
       "source_keys": [
         "src-cs-0226-446f44",
         "src-cs-0227-e1b6d6"
       ]
     },
     {
-      "id": "cs-misc-029",
+      "id": "cs-misc-030",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "笠井先生が第一助手のとき",
@@ -6829,13 +6970,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "05-02",
+      "added_date": "05-09",
       "source_keys": [
         "src-cs-0220-e8effd"
       ]
     },
     {
-      "id": "cs-misc-030",
+      "id": "cs-misc-031",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "帝王切開中に子宮筋腫核出を行う",
@@ -6846,13 +6987,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "05-09",
+      "added_date": "05-27",
       "source_keys": [
         "src-cs-0318-5a3b88"
       ]
     },
     {
-      "id": "cs-misc-031",
+      "id": "cs-misc-032",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "大きい子宮・収縮不良で腹腔外挙上後に子宮を腹腔内に戻した後、止血確認中である",
@@ -6865,7 +7006,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-misc-032",
+      "id": "cs-misc-033",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "MD双胎（一絨毛膜性双胎）の児が娩出された直後",
@@ -6876,13 +7017,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "05-27",
+      "added_date": "06-17",
       "source_keys": [
         "src-cs-0617-fb8012"
       ]
     },
     {
-      "id": "cs-misc-033",
+      "id": "cs-misc-034",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "止血確認中に子宮が再弛緩した",
@@ -6891,11 +7032,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "06-17",
+      "added_date": "07-25",
       "source_keys": []
     },
     {
-      "id": "cs-misc-034",
+      "id": "cs-misc-035",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "T字鉗子で子宮切開創尾側をつまんで頭側にしっかり牽引し続ける場面が長時間に及ぶ",
@@ -6908,7 +7049,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-misc-035",
+      "id": "cs-misc-036",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "第一助手として吸引による局所止血に加え、術者の運針直後にすぐ糸を受け取って結紮するなど迅速に補助している場面を見た",
@@ -6917,11 +7058,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "第一助手"
       ],
-      "added_date": "07-25",
+      "added_date": "07-27",
       "source_keys": []
     },
     {
-      "id": "cs-misc-036",
+      "id": "cs-misc-037",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "腹膜切開時に第一助手として腹膜把持のペアンと筋鉤を両方右手だけで持っている、または持とうとしている",
@@ -6941,7 +7082,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "cs-misc-037",
+      "id": "cs-misc-038",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "前置胎盤剥離面の止血縫合で第一助手が右手でハサミを使うために子宮牽引を左手に持ち替えている場面を、第二助手として見た",
@@ -6952,13 +7093,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "第二助手"
       ],
-      "added_date": "07-27",
+      "added_date": "08-04",
       "source_keys": [
         "src-cs-0727-be2c22"
       ]
     },
     {
-      "id": "cs-misc-038",
+      "id": "cs-misc-039",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "術者が要所で一瞬動きを止めた（「間」を置いた）",
@@ -6967,11 +7108,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "08-04",
+      "added_date": "08-08",
       "source_keys": []
     },
     {
-      "id": "cs-misc-039",
+      "id": "cs-misc-040",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "術者と助手2名のみ（2人法）でオペに入り、手が足りない瞬間が生じる",
@@ -6984,7 +7125,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "cs-misc-040",
+      "id": "cs-misc-041",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "助手と自分（術者）の動作が同時に被る場面が繰り返し起きている",
@@ -6995,13 +7136,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "執刀"
       ],
-      "added_date": "08-08",
+      "added_date": "08-19",
       "source_keys": [
         "src-cs-0808-8492cb"
       ]
     },
     {
-      "id": "cs-misc-041",
+      "id": "cs-misc-042",
       "procedure": "帝王切開",
       "phase": "その他（助手手技・全般）",
       "condition": "緊急帝王切開の現場で看護師・当直医・上級医が多数動いており自分の役割が分からず動揺した",
@@ -7012,7 +7153,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "08-19",
+      "added_date": "08-20",
       "source_keys": [
         "src-unk-0818-975f45"
       ]
@@ -11356,6 +11497,114 @@ window.BRIEFING_DATA = {
       ]
     },
     {
+      "id": "cl-016",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "DD双胎では子宮切開を開始したら破膜回避より速度を優先し、子宮腔到達まで一気に進める",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "date": "08-19",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cl-017",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "子宮筋層の最後の一層をペアンで抜く時は、圧迫力を十分にかけて短時間で通す",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "date": "08-19",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cl-018",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "SUA症例では臍帯血ガス採取前に「索状構造＝欠損動脈」を確認してから穿刺部位を決める",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "date": "08-19",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cl-019",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "腹腔到達時、自分側（母体右側）の腹直筋の裏には指を入れない",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "date": "08-19",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cl-020",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "筋膜縫合で母体左側のバイトを広く取りすぎない",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "date": "08-19",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
+      "id": "cl-021",
+      "procedure": "帝王切開",
+      "phase": "",
+      "condition": "",
+      "action": "閉腹時、開腹時に止血した部位を再確認する",
+      "sources": [
+        "帝王切開 / 08-19 / 須波先生"
+      ],
+      "date": "08-19",
+      "roles": [
+        "執刀"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-cs-0819-a1a7d7"
+      ]
+    },
+    {
       "id": "cl-001",
       "procedure": "吸引分娩",
       "phase": "",
@@ -15168,19 +15417,6 @@ window.BRIEFING_DATA = {
       ],
       "recent": [
         {
-          "source": "帝王切開 / 08-03 / 笠井先生",
-          "items": [
-            "術者が要所で一瞬動きを止めたら → 助手が動くべき「催促」のサインと読み、待たずに動く",
-            "開腹中（皮膚切開〜筋膜剥離）に出血が見えたら → 右手に常時ガーゼを持ち、術者が焼く前に自分から押さえて拭う（今回は後手に回った場面が複数）",
-            "真皮乳頭下層の出血を止血する場面では → 鉤ピンでめくり、ガーゼは1点でなく創縁をなぞる「線」で拭ってから焼いてもらう",
-            "第一助手側の浅腹壁動静脈を見つけたら → 自分の鉤ピンで先に掴み、空いた手で視野展開を続ける",
-            "腹膜切開でペアンを持つとき → 左手で持ち、術者と左右対称の方向に牽引する（右手に筋鉤とペアンをまとめ持たない）",
-            "T字鉗子で子宮創縁を把持中、運針中の糸が近づいたら → 絡まる前に自分から外す",
-            "第2助手不在で複数の補助動作（拭う・吸う・保持）が競合したら → その瞬間最もクリティカルな1つを見極めて優先する"
-          ],
-          "source_key": "src-cs-0803-958749"
-        },
-        {
           "source": "帝王切開 / 08-08 / 須波先生",
           "items": [
             "鉤ピンで皮膚切開創縁を展開するとき → 「横に開く」のではなく術者の把持と鏡面対称に「持ち上げる」（須波先生の指摘）",
@@ -15207,6 +15443,20 @@ window.BRIEFING_DATA = {
             "菲薄化した子宮筋層で薄い部分を拾って縫おうとしているとき → 薄い部分をトリミングして除き、頭尾の厚い部分同士を合わせて縫合し直す"
           ],
           "source_key": "src-cs-0812-ea774f"
+        },
+        {
+          "source": "帝王切開 / 08-19 / 須波先生",
+          "items": [
+            "DD双胎で子宮切開開始から子宮腔到達までに時間がかかっているとき → 破膜回避より速度（スムーズさ）を優先する。時間が経つほど子宮収縮で筋層が肥厚し娩出難易度が上がる",
+            "上級医の内診所見と自分の所見が割れたとき → 自分の触診＋エコー所見を根拠に判断を組み立ててよい（今回は自身の骨盤位判断が結果的に正しかった）",
+            "骨盤位娩出で殿部を片手で把持できる状態になったら → 一度頭側にクイッと持ち上げてから娩出に入ると流れが決まる",
+            "後続児が卵膜内での児頭誘導中に停止したら → コッヘルで破膜して頭位に整えてから娩出",
+            "SUA（単一臍帯動脈）症例の臍帯血ガス採取では → 動脈欠損部が索状構造になっており誤認しやすいと知っておく",
+            "腹腔到達時、自分側（母体右側）の腹直筋の裏には → 指を突っ込まない（筋膜下血腫リスク。左右で腹直筋の露出状態が非対称なため自分側だけ特に注意）",
+            "筋膜縫合で母体左側のバイトを → 広く取りすぎない（盲目的に筋肉を刺すと針穴からじわじわ持続出血する。逆に針穴からのじわじわ出血を見たら筋肉を刺したサインと読む）",
+            "開腹時に止血した部位は → 閉腹時にもう一度再出血していないか確認する（須波先生）"
+          ],
+          "source_key": "src-cs-0819-a1a7d7"
         }
       ]
     },
