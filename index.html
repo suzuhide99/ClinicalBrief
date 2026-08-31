@@ -599,7 +599,7 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-08-31T22:00:05.097479+09:00",
+  "generated_at": "2026-09-01T06:11:33.475568+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -7783,6 +7783,84 @@ window.BRIEFING_DATA = {
       ]
     },
     {
+      "id": "vac-027",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "吸引分娩を開始する",
+      "action": "1回目を引く前に「**牽引は3回まで、3回目で娩出できなければ一度外して鉗子に切り替える**」という撤退ラインを頭に置く。回数の上限を知らないと「この回で引ききらねば」という自作の締切が生まれ、力を足す方向に働く（篠原先生。当院の運用値でガイドラインとの照合は未実施 吸引分娩 / 08-31 / 篠原先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "09-01",
+      "source_keys": []
+    },
+    {
+      "id": "vac-028",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "吸引牽引中に「この発作での娩出は厳しそう」かつ「**滑脱しそう**」と感じた",
+      "action": "「最後のひと押し」と力を足さず、その発作を終えて次の発作に繋げる。滑脱の予感は当たる。まだ牽引回数に余裕があることを思い出す（吸引分娩 / 08-31 / 篠原先生 2回目の牽引で予感を押し切って滑脱、Apgar 8/9）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "09-01",
+      "source_keys": []
+    },
+    {
+      "id": "vac-029",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "吸引牽引の方向を決める",
+      "action": "「上へ」は目的地であって牽引の向きそのものではないと理解する。カップ軸に対して垂直な牽引を保つことを優先し、児頭の下降とともに結果として牽引方向が上方へ移っていく。柄が上方などに曲がっていたら、カップ軸から外れた力がかかっているその場で見えるサインとして目視確認する（笠井先生・篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "09-01",
+      "source_keys": []
+    },
+    {
+      "id": "vac-030",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "吸引牽引中に間欠期（発作と発作の間）に入った",
+      "action": "牽引の手を緩めず保持する。緩めると児頭が母体側へ引き込まれ、それまでの牽引で獲得した下降が戻ってしまう（篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "09-01",
+      "source_keys": []
+    },
+    {
+      "id": "vac-031",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "回旋異常があり、産瘤（先進部）がフレクションポイントから側方にずれた位置にカップが装着されている",
+      "action": "基本はカップに垂直な牽引を保ちつつ、下降が弱い時だけ牽引方向を少し（斜めに）変えてみる。ただし垂直から外れる分だけカップは滑脱しやすくなるため、調整幅は小さくとどめる（笠井先生 吸引分娩 / 08-31 / 篠原先生）。🤔 未検証の仮説：「カップに垂直なベクトル」と「フレクションポイントに装着していれば正しい回旋で出てくる向きのベクトル」を合成して引くという考え方を、次の症例で試して結果を記録する（自分の推論であり指導内容そのものではない 吸引分娩 / 08-31 / 篠原先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "09-01",
+      "source_keys": []
+    },
+    {
+      "id": "vac-032",
+      "procedure": "吸引分娩",
+      "phase": "(全体)",
+      "condition": "鉗子分娩で鉗子の柄を持つ",
+      "action": "左手を下手（したて）にして右手を添える形で持つ。右手を下手にすると左側にいる助産師の動きと干渉する（笠井先生・篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "09-01",
+      "source_keys": []
+    },
+    {
       "id": "vag-001",
       "procedure": "経腟分娩",
       "phase": "(全体)",
@@ -8371,6 +8449,23 @@ window.BRIEFING_DATA = {
     {
       "id": "vag-gen-035",
       "procedure": "経腟分娩",
+      "phase": "会陰切開",
+      "condition": "会陰切開のため局所麻酔を注入した",
+      "action": "麻酔の効果が出るのを待ってから切開する。麻酔から切開までの間隔が短いと疼痛が強く出る",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-24",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "vag-gen-036",
+      "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰縫合を始める前である",
       "action": "ガーゼを腟奥（中枢側）に1枚入れてから縫合を開始する。中枢側からの血液垂れ込みを防いで視野を確保するための標準手技（安田先生・篠原先生両方で確認 経腟分娩 / 03-17 / 篠原先生）",
@@ -8382,7 +8477,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-036",
+      "id": "vag-gen-037",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰部に縫合針を刺入する前である",
@@ -8395,7 +8490,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-037",
+      "id": "vag-gen-038",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "1度裂傷で出血がないが、ポケット状（袋状）の形態をしている",
@@ -8408,7 +8503,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-038",
+      "id": "vag-gen-039",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰切開創を縫合する前である",
@@ -8421,7 +8516,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-039",
+      "id": "vag-gen-040",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "縫合中に中枢側から血液が垂れ込んで視野が妨げられる",
@@ -8432,13 +8527,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "03-24",
+      "added_date": "03-25",
       "source_keys": [
         "src-vag-0316-5be758"
       ]
     },
     {
-      "id": "vag-gen-040",
+      "id": "vag-gen-041",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰裂傷の縫合順序を決める",
@@ -8455,7 +8550,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-041",
+      "id": "vag-gen-042",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "埋没縫合の糸を切る",
@@ -8472,7 +8567,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-042",
+      "id": "vag-gen-043",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "埋没縫合で組織を把持する",
@@ -8489,7 +8584,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-043",
+      "id": "vag-gen-044",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "正中の会陰裂傷を縫合する",
@@ -8498,11 +8593,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "03-25",
+      "added_date": "04-01",
       "source_keys": []
     },
     {
-      "id": "vag-gen-044",
+      "id": "vag-gen-045",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "Z縫合の1針目で体動が強く視野展開が困難",
@@ -8519,7 +8614,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-045",
+      "id": "vag-gen-046",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合の表層縫合を行う",
@@ -8532,7 +8627,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-046",
+      "id": "vag-gen-047",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "全開大後の遷延徐脈など急速遂娩目的で会陰切開を施行した",
@@ -8549,7 +8644,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-047",
+      "id": "vag-gen-048",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "2-0バイクリルラピッドで会陰縫合の結紮をする",
@@ -8562,7 +8657,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-048",
+      "id": "vag-gen-049",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "縫合後に傷が外反している",
@@ -8575,7 +8670,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-049",
+      "id": "vag-gen-050",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "傷が外反して真皮が露出している",
@@ -8584,11 +8679,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "04-01",
+      "added_date": "04-02",
       "source_keys": []
     },
     {
-      "id": "vag-gen-050",
+      "id": "vag-gen-051",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合で片方が外反する",
@@ -8601,7 +8696,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-051",
+      "id": "vag-gen-052",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合の尾側に創部の開きが残る",
@@ -8614,7 +8709,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-052",
+      "id": "vag-gen-053",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰皮下を縫合する",
@@ -8627,7 +8722,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-053",
+      "id": "vag-gen-054",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合で出血がないところを運針する",
@@ -8640,7 +8735,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-054",
+      "id": "vag-gen-055",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "須波先生と会陰縫合に入る",
@@ -8653,7 +8748,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-055",
+      "id": "vag-gen-056",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "マットレス縫合で出血があるところを運針する",
@@ -8666,7 +8761,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-056",
+      "id": "vag-gen-057",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "膣壁裂傷と会陰の縫合が終わった",
@@ -8679,7 +8774,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-057",
+      "id": "vag-gen-058",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰切開創から出血が多い",
@@ -8692,7 +8787,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-058",
+      "id": "vag-gen-059",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "エッケZ縫合でポケット・トンネル状の空間がある",
@@ -8705,7 +8800,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-059",
+      "id": "vag-gen-060",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰の中縫いで組織を寄せる",
@@ -8718,7 +8813,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-060",
+      "id": "vag-gen-061",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "膣壁側と皮膚側が捲れるように裂けた裂傷を縫合する",
@@ -8727,11 +8822,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "04-02",
+      "added_date": "04-03",
       "source_keys": []
     },
     {
-      "id": "vag-gen-061",
+      "id": "vag-gen-062",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰縫合を始める前である",
@@ -8744,24 +8839,11 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-062",
+      "id": "vag-gen-063",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰裂傷にポケットが深く奥まで達している",
       "action": "ペンローズドレーンを挿入して排液路を確保する。死腔への血液・浸出液の貯留を防ぐための対応（篠原先生 経腟分娩 / 04-01 / 笠井先生・篠原先生）",
-      "sources": [],
-      "roles": [
-        "共通"
-      ],
-      "added_date": "04-03",
-      "source_keys": []
-    },
-    {
-      "id": "vag-gen-063",
-      "procedure": "経腟分娩",
-      "phase": "会陰縫合",
-      "condition": "エッケZ縫合で一番奥の運針をする",
-      "action": "深く取りすぎないよう注意する。深く取りすぎると患者の疼痛を招く（須波先生 経腟分娩 / 04-02 / 須波先生）",
       "sources": [],
       "roles": [
         "共通"
@@ -8773,8 +8855,8 @@ window.BRIEFING_DATA = {
       "id": "vag-gen-064",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
-      "condition": "会陰切開創の左右を縫合で合わせる際に目印を探す",
-      "action": "ためらい創（切開のためらいによる浅い切り込み）が左右位置合わせの目印になる（須波先生 経腟分娩 / 04-02 / 須波先生）",
+      "condition": "エッケZ縫合で一番奥の運針をする",
+      "action": "深く取りすぎないよう注意する。深く取りすぎると患者の疼痛を招く（須波先生 経腟分娩 / 04-02 / 須波先生）",
       "sources": [],
       "roles": [
         "共通"
@@ -8786,6 +8868,19 @@ window.BRIEFING_DATA = {
       "id": "vag-gen-065",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
+      "condition": "会陰切開創の左右を縫合で合わせる際に目印を探す",
+      "action": "ためらい創（切開のためらいによる浅い切り込み）が左右位置合わせの目印になる（須波先生 経腟分娩 / 04-02 / 須波先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "04-13",
+      "source_keys": []
+    },
+    {
+      "id": "vag-gen-066",
+      "procedure": "経腟分娩",
+      "phase": "会陰縫合",
       "condition": "マットレス縫合中に患者の疼痛が強い",
       "action": "単縫合に切り替える判断をする。マットレス縫合より単縫合のほうが痛みが少ない",
       "sources": [
@@ -8794,13 +8889,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "04-13",
+      "added_date": "04-15",
       "source_keys": [
         "src-vag-0415-6533cc"
       ]
     },
     {
-      "id": "vag-gen-066",
+      "id": "vag-gen-067",
       "procedure": "経腟分娩",
       "phase": "会陰縫合",
       "condition": "会陰皮下縫合をU字に運針する",
@@ -8817,7 +8912,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-067",
+      "id": "vag-gen-068",
       "procedure": "経腟分娩",
       "phase": "新生児対応（臍帯処置）",
       "condition": "助産師が臍帯を切断する",
@@ -8830,7 +8925,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-068",
+      "id": "vag-gen-069",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "変動一過性徐脈が連発している",
@@ -8843,7 +8938,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-069",
+      "id": "vag-gen-070",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "経会陰エコーと経腟エコーを組み合わせて評価する",
@@ -8852,11 +8947,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "04-15",
+      "added_date": "05-12",
       "source_keys": []
     },
     {
-      "id": "vag-gen-070",
+      "id": "vag-gen-071",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "FGR児の分娩中に軽度の変動一過性徐脈を反復して認める",
@@ -8873,7 +8968,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-071",
+      "id": "vag-gen-072",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "OCT（オキシトシン負荷試験）が陰性で誘発方針となった",
@@ -8884,13 +8979,13 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "05-12",
+      "added_date": "06-16",
       "source_keys": [
         "src-vag-0804-cba5e3"
       ]
     },
     {
-      "id": "vag-gen-072",
+      "id": "vag-gen-073",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "分娩経過中に出血が漸増し、かつ胎児心拍数の徐脈が発生してその後回復しない",
@@ -8907,7 +9002,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-073",
+      "id": "vag-gen-074",
       "procedure": "経腟分娩",
       "phase": "CTG異常・臍帯評価",
       "condition": "全開大後に徐脈が遷延し、児頭下降がすでに十分（会陰切開で娩出できる位置まで下りている）と判断できる",
@@ -8926,7 +9021,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-074",
+      "id": "vag-gen-075",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコー横断像で回旋を評価する",
@@ -8939,7 +9034,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-075",
+      "id": "vag-gen-076",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーの矢状断で回旋を評価する",
@@ -8952,24 +9047,11 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-076",
+      "id": "vag-gen-077",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーを縦（矢状断）で当てようとして正中では見えにくい",
       "action": "外側の外陰から正中に向かって斜めにビームを当てて描出する（須波先生 経腟分娩 / 04-02 / 須波先生）",
-      "sources": [],
-      "roles": [
-        "共通"
-      ],
-      "added_date": "06-16",
-      "source_keys": []
-    },
-    {
-      "id": "vag-gen-077",
-      "procedure": "経腟分娩",
-      "phase": "経会陰エコー・PA評価",
-      "condition": "経会陰エコーで描出する",
-      "action": "恥骨が画面の水平方向に向くように調整する。これが全評価の基準となる（須波先生 経腟分娩 / 04-02 / 須波先生）",
       "sources": [],
       "roles": [
         "共通"
@@ -8979,6 +9061,19 @@ window.BRIEFING_DATA = {
     },
     {
       "id": "vag-gen-078",
+      "procedure": "経腟分娩",
+      "phase": "経会陰エコー・PA評価",
+      "condition": "経会陰エコーで描出する",
+      "action": "恥骨が画面の水平方向に向くように調整する。これが全評価の基準となる（須波先生 経腟分娩 / 04-02 / 須波先生）",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "07-10",
+      "source_keys": []
+    },
+    {
+      "id": "vag-gen-079",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PAを測定する",
@@ -8991,7 +9086,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-079",
+      "id": "vag-gen-080",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "経会陰エコーで回旋・PAを評価した",
@@ -9004,7 +9099,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-080",
+      "id": "vag-gen-081",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PAが書籍上140°以上で急速遂娩の適応に見える",
@@ -9017,7 +9112,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-081",
+      "id": "vag-gen-082",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "努責時にPA 140°程度",
@@ -9030,7 +9125,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-082",
+      "id": "vag-gen-083",
       "procedure": "経腟分娩",
       "phase": "経会陰エコー・PA評価",
       "condition": "PA画面を見る",
@@ -9039,11 +9134,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "07-10",
+      "added_date": "07-26",
       "source_keys": []
     },
     {
-      "id": "vag-gen-083",
+      "id": "vag-gen-084",
       "procedure": "経腟分娩",
       "phase": "膣壁裂傷の確認",
       "condition": "膣壁裂傷を確認する",
@@ -9056,7 +9151,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-084",
+      "id": "vag-gen-085",
       "procedure": "経腟分娩",
       "phase": "膣壁裂傷の確認",
       "condition": "2連ガーゼを膣奥に挿入する",
@@ -9073,7 +9168,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-085",
+      "id": "vag-gen-086",
       "procedure": "経腟分娩",
       "phase": "膣壁裂傷の確認",
       "condition": "膣壁裂傷のエッケ縫合後も出血が続いている",
@@ -9090,24 +9185,11 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-086",
+      "id": "vag-gen-087",
       "procedure": "経腟分娩",
       "phase": "膣壁裂傷の確認",
       "condition": "頸管近傍まで達する深部裂傷（7時方向等）で視野展開が困難",
       "action": "産褥クスコを使用して視野展開する（笠井先生 経腟分娩 / 07-26 / 笠井先生）",
-      "sources": [],
-      "roles": [
-        "共通"
-      ],
-      "added_date": "07-26",
-      "source_keys": []
-    },
-    {
-      "id": "vag-gen-087",
-      "procedure": "経腟分娩",
-      "phase": "弛緩出血対応・Bakriバルーン留置",
-      "condition": "子宮由来の出血と腟壁裂傷由来の出血が混在していて出血源が切り分けられない",
-      "action": "先に活動性のある腟壁裂傷の縫合を進めて裂傷側の出血をコントロールし、出血源を子宮側に絞り込む。腟内に挿入するガーゼ2枚は止血目的ではなく視野確保目的として使う（篠原先生 経腟分娩 / 07-31 / 篠原先生（指導）／笠井先生（経腹エコー介助））",
       "sources": [],
       "roles": [
         "共通"
@@ -9117,6 +9199,19 @@ window.BRIEFING_DATA = {
     },
     {
       "id": "vag-gen-088",
+      "procedure": "経腟分娩",
+      "phase": "弛緩出血対応・Bakriバルーン留置",
+      "condition": "子宮由来の出血と腟壁裂傷由来の出血が混在していて出血源が切り分けられない",
+      "action": "先に活動性のある腟壁裂傷の縫合を進めて裂傷側の出血をコントロールし、出血源を子宮側に絞り込む。腟内に挿入するガーゼ2枚は止血目的ではなく視野確保目的として使う（篠原先生 経腟分娩 / 07-31 / 篠原先生（指導）／笠井先生（経腹エコー介助））",
+      "sources": [],
+      "roles": [
+        "共通"
+      ],
+      "added_date": "08-01",
+      "source_keys": []
+    },
+    {
+      "id": "vag-gen-089",
       "procedure": "経腟分娩",
       "phase": "弛緩出血対応・Bakriバルーン留置",
       "condition": "経腟分娩後にBakriバルーンを留置する",
@@ -9129,7 +9224,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-089",
+      "id": "vag-gen-090",
       "procedure": "経腟分娩",
       "phase": "弛緩出血対応・Bakriバルーン留置",
       "condition": "Bakriバルーンを拡張する",
@@ -9142,7 +9237,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-090",
+      "id": "vag-gen-091",
       "procedure": "経腟分娩",
       "phase": "弛緩出血対応・Bakriバルーン留置",
       "condition": "Bakriバルーン挿入後に把持鉗子を外す",
@@ -9155,7 +9250,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-091",
+      "id": "vag-gen-092",
       "procedure": "経腟分娩",
       "phase": "弛緩出血対応・Bakriバルーン留置",
       "condition": "経腟分娩後に留置したBakriバルーンが子宮体下部付近までずれてきた",
@@ -9168,7 +9263,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-092",
+      "id": "vag-gen-093",
       "procedure": "経腟分娩",
       "phase": "弛緩出血対応・Bakriバルーン留置",
       "condition": "Bakriバルーンの止血効果（50ml程度の少量拡張で足りるのか）を評価する",
@@ -9181,7 +9276,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-093",
+      "id": "vag-gen-094",
       "procedure": "経腟分娩",
       "phase": "リスク管理・計画分娩",
       "condition": "低置胎盤症例の分娩管理を計画する",
@@ -9194,7 +9289,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-094",
+      "id": "vag-gen-095",
       "procedure": "経腟分娩",
       "phase": "リスク管理・計画分娩",
       "condition": "FET（凍結胚移植）妊娠の分娩計画を立てる",
@@ -9206,14 +9301,14 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "08-01",
+      "added_date": "08-04",
       "source_keys": [
         "src-vag-0731-ffbcaa",
         "src-vag-0811-b312cb"
       ]
     },
     {
-      "id": "vag-gen-095",
+      "id": "vag-gen-096",
       "procedure": "経腟分娩",
       "phase": "分娩前・破膜のタイミング",
       "condition": "内診や経会陰エコーで胎胞が下降しているように見える",
@@ -9226,7 +9321,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-096",
+      "id": "vag-gen-097",
       "procedure": "経腟分娩",
       "phase": "新生児初期対応",
       "condition": "娩出直後の新生児がよく泣いている",
@@ -9239,7 +9334,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-097",
+      "id": "vag-gen-098",
       "procedure": "経腟分娩",
       "phase": "胎盤娩出後の診察",
       "condition": "胎盤娩出後の診察を始める",
@@ -9252,7 +9347,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-098",
+      "id": "vag-gen-099",
       "procedure": "経腟分娩",
       "phase": "胎盤娩出後の診察",
       "condition": "胎盤娩出後に卵膜遺残を認める",
@@ -9265,7 +9360,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-099",
+      "id": "vag-gen-100",
       "procedure": "経腟分娩",
       "phase": "児娩出後の観察",
       "condition": "頸部臍帯巻絡があった児の顔面が娩出後も青っぽい",
@@ -9282,7 +9377,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-100",
+      "id": "vag-gen-101",
       "procedure": "経腟分娩",
       "phase": "肩甲難産",
       "condition": "児頭娩出後に肩が出ない",
@@ -9295,7 +9390,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-101",
+      "id": "vag-gen-102",
       "procedure": "経腟分娩",
       "phase": "肩甲難産",
       "condition": "推定体重3800g以上の経腟分娩",
@@ -9308,7 +9403,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-102",
+      "id": "vag-gen-103",
       "procedure": "経腟分娩",
       "phase": "癒着胎盤（経腟分娩）",
       "condition": "癒着胎盤の既往がある経腟分娩",
@@ -9321,7 +9416,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-103",
+      "id": "vag-gen-104",
       "procedure": "経腟分娩",
       "phase": "癒着胎盤（経腟分娩）",
       "condition": "経腟分娩で癒着胎盤を確認した",
@@ -9334,7 +9429,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-104",
+      "id": "vag-gen-105",
       "procedure": "経腟分娩",
       "phase": "分娩促進の意思決定",
       "condition": "分娩促進（アトニン増量等）を検討する",
@@ -9343,11 +9438,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "08-04",
+      "added_date": "08-06",
       "source_keys": []
     },
     {
-      "id": "vag-gen-105",
+      "id": "vag-gen-106",
       "procedure": "経腟分娩",
       "phase": "分娩待機の判断",
       "condition": "陣発している症例がある",
@@ -9364,7 +9459,7 @@ window.BRIEFING_DATA = {
       ]
     },
     {
-      "id": "vag-gen-106",
+      "id": "vag-gen-107",
       "procedure": "経腟分娩",
       "phase": "上級医コール・単独対応の判断",
       "condition": "病棟担当の上級医が不在（外来・胎児スクリーニング等で出払っている）状況で分娩進行例を一人で見ており、胎児心拍の低下がない",
@@ -9373,11 +9468,11 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "08-06",
+      "added_date": "08-15",
       "source_keys": []
     },
     {
-      "id": "vag-gen-107",
+      "id": "vag-gen-108",
       "procedure": "経腟分娩",
       "phase": "見学・立ち会いの機会捕捉（引っ込み思案対策）",
       "condition": "研修の優先順位に迷う",
@@ -9390,7 +9485,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-108",
+      "id": "vag-gen-109",
       "procedure": "経腟分娩",
       "phase": "見学・立ち会いの機会捕捉（引っ込み思案対策）",
       "condition": "上級医が胎児エコーを実施する気配がある／経腟分娩が進行している",
@@ -9403,7 +9498,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-109",
+      "id": "vag-gen-110",
       "procedure": "経腟分娩",
       "phase": "見学・立ち会いの機会捕捉（引っ込み思案対策）",
       "condition": "入院患者で自分もエコーを当てられる立場だが上級医のエコーも見たい",
@@ -9416,7 +9511,7 @@ window.BRIEFING_DATA = {
       "source_keys": []
     },
     {
-      "id": "vag-gen-110",
+      "id": "vag-gen-111",
       "procedure": "経腟分娩",
       "phase": "見学・立ち会いの機会捕捉（引っ込み思案対策）",
       "condition": "助産師さんに処置・内診・分娩対応の声をかける場面で詰まる",
@@ -9425,7 +9520,7 @@ window.BRIEFING_DATA = {
       "roles": [
         "共通"
       ],
-      "added_date": "08-15",
+      "added_date": "09-01",
       "source_keys": []
     },
     {
@@ -11728,6 +11823,186 @@ window.BRIEFING_DATA = {
       "added_date": "03-06",
       "source_keys": [
         "src-vac-0805-1a1b96"
+      ]
+    },
+    {
+      "id": "cl-008",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "吸引開始前に「3回まで／3回目でダメなら鉗子」の撤退ラインを頭に置いてから1回目を引く",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-06",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-009",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "牽引中に「滑脱しそう」と感じたら力を足さず、その発作を終える",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-010",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "吸引牽引中、カップの柄が曲がっていないかを目視で確認する（曲がり＝方向のズレ）",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-02",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-011",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "間欠期に牽引を緩めず保持する",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-012",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "会陰切開は局所麻酔後、効果を待ってから切開する",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-013",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "伸展不良の会陰で切開が厚くなる場面の、切開タイミング（もっと早く切るべきだったか）を次回上級医に確認する",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-014",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "装着前に産瘤の位置＝フレクションポイントからのずれを確認し、ずれの方向を意識してから牽引に入る",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-015",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "下降が弱い時に牽引方向を少し変えてみる（垂直＋回旋方向の合成）を、次の症例で試して結果を記録する",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-016",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "鉗子は左手を下手にして持つ",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
+      ]
+    },
+    {
+      "id": "cl-017",
+      "procedure": "吸引分娩",
+      "phase": "",
+      "condition": "",
+      "action": "鉗子牽引の素振りを1日10回、1か月続ける（須波先生 → 篠原先生の伝承）",
+      "sources": [
+        "吸引分娩 / 08-31 / 篠原先生"
+      ],
+      "date": "08-31",
+      "roles": [
+        "共通"
+      ],
+      "added_date": "03-05",
+      "source_keys": [
+        "src-vac-0831-561ba7"
       ]
     },
     {
@@ -15485,18 +15760,14 @@ window.BRIEFING_DATA = {
         "全開大後の遷延徐脈で児頭下降がすでに十分なら、器械分娩を待たず左正中側切開＋努責で娩出する。経産婦2例（一経産・二経産）で成立し全開大から8分・11分で娩出、UApH 7.26／7.255と良好。ただし2例とも経産婦で初産婦での妥当性は未検証（経腟分娩 / 08-11 / 伊東先生（婦人科）, 経腟分娩 / 08-14 / 篠原先生）",
         "回旋異常での待機／用手回旋の判断軸は「回旋の異常さ」ではなく「所見が進行し続けているか」。進行中なら待てる、停滞したら用手回旋のタイミング。分岐点を認識した時点で「進行しているから待つ、停滞したら回旋する」と撤退ラインを先に言語化する（経腟分娩 / 08-12 / 伊東先生（婦人科））",
         "FET（凍結胚移植）妊娠は初産・経産を問わず出血リスク高。自己血貯血＋計画分娩を検討する（ICSI-FET経産婦でも弛緩出血803g・バルーン留置に至り再現 経腟分娩 / 07-31 / 篠原先生（指導）／笠井先生（経腹エコー介助）, 経腟分娩 / 08-11 / 伊東先生（婦人科））",
-        "展退度90%・ステーション-1・APアングル120度など内診所見良好な誘発分娩では、人工破膜からおよそ1時間半で急速進行しうる。外来診療と分娩管理が重なる日は破膜のタイミングを把握しておくと戻る時間を読める（症例 / 08-18 / 学び）"
+        "展退度90%・ステーション-1・APアングル120度など内診所見良好な誘発分娩では、人工破膜からおよそ1時間半で急速進行しうる。外来診療と分娩管理が重なる日は破膜のタイミングを把握しておくと戻る時間を読める（症例 / 08-18 / 学び）",
+        "吸引開始前に「牽引は3回まで、3回目でダメなら外して鉗子」の撤退ラインを置く。上限を知らないと「この回で引ききらねば」という自作の締切が生まれ、力を足す方向に働く。牽引中に「滑脱しそう」と感じたら力を足さず、その発作を終える——滑脱の予感は当たる（篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+        "吸引牽引は「カップに垂直」を保つのが優先で、「上へ」はその結果の目的地。柄が曲がっていたらカップ軸から外れた力がかかっているサイン（笠井先生・篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+        "吸引牽引中は間欠期も手を緩めず保持する。緩めると児頭が母体側へ引き込まれ、獲得した下降が戻る（篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+        "鉗子は左手を下手にして右手を添えて持つ。右手を下手にすると左側の助産師と干渉する（笠井先生・篠原先生 吸引分娩 / 08-31 / 篠原先生）",
+        "会陰切開は局所麻酔の効果が出るのを待ってから切る。麻酔から切開までの間隔が短いと疼痛が強く出る（吸引分娩 / 08-31 / 篠原先生）"
       ],
       "recent": [
-        {
-          "source": "経腟分娩 / 08-11 / 伊東先生（婦人科）",
-          "items": [
-            "全開大直後にボトム65bpmの遷延徐脈が出現、児頭下降が十分だったため左正中側切開で娩出（8分、UApH 7.26）。器械分娩より切開の方が速い局面がある",
-            "分娩後出血は1時間値の絶対量でなく「分娩時比で減っているか」で次の一手を決める。1時間値198g（ほぼ減らず）でパルタン追加、1.5時間値224g（再増加）でアトムバルーン留置に移行",
-            "ICSI-FET妊娠は経産婦でも弛緩出血・自己血貯血を要するリスクが高い（既存トリガー「FET＋初産」を経産婦にも条件拡張）"
-          ],
-          "source_key": "src-vag-0811-b312cb"
-        },
         {
           "source": "経腟分娩 / 08-12 / 伊東先生（婦人科）",
           "items": [
@@ -15513,6 +15784,17 @@ window.BRIEFING_DATA = {
             "急速遂娩目的の会陰切開では切開部に沿って裂傷が伸びうる。縫合前に裂傷の延長を確認する"
           ],
           "source_key": "src-vag-0814-903ae6"
+        },
+        {
+          "source": "吸引分娩 / 08-31 / 篠原先生",
+          "items": [
+            "「上へ」は目的地であって牽引の向きではない。カップに垂直な牽引を保った結果として上方へ向かう。柄の曲がりが方向ズレの可視サイン",
+            "間欠期も牽引を保持しないと、獲得した下降が戻る（篠原先生）",
+            "回旋異常で産瘤がフレクションポイントから側方にずれるとカップもずれた位置に付く。下降が弱ければ牽引方向を少し変えるが、垂直から外れる分だけ滑脱しやすい（笠井先生）。垂直＋回旋方向の合成ベクトルという考え方は自分の未検証の仮説",
+            "鉗子は左手を下手にして右手を添える（左側の助産師と干渉しないため）",
+            "会陰切開は局所麻酔の効果を待ってから切開する（麻酔〜切開が短いと疼痛が強い）"
+          ],
+          "source_key": "src-vac-0831-561ba7"
         }
       ]
     },
