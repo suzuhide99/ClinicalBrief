@@ -595,11 +595,44 @@ h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif; }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { display: none; }
+
+/* ── Quiz（想起練習） ── */
+.quiz-banner { display:flex; align-items:center; gap:14px; margin:0 24px 18px; padding:16px; border-radius:12px;
+  background: var(--surface-container-lowest); border:1px solid rgba(224,191,189,0.28); box-shadow:0 8px 24px rgba(88,65,64,0.05); cursor:pointer; }
+.quiz-banner .material-symbols-outlined { font-size:30px; color: var(--secondary); }
+.quiz-banner-title { font-size:15px; font-weight:800; }
+.quiz-banner-sub { font-size:12px; color: var(--on-surface-variant); margin-top:2px; }
+.quiz-wrap { padding: 0 16px 120px; }
+.quiz-panel { background: var(--surface-container-lowest); border:1px solid rgba(224,191,189,0.28); border-radius:12px; padding:18px; margin-bottom:14px; box-shadow:0 8px 24px rgba(88,65,64,0.05); }
+.quiz-progress { display:flex; justify-content:space-between; gap:12px; font-size:12px; font-weight:800; color: var(--on-surface-variant); margin-bottom:10px; }
+.quiz-progress-bar { height:4px; background: var(--surface-container-low); border-radius:2px; margin-bottom:16px; overflow:hidden; }
+.quiz-progress-bar > div { height:100%; background: var(--secondary); }
+.quiz-kind { display:inline-block; font-size:11px; font-weight:800; padding:2px 8px; border-radius:999px; background: var(--surface-container-low); color: var(--on-surface-variant); margin-bottom:10px; }
+.quiz-q { font-size:16px; font-weight:700; line-height:1.6; }
+.quiz-a { margin-top:14px; padding-top:14px; border-top:1px solid rgba(224,191,189,0.4); font-size:15px; line-height:1.7; }
+.quiz-expl { margin-top:12px; font-size:14px; line-height:1.7; }
+.quiz-source { margin-top:10px; font-size:11px; color: rgba(88,65,64,0.6); overflow-wrap:anywhere; }
+.quiz-choice { display:block; width:100%; text-align:left; margin-top:10px; padding:12px 14px; border-radius:10px; font-size:14px; line-height:1.5;
+  border:1px solid rgba(224,191,189,0.6); background: var(--surface-container-lowest); color: inherit; cursor:pointer; font-family: inherit; }
+.quiz-choice.correct { border-color: var(--secondary); background: rgba(0,106,106,0.10); font-weight:700; }
+.quiz-choice.wrong { border-color: var(--error); background: rgba(186,26,26,0.08); }
+.quiz-choice:disabled { cursor:default; color: inherit; }
+.quiz-verdict { margin-top:14px; font-size:15px; font-weight:800; }
+.quiz-verdict.ok { color: var(--secondary); }
+.quiz-verdict.ng { color: var(--error); }
+.quiz-btn-row { display:grid; gap:8px; margin-top:16px; }
+.quiz-btn-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.quiz-btn-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+.quiz-btn { height:48px; border:none; border-radius:10px; font-size:14px; font-weight:800; cursor:pointer; background: var(--surface-container-low); color: inherit; font-family: inherit; }
+.quiz-btn.primary { background: var(--secondary); color:#fff; }
+.quiz-btn.again { background: rgba(186,26,26,0.12); color: var(--error); }
+.quiz-stat-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:14px; }
+.quiz-note { font-size:12px; line-height:1.6; color: var(--on-surface-variant); margin-top:10px; }
 </style>
 <script>
 // __BRIEFING_DATA_START__
 window.BRIEFING_DATA = {
-  "generated_at": "2026-11-28T06:07:23.664484+09:00",
+  "generated_at": "2026-11-28T20:11:58.962132+09:00",
   "triggers": [
     {
       "id": "cs-preop-001",
@@ -16874,7 +16907,635 @@ window.BRIEFING_DATA = {
         }
       ]
     }
-  }
+  },
+  "flashcards": [
+    {
+      "deck": "dlab-skill-up",
+      "title": "Dラボ 技術の上達デッキ",
+      "cards": [
+        {
+          "q": "一流の練習①で挙げられた、トップに上り詰める人の練習の5つの共通点は？",
+          "a": "1日15〜20分から始める、ミスの記録、デッドラインの設定、十分な負荷のかかる練習、楽しめる要素の追加。",
+          "source": "01_一流の練習①_練習の5つの共通点 › 5つの共通点",
+          "difficulty": "easy",
+          "id": "fc-dlab-skill-up-001",
+          "type": "fc"
+        },
+        {
+          "q": "習慣化にはどれくらいの日数がかかり、練習時間はいつから増やすとよいとされたか？",
+          "a": "約80日、難しいものだと250日かかる。少なくとも2ヶ月半、理想は半年以上続けてから、ゆっくり時間を増やす。",
+          "source": "01_一流の練習①_練習の5つの共通点 › 1. 1日15〜20分から始める",
+          "difficulty": "medium",
+          "id": "fc-dlab-skill-up-002",
+          "type": "fc"
+        },
+        {
+          "q": "倍速上達法2.0の「スキル習得の神話」の1つ目は何で、代わりにどうするべきか？",
+          "a": "神話は「お手本を全部真似する」。代わりに、自分との違い（差分）を見つけて、そこだけピンポイントで直す。",
+          "source": "03_倍速上達法_2019と2.0 › スキル習得の5つの神話",
+          "difficulty": "medium",
+          "id": "fc-dlab-skill-up-003",
+          "type": "fc"
+        },
+        {
+          "q": "人に感想を求めるとき、「どうだった？」の代わりにどう聞くとよいか？",
+          "a": "「どこを直したらいいと思う？」と聞く。自分の振り返りも「頑張った」で終わらず「次に変える1点」を添える。",
+          "source": "04_努力の地図2_修正速度を上げる7つの技術 › 前の回：努力の地図 第1回（2026-06-28）",
+          "difficulty": "easy",
+          "id": "fc-dlab-skill-up-004",
+          "type": "fc"
+        },
+        {
+          "q": "フィードバックとフィードフォワードの違いは？",
+          "a": "フィードバックは過去の修正、フィードフォワードは過去の情報を未来に活かす設計。この2つが努力の基本形。",
+          "source": "04_努力の地図2_修正速度を上げる7つの技術 › フィードフォワード",
+          "difficulty": "medium",
+          "id": "fc-dlab-skill-up-005",
+          "type": "fc"
+        },
+        {
+          "q": "知的謙遜の6つの構成要素は？",
+          "a": "①知識からエゴを切り離す ②知識には限りがあると気づく ③知識の限界を認めたいという意思がある ④自分の知性に自信を持たず常に疑う ⑤意見を変えることをためらわない ⑥他人の視点に敬意を払う。",
+          "source": "06_知的謙遜入門 › 知的謙遜の6つの構成要素",
+          "difficulty": "hard",
+          "id": "fc-dlab-skill-up-006",
+          "type": "fc"
+        },
+        {
+          "q": "自分の失敗より他人の失敗から学びやすいのはなぜか？",
+          "a": "帰属理論による。自分の失敗は外部のせいに、成功は自分のおかげにしやすいため、自分の失敗からは学びにくい。他人の失敗は客観的に見られるので教訓を得やすい。",
+          "source": "07_要領の極め方_他人の失敗から学ぶ › 前編の主張：高速フィードバック",
+          "difficulty": "medium",
+          "id": "fc-dlab-skill-up-007",
+          "type": "fc"
+        },
+        {
+          "q": "プレッシャーに強い「クラッチ」の3つの特徴は？",
+          "a": "①自己意識のレベルが適度 ②神経症的傾向が低い ③サイコロジカル・モメンタムが高い（障害に対して自分には優位な点があるという信念）。",
+          "source": "08_クラッチ_緊張に強い心の作り方 › クラッチの3つの特徴",
+          "difficulty": "medium",
+          "id": "fc-dlab-skill-up-008",
+          "type": "fc"
+        },
+        {
+          "q": "本番で不安を感じると普段の動作ができなくなるのはなぜか？　即効の対策は？",
+          "a": "不安でワーキングメモリーがパンクするため。即効の対策は、チェックリストとルーティン、ポジティブなセルフトーク、ボディスキャン。",
+          "source": "08_クラッチ_緊張に強い心の作り方 › 本番で崩れる仕組みと止め方",
+          "difficulty": "medium",
+          "id": "fc-dlab-skill-up-009",
+          "type": "fc"
+        },
+        {
+          "q": "ファイアウォーカー思考の回で、手術本番と挑戦の場をどう分けるのが自分への応用とされたか？",
+          "a": "手術本番は「失敗が許されない仕事」なので限界を超えにいかず、指導医と合意した手順を確実に行う。挑戦はドライボックス、動画を見ながらの予測、観察ログなど「挽回できる場」で行う。",
+          "source": "05_ファイアウォーカー思考_ルーキースマート › 自分への応用",
+          "difficulty": "easy",
+          "id": "fc-dlab-skill-up-010",
+          "type": "fc"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "具体的な練習計画を立てる"
+            },
+            {
+              "key": "b",
+              "text": "練習計画を誰かに伝える"
+            },
+            {
+              "key": "c",
+              "text": "計画を伝えたうえで、誰かと「一緒に練習しよう」と約束する"
+            },
+            {
+              "key": "d",
+              "text": "いつ練習するかを決める"
+            }
+          ],
+          "q": "一流の練習①で紹介された研究で、スキル習得の成功確率が最も高かった（95%）のはどれか。",
+          "answer": "c",
+          "explanation": "具体的な計画は50%、誰かに伝えると65%、さらに誰かと一緒に練習する約束をすると95%。全米人材開発機構のレビュー研究では、続けるのに一番効くのは「コミットする相手を見つけること」とされた。",
+          "source": "01_一流の練習①_練習の5つの共通点 › 続けるための仕組み：誰かと練習の約束をする",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-001",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "練習時間を延ばす"
+            },
+            {
+              "key": "b",
+              "text": "単位時間あたりの難易度を上げる"
+            },
+            {
+              "key": "c",
+              "text": "練習を数日休む"
+            },
+            {
+              "key": "d",
+              "text": "練習内容を全面的に変える"
+            }
+          ],
+          "q": "練習に慣れて疲れなくなったとき、一流の練習で最初にすべきとされたのはどれか。",
+          "answer": "b",
+          "explanation": "まず単位時間あたりの難易度を上げる。難易度を上げきってから、初めて練習時間を延ばすことを考える。",
+          "source": "01_一流の練習①_練習の5つの共通点 › 4. 疲れるくらいの負荷をかける",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-002",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "その作業を難しいと感じた心理的な面"
+            },
+            {
+              "key": "b",
+              "text": "ミスをした日時と場所"
+            },
+            {
+              "key": "c",
+              "text": "指導した人の名前"
+            },
+            {
+              "key": "d",
+              "text": "同期と比べた出来"
+            }
+          ],
+          "q": "ミスを記録するとき、ミスの原因とセットで書くべきとされたのはどれか。",
+          "answer": "a",
+          "explanation": "ミスの原因と感情面の仮説をセットで記録することが一流につながる。優秀な医師は「なぜ難しいと感じたか」も記録している。",
+          "source": "01_一流の練習①_練習の5つの共通点 › 2. ミスを記録し、原因を推測する",
+          "difficulty": "easy",
+          "id": "qz-dlab-skill-up-003",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "変わらなかった"
+            },
+            {
+              "key": "b",
+              "text": "2倍になった"
+            },
+            {
+              "key": "c",
+              "text": "3倍になった"
+            },
+            {
+              "key": "d",
+              "text": "1.2倍になった"
+            }
+          ],
+          "q": "一流の練習②で紹介されたウォータールー大学の研究では、口に出して覚えると記憶量はどうなったか。",
+          "answer": "d",
+          "explanation": "口に出して覚えると記憶量が1.2倍になった。参考文献は Ozubko & MacLeod（2010）のプロダクション効果の論文。",
+          "source": "02_一流の練習②_14の練習法 › 練習法の1つ：メディアの多様性を使う",
+          "difficulty": "easy",
+          "id": "qz-dlab-skill-up-004",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "頻繁で詳しいほど上達が速い"
+            },
+            {
+              "key": "b",
+              "text": "多すぎると自分で考える力を奪うので、量を絞る"
+            },
+            {
+              "key": "c",
+              "text": "否定的なフィードバックだけを多く与える"
+            },
+            {
+              "key": "d",
+              "text": "初心者には一切与えない"
+            }
+          ],
+          "q": "倍速上達法2.0で、フィードバックの量について正しいとされたのはどれか。",
+          "answer": "b",
+          "explanation": "「フィードバックは頻繁で詳しいほどよい」は神話の1つ。多すぎると自分で考える力を奪うので、受け手が自分で気づけるように量を絞る。",
+          "source": "03_倍速上達法_2019と2.0 › スキル習得の5つの神話",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-005",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "初心者は最初の1回目から大胆に変えて練習する"
+            },
+            {
+              "key": "b",
+              "text": "同じやり方を毎回まったく同じように繰り返す"
+            },
+            {
+              "key": "c",
+              "text": "学習直後にすぐ、まったく別の練習に切り替える"
+            },
+            {
+              "key": "d",
+              "text": "基本を3回ほど普通に練習してから、学習後6時間ほど空けて少しだけ変えて再練習する"
+            }
+          ],
+          "q": "倍速上達法2.0で紹介された「再固定化」の使い方として正しいのはどれか。",
+          "answer": "d",
+          "explanation": "初心者が最初から変化を加えると混乱するので、まず基本を3回ほど定着させる。学習後6時間ほど空けてから、少しだけやり方を変えて再練習する。",
+          "source": "03_倍速上達法_2019と2.0 › 再固定化の使い方",
+          "difficulty": "hard",
+          "id": "qz-dlab-skill-up-006",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "順針・逆針・角度違いの運針を混ぜて練習する"
+            },
+            {
+              "key": "b",
+              "text": "同じ向きの運針だけを30分続ける"
+            },
+            {
+              "key": "c",
+              "text": "一番得意な運針だけを繰り返して自信をつける"
+            },
+            {
+              "key": "d",
+              "text": "運針の練習をやめて動画だけ見る"
+            }
+          ],
+          "q": "倍速上達法2.0の「ブロック練習よりランダム練習」をドライボックスに当てはめると、どれが近いか。",
+          "answer": "a",
+          "explanation": "複数のスキルを混ぜるランダム練習のほうが長期的な上達に効く。ノートの自分への応用では、順針・逆針・角度違いを混ぜる練習として整理した。",
+          "source": "03_倍速上達法_2019と2.0 › 自分への応用",
+          "difficulty": "easy",
+          "id": "qz-dlab-skill-up-007",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "いきなり一番高い挑戦に飛び込んで慣れる"
+            },
+            {
+              "key": "b",
+              "text": "有名なアスリートの練習法をそのまま真似る"
+            },
+            {
+              "key": "c",
+              "text": "いきなり高い挑戦に飛び込まず、コツコツした反復から始める"
+            },
+            {
+              "key": "d",
+              "text": "他人の進み具合に合わせて難易度を決める"
+            }
+          ],
+          "q": "「自分だけのチャレンジポイント」について、メンタルが弱い人にすすめられたのはどれか。",
+          "answer": "c",
+          "explanation": "メンタルが弱い人はコツコツした反復から始め、自分の今の位置から少し上を狙う。他人のチャレンジポイントに振り回されると焦りや落ち込みにつながる。",
+          "source": "03_倍速上達法_2019と2.0 › ポイント4：自分だけのチャレンジポイントを探す",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-008",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "才能の不足と練習時間の不足"
+            },
+            {
+              "key": "b",
+              "text": "睡眠不足と運動不足"
+            },
+            {
+              "key": "c",
+              "text": "指導者の不足と道具の不足"
+            },
+            {
+              "key": "d",
+              "text": "現状認識の不足と、無意識に高すぎる目標を置くこと"
+            }
+          ],
+          "q": "努力の地図#2で、努力が空回りする原因として挙げられた組み合わせはどれか。",
+          "answer": "d",
+          "explanation": "努力が空回りする原因は、現状認識の不足と無意識に高すぎる目標設定。努力の価値は、やり方をマイナーチェンジした回数で決まる。",
+          "source": "04_努力の地図2_修正速度を上げる7つの技術 › 中心の主張",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-009",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "削る・足す・試す"
+            },
+            {
+              "key": "b",
+              "text": "謝る・反省する・誓う"
+            },
+            {
+              "key": "c",
+              "text": "原因・責任・罰"
+            },
+            {
+              "key": "d",
+              "text": "見る・聞く・まとめる"
+            }
+          ],
+          "q": "振り返りを締めくくる「Next 3」の3つはどれか。",
+          "answer": "a",
+          "explanation": "反省するより、次に変える行動を3つだけ書き出す。Next 3（削る・足す・試す）で終え、その場で1つ試すのを習慣にする。",
+          "source": "04_努力の地図2_修正速度を上げる7つの技術 › 過去を責めるな、未来を1つ変えろ：Next 3",
+          "difficulty": "easy",
+          "id": "qz-dlab-skill-up-010",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "達成率もモチベーションも大きく上げた"
+            },
+            {
+              "key": "b",
+              "text": "達成率をわずかに上げるが、モチベーションは下げていた"
+            },
+            {
+              "key": "c",
+              "text": "達成率を下げるが、モチベーションは上げた"
+            },
+            {
+              "key": "d",
+              "text": "どちらにも影響しなかった"
+            }
+          ],
+          "q": "努力の地図#1で紹介されたデューク大学のメタ分析では、点数や成績はどう働いていたか。",
+          "answer": "b",
+          "explanation": "点数や成績は達成率をわずかに上げるが、モチベーションは下げていた。「点数は順位表、コメントは地図」。",
+          "source": "04_努力の地図2_修正速度を上げる7つの技術 › 前の回：努力の地図 第1回（2026-06-28）",
+          "difficulty": "hard",
+          "id": "qz-dlab-skill-up-011",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "失敗しても挽回できる仕事なので、積極的に限界を超えるべき仕事"
+            },
+            {
+              "key": "b",
+              "text": "ルーキースマートを最も発揮すべき仕事"
+            },
+            {
+              "key": "c",
+              "text": "限界を超えようとすると生命に関わる、失敗が許されない仕事"
+            },
+            {
+              "key": "d",
+              "text": "ベテランが現場に降りるコールフェイスの例"
+            }
+          ],
+          "q": "ファイアウォーカー思考の回で、医師の手術はどちらの仕事の例として挙げられたか。",
+          "answer": "c",
+          "explanation": "仕事を「失敗が許されない仕事」と「失敗しても挽回できる仕事」に分ける。医師が手術中にルーキースマートで限界を超えようとすると生命に関わる、という例が挙げられた。",
+          "source": "05_ファイアウォーカー思考_ルーキースマート › 仕事を2種類に分ける",
+          "difficulty": "easy",
+          "id": "qz-dlab-skill-up-012",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "ベテランが本当の問題を見抜き、ルーキーががむしゃらに解決する"
+            },
+            {
+              "key": "b",
+              "text": "ルーキーが問題を見抜き、ベテランが解決する"
+            },
+            {
+              "key": "c",
+              "text": "ベテランがすべての手順を細かく指示し、ルーキーはその通りに動く"
+            },
+            {
+              "key": "d",
+              "text": "ルーキーとベテランは別々の仕事だけを担当する"
+            }
+          ],
+          "q": "ルーキーとベテランの理想の役割分担として紹介されたのはどれか。",
+          "answer": "a",
+          "explanation": "ルーキーは行動力と問題解決の速さ、ベテランは本当に解決すべき問題を見抜く力に優れる。ベテランはルーキーに細かく指示せず任せるべきとされた。",
+          "source": "05_ファイアウォーカー思考_ルーキースマート › ルーキーとベテランの強みは違う",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-013",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "成功体験は振り返らない"
+            },
+            {
+              "key": "b",
+              "text": "失敗をすべて自分のせいにする"
+            },
+            {
+              "key": "c",
+              "text": "他人の評価を気にしない"
+            },
+            {
+              "key": "d",
+              "text": "成功した理由を「How」ではなく「Why」で考える"
+            }
+          ],
+          "q": "帰属エラー（成功は自分の手柄、失敗は他人のせいにする）への対策として紹介されたのはどれか。",
+          "answer": "d",
+          "explanation": "成功した理由を「どうやったか」ではなく「なぜうまくいったか」で考えると、自分の能力を客観的に捉えられる。",
+          "source": "06_知的謙遜入門 › 知的謙遜を妨げるバイアスと対策",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-014",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "同僚が成功した後"
+            },
+            {
+              "key": "b",
+              "text": "自分が失敗した直後"
+            },
+            {
+              "key": "c",
+              "text": "同僚が失敗した後"
+            },
+            {
+              "key": "d",
+              "text": "手術件数が100例を超えた後"
+            }
+          ],
+          "q": "心臓バイパス手術で新しい手法に切り替えたときの調査で、外科医自身の成功率が上がったのはいつか。",
+          "answer": "c",
+          "explanation": "自分の手術の成功率は同僚が失敗した後に上がり、同僚が成功しても変わらなかった。他人の失敗は客観的に分析できるため。",
+          "source": "07_要領の極め方_他人の失敗から学ぶ › 前編の主張：高速フィードバック",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-015",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "経験の浅い医師"
+            },
+            {
+              "key": "b",
+              "text": "経験豊富な医師"
+            },
+            {
+              "key": "c",
+              "text": "大学病院の医師"
+            },
+            {
+              "key": "d",
+              "text": "手術件数の少ない病院の医師"
+            }
+          ],
+          "q": "FDA が問題を警告した心臓手術法についての研究では、どんな医師がその手術法を使い続けたか。",
+          "answer": "b",
+          "explanation": "使用は全体では減ったが、経験豊富な医師ほど使い続けた。経験が豊富なほどやり方を変えられないことがあるので、ビギナーズマインドを保つ。",
+          "source": "07_要領の極め方_他人の失敗から学ぶ › 経験は足かせにもなる",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-016",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "手順を言葉で細かく教わる明示的学習"
+            },
+            {
+              "key": "b",
+              "text": "本を読むだけの学習"
+            },
+            {
+              "key": "c",
+              "text": "練習をせずにイメージだけする学習"
+            },
+            {
+              "key": "d",
+              "text": "「相手のコートをなぞるように打つ」のような比喩で覚える暗示的学習"
+            }
+          ],
+          "q": "バーミンガム大学の研究で、プレッシャーがかかる状況でも悪影響を受けにくかった学び方はどれか。",
+          "answer": "d",
+          "explanation": "プレッシャー下では、比喩で覚えた暗示的学習のほうが明示的学習より悪影響を受けにくかった。練習では明示的に教わることも役立つので、そのうえで自分の感覚に合わせて覚え直す。",
+          "source": "08_クラッチ_緊張に強い心の作り方 › 暗示的学習",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-017",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "能力そのものではなく、自己効力感が上がって本番に強くなったため"
+            },
+            {
+              "key": "b",
+              "text": "フォームを正確にコピーできたため"
+            },
+            {
+              "key": "c",
+              "text": "筋力が一時的に上がったため"
+            },
+            {
+              "key": "d",
+              "text": "動画を見ている間に休めたため"
+            }
+          ],
+          "q": "マンハイム大学の実験で、プロランナーに一流アスリートの動画を見せるとタイムが上がった理由として説明されたのはどれか。",
+          "answer": "a",
+          "explanation": "ステレオタイプ・アクティベーション。能力が上がるのではなく、有能な人のイメージで自己効力感が上がり、本番でのパフォーマンスが上がる。",
+          "source": "08_クラッチ_緊張に強い心の作り方 › ステレオタイプ・アクティベーション",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-018",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "最初に浮かんだ直感にすぐ従う"
+            },
+            {
+              "key": "b",
+              "text": "選択肢をできるだけ増やす"
+            },
+            {
+              "key": "c",
+              "text": "判断を50〜100ミリ秒遅らせる"
+            },
+            {
+              "key": "d",
+              "text": "空腹のときに判断する"
+            }
+          ],
+          "q": "分析や論理が必要な判断で、正確さを大きく上げる方法として紹介されたのはどれか。",
+          "answer": "c",
+          "explanation": "分析系の判断は50〜100ミリ秒遅らせるだけで正確さが格段に上がる。意識的に判断するときは選択肢を減らすとよい。",
+          "source": "09_直観力を鍛える › 直感を信じるとき、信じないとき",
+          "difficulty": "medium",
+          "id": "qz-dlab-skill-up-019",
+          "type": "qz"
+        },
+        {
+          "choices": [
+            {
+              "key": "a",
+              "text": "自分自身についての判断をするとき"
+            },
+            {
+              "key": "b",
+              "text": "必要なデータがそろい、十分な経験と継続的なフィードバックがあるとき"
+            },
+            {
+              "key": "c",
+              "text": "情報が少なく、経験もないとき"
+            },
+            {
+              "key": "d",
+              "text": "強く確信を感じたとき"
+            }
+          ],
+          "q": "直感が頼りになる条件として紹介されたのはどれか。",
+          "answer": "b",
+          "explanation": "直感が頼りになるのは、必要なデータがそろっていて本人に十分な経験がある場合だけ。スペースシャトルの先端部を加工する職人のように、継続的なフィードバックがある状況では有効。",
+          "source": "09_直観力を鍛える › 関連：直感が頼れる条件",
+          "difficulty": "hard",
+          "id": "qz-dlab-skill-up-020",
+          "type": "qz"
+        }
+      ]
+    }
+  ]
 };
 // __BRIEFING_DATA_END__
 </script>
@@ -16946,6 +17607,18 @@ window.BRIEFING_DATA = {
   </main>
 </div>
 
+<!-- ===== クイズ画面 ===== -->
+<div id="view-quiz" class="view">
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">想起練習</h1>
+    </div>
+  </header>
+  <main style="max-width:448px;margin:0 auto;">
+    <div id="quiz-content" class="quiz-wrap"></div>
+  </main>
+</div>
+
 <!-- ===== ボトムナビ ===== -->
 <nav class="bottom-nav" id="bottom-nav">
   <button class="nav-item active" id="nav-home" onclick="navHome()">
@@ -16956,9 +17629,9 @@ window.BRIEFING_DATA = {
     <span class="material-symbols-outlined">menu_book</span>
     <span class="nav-label">手技カード</span>
   </button>
-  <button class="nav-item" id="nav-notif" onclick="void(0)">
-    <span class="material-symbols-outlined">notifications</span>
-    <span class="nav-label">通知</span>
+  <button class="nav-item" id="nav-quiz" onclick="navQuiz()">
+    <span class="material-symbols-outlined">quiz</span>
+    <span class="nav-label">クイズ</span>
   </button>
   <button class="nav-item" id="nav-settings" onclick="navSettings()">
     <span class="material-symbols-outlined">settings</span>
@@ -17208,7 +17881,7 @@ function renderHome() {
   const procedures = [...new Set(APP_DATA.triggers.map(t => t.procedure))];
   const ordered = ['帝王切開','吸引分娩','経腟分娩','胎児エコー','子宮内容除去術（MVA）'].filter(p => procedures.includes(p));
 
-  let html = '<div class="card-grid">';
+  let html = renderQuizBanner() + '<div class="card-grid">';
   for (const proc of ordered) {
     const meta = PROCEDURE_META[proc] || { icon:'description', accent:'primary', en:'', phases:[] };
     const all = triggersFor(proc, null);
@@ -17549,6 +18222,7 @@ function showHome() {
   document.getElementById('view-home').classList.add('active');
   document.getElementById('view-briefing').classList.remove('active');
   document.getElementById('view-settings').classList.remove('active');
+  document.getElementById('view-quiz').classList.remove('active');
   updateNavState('nav-home');
   renderHome();
 }
@@ -17562,6 +18236,7 @@ function showBriefing(procedure) {
   document.getElementById('view-home').classList.remove('active');
   document.getElementById('view-briefing').classList.add('active');
   document.getElementById('view-settings').classList.remove('active');
+  document.getElementById('view-quiz').classList.remove('active');
   document.getElementById('briefing-title').textContent = procedure;
   updateNavState('nav-cards');
 
@@ -17589,6 +18264,7 @@ function navSettings() {
   document.getElementById('view-home').classList.remove('active');
   document.getElementById('view-briefing').classList.remove('active');
   document.getElementById('view-settings').classList.add('active');
+  document.getElementById('view-quiz').classList.remove('active');
   updateNavState('nav-settings');
   renderSettings();
 }
@@ -17667,6 +18343,257 @@ async function loadData() {
   document.getElementById('home-content').innerHTML =
     '<div class="no-results"><span class="material-symbols-outlined">cloud_off</span>データが見つかりません。<br>sync_vault.py を実行してください。</div>';
 }
+
+// ===== 想起練習（FSRS-4.5、retention_engine/fsrs.py と同じ式） =====
+// 状態は端末の localStorage だけに置く（Mac の flashcard_store とは同期しない）。
+const FSRS_W = [0.4872, 1.4003, 3.7145, 13.8206, 5.1618, 1.2298, 0.8975, 0.031,
+  1.6474, 0.1367, 1.0461, 2.1072, 0.0793, 0.3246, 1.587, 0.2272, 2.8755];
+const FSRS_DECAY = -0.5;
+const FSRS_FACTOR = 19 / 81;
+const FSRS_MIN_S = 0.1;
+const DAY_MS = 86400000;
+const QUIZ_SESSION_SIZE = 10;
+const QUIZ_STATE_KEY = 'cb_fsrs';
+const QUIZ_LOG_KEY = 'cb_quiz_log';
+
+function fsrsClamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function fsrsInitDifficulty(r) { return fsrsClamp(FSRS_W[4] - FSRS_W[5] * (r - 3), 1, 10); }
+function fsrsInterval(s) { return fsrsClamp(s / FSRS_FACTOR * (Math.pow(0.9, 1 / FSRS_DECAY) - 1), 1 / 1440, 365); }
+function fsrsRetrievability(st, now) {
+  if (!st || !(st.stability > 0) || !st.last_review) return 0;
+  const elapsed = Math.max(0, (now - new Date(st.last_review)) / DAY_MS);
+  return Math.pow(1 + FSRS_FACTOR * elapsed / st.stability, FSRS_DECAY);
+}
+function fsrsReview(st, r, now) {
+  let s, d, lapses = (st && st.lapses) || 0;
+  const reps = ((st && st.reps) || 0) + 1;
+  if (!st || !(st.stability > 0) || !(st.difficulty > 0)) {
+    s = Math.max(FSRS_MIN_S, FSRS_W[r - 1]);
+    d = fsrsInitDifficulty(r);
+    if (r === 1) lapses += 1;
+    let iv = fsrsInterval(s);
+    if (r === 1) iv = Math.max(1, iv); // 初回 Again は最低1日後（Mac 側と同じ）
+    return { stability: s, difficulty: d, reps, lapses, last_review: now.toISOString(), due: new Date(now.getTime() + iv * DAY_MS).toISOString() };
+  }
+  const oldD = fsrsClamp(st.difficulty, 1, 10);
+  const oldS = st.stability;
+  const elapsed = st.last_review ? Math.max(0, (now - new Date(st.last_review)) / DAY_MS) : 0;
+  const ret = Math.pow(1 + FSRS_FACTOR * elapsed / oldS, FSRS_DECAY);
+  d = fsrsClamp(FSRS_W[7] * fsrsInitDifficulty(4) + (1 - FSRS_W[7]) * (oldD - FSRS_W[6] * (r - 3)), 1, 10);
+  if (r === 1) {
+    const f = FSRS_W[11] * Math.pow(oldD, -FSRS_W[12]) * (Math.pow(oldS + 1, FSRS_W[13]) - 1) * Math.exp(FSRS_W[14] * (1 - ret));
+    s = Math.min(oldS, f);
+    lapses += 1;
+  } else {
+    const hard = r === 2 ? FSRS_W[15] : 1;
+    const easy = r === 4 ? FSRS_W[16] : 1;
+    s = oldS * (1 + Math.exp(FSRS_W[8]) * (11 - oldD) * Math.pow(oldS, -FSRS_W[9]) * (Math.exp(FSRS_W[10] * (1 - ret)) - 1) * hard * easy);
+  }
+  s = Math.max(FSRS_MIN_S, s);
+  return { stability: s, difficulty: d, reps, lapses, last_review: now.toISOString(), due: new Date(now.getTime() + fsrsInterval(s) * DAY_MS).toISOString() };
+}
+
+function loadQuizJSON(key) {
+  try { const v = JSON.parse(localStorage.getItem(key) || '{}'); return v && typeof v === 'object' ? v : {}; }
+  catch { return {}; }
+}
+function saveQuizJSON(key, v) { try { localStorage.setItem(key, JSON.stringify(v)); } catch {} }
+function todayKey() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+
+let quizSession = null;
+
+function allQuizCards() {
+  const decks = (APP_DATA && Array.isArray(APP_DATA.flashcards)) ? APP_DATA.flashcards : [];
+  const out = [];
+  for (const deck of decks) for (const c of (deck.cards || [])) out.push({ ...c, deckTitle: deck.title });
+  return out;
+}
+
+function quizCounts() {
+  const states = loadQuizJSON(QUIZ_STATE_KEY);
+  const now = new Date();
+  const cards = allQuizCards();
+  let due = 0, fresh = 0, nextDue = null;
+  for (const c of cards) {
+    const st = states[c.id];
+    if (!st) { fresh++; continue; }
+    const dd = new Date(st.due);
+    if (dd <= now) due++;
+    else if (!nextDue || dd < nextDue) nextDue = dd;
+  }
+  const log = loadQuizJSON(QUIZ_LOG_KEY);
+  return { total: cards.length, due, fresh, nextDue, today: log[todayKey()] || 0 };
+}
+
+function buildQuizQueue() {
+  const states = loadQuizJSON(QUIZ_STATE_KEY);
+  const now = new Date();
+  const cards = allQuizCards();
+  const due = cards.filter(c => states[c.id] && new Date(states[c.id].due) <= now)
+    .sort((a, b) => fsrsRetrievability(states[a.id], now) - fsrsRetrievability(states[b.id], now));
+  // 新規は4択とカードを交互に出す（デッキ順のままだと片方に偏るため）
+  const freshQz = cards.filter(c => !states[c.id] && c.type === 'qz');
+  const freshFc = cards.filter(c => !states[c.id] && c.type !== 'qz');
+  const fresh = [];
+  for (let i = 0; i < Math.max(freshQz.length, freshFc.length); i++) {
+    if (freshQz[i]) fresh.push(freshQz[i]);
+    if (freshFc[i]) fresh.push(freshFc[i]);
+  }
+  return due.concat(fresh).slice(0, QUIZ_SESSION_SIZE);
+}
+
+function fmtDate(d) { return `${d.getMonth()+1}月${d.getDate()}日`; }
+
+function renderQuizBanner() {
+  const c = quizCounts();
+  if (!c.total) return '';
+  const sub = (c.due + c.fresh) > 0
+    ? `期日 ${c.due}問・新規 ${c.fresh}問${c.today ? `・今日 ${c.today}問済み` : ''}`
+    : `今日の分は完了${c.nextDue ? `・次は${fmtDate(c.nextDue)}` : ''}`;
+  return `<div class="quiz-banner" onclick="navQuiz()">
+    <span class="material-symbols-outlined filled">quiz</span>
+    <div><div class="quiz-banner-title">想起練習</div><div class="quiz-banner-sub">${sub}</div></div>
+  </div>`;
+}
+
+function navQuiz() {
+  currentProcedure = null;
+  ['view-home', 'view-briefing', 'view-settings'].forEach(id => document.getElementById(id).classList.remove('active'));
+  document.getElementById('view-quiz').classList.add('active');
+  updateNavState('nav-quiz');
+  if (!quizSession || quizSession.done) renderQuizStart();
+  else renderQuizCard();
+}
+
+function renderQuizStart() {
+  quizSession = null;
+  const el = document.getElementById('quiz-content');
+  const c = quizCounts();
+  if (!c.total) {
+    el.innerHTML = `<div class="quiz-panel"><div class="quiz-q">出題できるカードがありません</div>
+      <div class="quiz-note">Vault のデッキ（★20_Areas/Learning/Flashcards/）の frontmatter に <b>clinicalbrief: true</b> を書くと、次の同期でここに出ます。</div></div>`;
+    return;
+  }
+  const n = Math.min(QUIZ_SESSION_SIZE, c.due + c.fresh);
+  el.innerHTML = `<div class="quiz-panel">
+      <div class="quiz-stat-grid">
+        <div class="settings-count"><strong>${c.due}</strong><span>期日</span></div>
+        <div class="settings-count"><strong>${c.fresh}</strong><span>新規</span></div>
+        <div class="settings-count"><strong>${c.today}</strong><span>今日</span></div>
+      </div>
+      ${n > 0
+        ? `<button class="settings-action" onclick="startQuiz()">${n}問はじめる</button>`
+        : `<div class="quiz-q">今日の分は完了</div><div class="quiz-note">${c.nextDue ? `次の出題は${fmtDate(c.nextDue)}。` : ''}</div>`}
+      <div class="quiz-note">忘れかけた順に出題。記録はこの端末の中だけに残ります。</div>
+    </div>`;
+}
+
+function startQuiz() {
+  const queue = buildQuizQueue();
+  if (!queue.length) { renderQuizStart(); return; }
+  quizSession = { queue, idx: 0, revealed: false, picked: null, results: [], done: false };
+  renderQuizCard();
+}
+
+function quizCurrent() { return quizSession.queue[quizSession.idx]; }
+
+function renderQuizCard() {
+  const el = document.getElementById('quiz-content');
+  const s = quizSession, card = quizCurrent();
+  const pct = Math.round(s.idx / s.queue.length * 100);
+  let html = `<div class="quiz-progress"><span>${s.idx + 1} / ${s.queue.length}</span><span>${escHtml(card.deckTitle || '')}</span></div>
+    <div class="quiz-progress-bar"><div style="width:${pct}%"></div></div>
+    <div class="quiz-panel"><span class="quiz-kind">${card.type === 'qz' ? '4択' : 'カード'}${card.difficulty ? '・' + escHtml(card.difficulty) : ''}</span>
+    <div class="quiz-q">${escHtml(card.q)}</div>`;
+
+  if (card.type === 'fc') {
+    if (!s.revealed) {
+      html += `<div class="quiz-note">頭の中で答えてから開く。</div>
+        <div class="quiz-btn-row"><button class="quiz-btn primary" onclick="revealQuiz()">答えを見る</button></div>`;
+    } else {
+      html += `<div class="quiz-a">${escHtml(card.a)}</div>
+        ${card.source ? `<div class="quiz-source">出典: ${escHtml(card.source)}</div>` : ''}
+        <div class="quiz-btn-row cols-4">
+          <button class="quiz-btn again" onclick="rateQuiz(1)">もう一度</button>
+          <button class="quiz-btn" onclick="rateQuiz(2)">難しい</button>
+          <button class="quiz-btn" onclick="rateQuiz(3)">わかった</button>
+          <button class="quiz-btn primary" onclick="rateQuiz(4)">完璧</button>
+        </div>`;
+    }
+  } else {
+    const answered = s.picked !== null;
+    for (const ch of card.choices) {
+      let cls = '';
+      if (answered && ch.key === card.answer) cls = 'correct';
+      else if (answered && ch.key === s.picked) cls = 'wrong';
+      html += `<button class="quiz-choice ${cls}" ${answered ? 'disabled' : ''} onclick="pickQuiz('${ch.key}')">${ch.key}) ${escHtml(ch.text)}</button>`;
+    }
+    if (answered) {
+      const ok = s.picked === card.answer;
+      html += `<div class="quiz-verdict ${ok ? 'ok' : 'ng'}">${ok ? '正解' : `不正解（正解は ${card.answer}）`}</div>
+        ${card.explanation ? `<div class="quiz-expl">${escHtml(card.explanation)}</div>` : ''}
+        ${card.source ? `<div class="quiz-source">出典: ${escHtml(card.source)}</div>` : ''}`;
+      html += ok
+        ? `<div class="quiz-btn-row cols-3">
+            <button class="quiz-btn" onclick="rateQuiz(2)">迷った</button>
+            <button class="quiz-btn" onclick="rateQuiz(3)">わかった</button>
+            <button class="quiz-btn primary" onclick="rateQuiz(4)">完璧</button></div>`
+        : `<div class="quiz-btn-row"><button class="quiz-btn primary" onclick="nextQuiz()">次へ</button></div>`;
+    }
+  }
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+function revealQuiz() { quizSession.revealed = true; renderQuizCard(); }
+
+function pickQuiz(key) {
+  const s = quizSession;
+  if (s.picked !== null) return;
+  s.picked = key;
+  if (key !== quizCurrent().answer) saveQuizRating(1); // 不正解は「もう一度」を自動で記録
+  renderQuizCard();
+}
+
+function saveQuizRating(rating) {
+  const card = quizCurrent();
+  const states = loadQuizJSON(QUIZ_STATE_KEY);
+  states[card.id] = fsrsReview(states[card.id], rating, new Date());
+  saveQuizJSON(QUIZ_STATE_KEY, states);
+  const log = loadQuizJSON(QUIZ_LOG_KEY);
+  log[todayKey()] = (log[todayKey()] || 0) + 1;
+  saveQuizJSON(QUIZ_LOG_KEY, log);
+  quizSession.results.push({ id: card.id, type: card.type, rating, correct: card.type === 'qz' ? quizSession.picked === card.answer : null });
+}
+
+function rateQuiz(rating) { saveQuizRating(rating); nextQuiz(); }
+
+function nextQuiz() {
+  const s = quizSession;
+  s.idx++; s.revealed = false; s.picked = null;
+  if (s.idx >= s.queue.length) { s.done = true; renderQuizSummary(); }
+  else renderQuizCard();
+}
+
+function renderQuizSummary() {
+  const r = quizSession.results;
+  const qz = r.filter(x => x.type === 'qz');
+  const ok = qz.filter(x => x.correct).length;
+  const again = r.filter(x => x.rating === 1).length;
+  const c = quizCounts();
+  document.getElementById('quiz-content').innerHTML = `<div class="quiz-panel">
+      <div class="quiz-q">${r.length}問おわり</div>
+      <div class="quiz-stat-grid" style="margin-top:14px">
+        <div class="settings-count"><strong>${qz.length ? ok + '/' + qz.length : '-'}</strong><span>4択の正解</span></div>
+        <div class="settings-count"><strong>${again}</strong><span>もう一度</span></div>
+        <div class="settings-count"><strong>${c.today}</strong><span>今日</span></div>
+      </div>
+      ${(c.due + c.fresh) > 0
+        ? `<button class="settings-action" onclick="startQuiz()">続けて解く（残り ${c.due + c.fresh}問）</button>`
+        : `<div class="quiz-note">${c.nextDue ? `次の出題は${fmtDate(c.nextDue)}。` : ''}</div>`}
+    </div>`;
+}
+
 
 // ===== 起動 =====
 loadData();
